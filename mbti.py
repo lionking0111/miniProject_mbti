@@ -9,17 +9,18 @@ extraIntro = 50       #외향 내향 합친 변수= 50으로 잡음
 question1 = ("")
 question2 = ("2. 모처럼의 휴일, 그럴 때 나는?")
 ques2Answer = {
-"1" : "먹고, 자고, 먹고, 자고가 최고지", 
+"1" : "먹고, 자고, 먹고, 자고가 최고지", 
 "2" : "밖은 위험해...집에서 최대한 활동해야지", 
 "3" : "집은 너무 답답해, 혼자라도 나가야지!", 
 "4" : "야! 뭐하냐?! 나와라! 놀자!놀자!"
 } #딕셔너리 
 
 print(ques2Answer)
-myAnswer2 = input("답변 : ")
-print(myAnswer2)
+myAnswer2 = int(input("답변 : "))
+
+#print(myAnswer2)
 if myAnswer2 == 1:
-    result2 = extraIntro + 25
+    result2 = extraIntro + 12.5
     print(result2)
 
 question3 = ("")
@@ -51,5 +52,5 @@ print(ques6Answer)
 myAnswer6 = input("답변 : ")
 print(myAnswer6)
 if myAnswer6 == 1:
-    result6 = extraIntro - 25
+    result6 = extraIntro + 25
     print(result6)
