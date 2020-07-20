@@ -35,7 +35,7 @@ print(ques4Answer)
 myAnswer4 = input("답변 : ")
 print(myAnswer4)
 if myAnswer4 == 1:
-    result4 = extraIntro + 25
+    result4 = extraIntro - 25
     print(result4)
 
 question5 = ("")
@@ -51,5 +51,5 @@ print(ques6Answer)
 myAnswer6 = input("답변 : ")
 print(myAnswer6)
 if myAnswer6 == 1:
-    result6 = extraIntro + 25
+    result6 = extraIntro - 25
     print(result6)
