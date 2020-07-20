@@ -1,0 +1,23 @@
+{% load static %}
+<!-- <link rel = 'stylesheet' href = '/polls/static/polls/style.css'/> -->
+<link rel = 'stylesheet' href = "{% static 'polls/style.css' %}"/>
+
+
+<p>{{request.session.user_id}}님 반갑습니다!!!!!!!!!!!!!!!!!!</p>
+
+
+{% if latest_question_list %}
+<ul>
+    {% for question in latest_question_list %}
+    <li>
+        <!--<a href="/polls/{{ question.id }}/">{{ question.question_text }}</a>-->
+        <a href="{% url 'detail' question.id %}">{{ question.question_text }}</a>
+        ({{ question.choice_set.all|length }}개)
+        <!-- <br />
+        {{ qeustion.choice_set.count }} -->
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
