@@ -19,7 +19,7 @@ print(ques2Answer)
 myAnswer2 = input("답변 : ")
 print(myAnswer2)
 if myAnswer2 == 1:
-    result2 = extraIntro + 25
+    result2 = extraIntro + 12.5
     print(result2)
 
 question3 = ("")
