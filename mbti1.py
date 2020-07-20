@@ -373,8 +373,8 @@ print(secondType)
 print(typeScore2) 
 
 myMbti = firstType + secondType
-myExtraIntro ={typeScore, 100 - typeScore} 
-mySensIntu = {typeScore2, 100 - typeScore2}
+myExtraIntro ={typeScore, 100 - typeScore} #반대성향값
+mySensIntu = {typeScore2, 100 - typeScore2} #반대성향값
 
 print(myMbti)
 print(myExtraIntro)
