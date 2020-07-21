@@ -10,11 +10,14 @@ def intro(request):
 def signin(request):
     return render(request, 'mbti/signin.html')
 
-def question(request):
+def Question(request):
     return render(request, 'mbti/q1.html')
 
 def result(request):
     return render(request, 'mbti/result.html')
+
+def inquiry(request):
+    return render(request, 'mbti/info_inquiry.html')
 # DB보기 함수
 def showResult(request):
     mbtiResult = MbtiResult.objects.all()
