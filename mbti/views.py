@@ -10,7 +10,7 @@ def intro(request):
 def signin(request):
     return render(request, 'mbti/signin.html')
 
-def question(request):
+def Question(request):
     return render(request, 'mbti/q1.html')
 
 def result(request):
