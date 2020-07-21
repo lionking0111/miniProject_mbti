@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>회원정보 조회</h1>    
+</head>
+<body style="text-align: center; margin-top : 200px; ">
+    
+    <form action="/action_page.php" class="was-validated">
+        <div class="form-group">
+          <label for="uname" >사용자 닉네임:</label>
+          <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required style = 'width : 500px;'>
+          
+        </div>
+        
+        <div class="form-group">
+            <label for="pwd" style=" margin-left: 30px; margin-top : 30px;">비밀번호:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required style = 'width : 500px; margin-left: 10px; margin-top : 30px;'>
+          
+        </div>
+          
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary" id = 'btn2' 
+            onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
+            style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  margin-left: 725px; '>조회</button>
+      </form>
+</body>
+</html>
