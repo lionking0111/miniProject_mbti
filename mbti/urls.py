@@ -6,6 +6,7 @@ urlpatterns = [
     path('signin/',views.signin),
     path('q1/',views.Question),
     path('result/',views.result),
-    path('show_result/',views.showResult, name='show_result'),
+    path('inquiry/',views.inquiry),
+    path('show_result/',views.showResult, name='show_result')
     
 ]

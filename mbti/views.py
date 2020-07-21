@@ -15,6 +15,9 @@ def Question(request):
 
 def result(request):
     return render(request, 'mbti/result.html')
+
+def inquiry(request):
+    return render(request, 'mbti/info_inquiry.html')
 # DB보기 함수
 def showResult(request):
     mbtiResult = MbtiResult.objects.all()
