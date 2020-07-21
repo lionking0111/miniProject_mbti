@@ -368,7 +368,7 @@ def secondClass(sensIntu): # S/N 관련문항
     else:
         return "N", result5
 
-secondType, typeScore2 = secondClass(extraIntro)
+secondType, typeScore2 = secondClass(sensIntu)
 print(secondType)
 print(typeScore2) 
 
@@ -379,3 +379,8 @@ mySensIntu = {typeScore2, 100 - typeScore2} #반대성향값
 print(myMbti)
 print(myExtraIntro)
 print(mySensIntu)
+# myMbtiScore = {myExtraIntro, mySensIntu}
+# totalMbti=[myMbtiScore]
+
+# totalMbti +=1
+# dbMbti.append[totalMbti]
