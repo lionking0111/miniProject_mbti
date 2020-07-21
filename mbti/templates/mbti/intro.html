@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    zzzzzzz
+
+<body style="text-align: center; ">
+    <div id='app' style="margin: 0 auto 0 auto;display: inline-block;"> <!--자동 중앙 맞추기-->
+        <div class='inner' style='margin-top : 80px; ; '>
+            <div class='App_title' style='font-size: 40px'><b>성격 유형 테스트</b></div>
+            <div class='sub_title' style='font-size: 30px'>포켓몬으로 알아보는 내 성격</div>
+            <img src = 'http://img.danawa.com/prod_img/500000/997/861/img/4861997_1.jpg?shrink=500:500&_v=20170202105323' width = '300' height = '300'>
+            <div>
+                <button class='start_btn' onclick="alert('시작합니다~')"
+                    onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
+                    style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 220px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;float:left;'>나와
+                    닮은 포켓몬 찾으러가기!</button>
+                <button class='btn1'
+                    onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
+                    style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 220px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;float:left;  margin-left: 20px; '>나의
+                    포켓몬 조회!</button>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
