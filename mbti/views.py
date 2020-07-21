@@ -11,7 +11,7 @@ def signin(request):
     return render(request, 'mbti/signin.html')
 
 def Question(request):
-    return render(request, 'mbti/q1.html')
+    return render(request, 'q1.html')
 
 def result(request):
     return render(request, 'mbti/result.html')
