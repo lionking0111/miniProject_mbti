@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+    html, body {
+	 width: 100%;
+	 height: 100%;
+}
+ .bg-img {
+	 position: relative;
+	 width: 100%;
+	 height: 100%;
+	 background: url('http://unsplash.it/1200x800') center center no-repeat;
+	 background-size: cover;
+}
+ .bg-img:before {
+	 content: '';
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 background-image: linear-gradient(to bottom right, #ce8ace, #25dc96);
+	 opacity: 0.6;
+}
+</style>
+<body>
+    <div class="bg-img">
+        <h1 style="position :absolute; left : 270px;top : 50px ; font-weight: bold; font-family: 'Arial'" >나와 닮은 포켓몬은 ?</h1>
+        <title>def.dnv</title>
+        <img src = 'http://img.danawa.com/prod_img/500000/997/861/img/4861997_1.jpg?shrink=500:500&_v=20170202105323' width = '300' height = '300' style ='opacity : 0.99; position :absolute; left : 300px; top : 180px;'>
+        <div class="container" style="border: 3px solid gold; text-align: center; opacity : 0.9 ; position: absolute; left: 200px; top: 500px;">
+            <h2>MBTI 결과 그래프</h2>
+            
+            <div class="progress progress1" id="progress1">
+                <div class="progress-bar bg-E" style="width:68%">
+                    E(외향)
+                </div>
+                <div class="progress-bar bg-I" style="width:32%  ; background-color: #e2a942 ;">
+                    I(내향)
+                </div>
+            </div>
+            
+            <div class="progress" style = 'margin-top : 15px'>
+                <div class="progress-bar bg-S" style="width:68%">
+                    S(감각)
+                </div>
+                <div class="progress-bar bg-N" style="width:32%  ; background-color: #cfa0b6 ;">
+                    N(직관)
+                </div>
+            </div>
+            
+            <div class="progress" style = 'margin-top : 15px'>
+                <div class="progress-bar bg-T" style="width:68%">
+                    T(사고)
+                </div>
+                <div class="progress-bar bg-F" style="width:32%  ;background-color: #8a7298 ;">
+                    F(감정)
+                </div>
+            </div>
+            
+            <div class="progress" style = 'margin-top : 15px ; margin-bottom: 15px;' >
+                <div class="progress-bar bg-J" style="width:68%">
+                    J(판단)
+                </div>
+                <div class="progress-bar bg-P" style="width:32%  ;background-color: red ;">
+                    p(인식)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
