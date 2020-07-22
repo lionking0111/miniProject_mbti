@@ -6,9 +6,19 @@
     <title>Document</title>
     <h1>개인정보 입력</h1>    
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        $(".btn-btn-primary").click(function(){
+        location.href = 'q1/';
+        });
+    });
+</script>
+
 <body style="text-align: center; margin-top : 150px; ">
     
-    <form action="/action_page.php" class="was-validated">
+    <form action="/mbti/signin/q1/" class="was-validated" method="post">
+        {%csrf_token %}
         <div class="form-group">
           <label for="uname" >사용자 닉네임:</label>
           <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required style = 'width : 500px;'>
@@ -25,6 +35,12 @@
             <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required style = 'width : 500px; margin-left: 10px; margin-top : 30px;'>
           
         </div>
+
+        <div class="form-group">
+            <label for="email" style=" margin-left: 30px; margin-top : 30px;">이메일:</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter email" name="mail" required style = 'width : 500px; margin-left: 10px; margin-top : 30px;'>
+            <div class="invalid-feedback" style="margin-top : 20px; font-weight: bold;">추후 조회를 희망하신다면, '필수'작성해주세요.</div>
+        </div>
         
         <div class="form-group form-check">
             <label class="form-check-label">
@@ -33,7 +49,7 @@
           
             </label>
         </div>
-        <button type="submit" class="btn btn-primary" id = 'btn2' 
+        <button type="submit" class="btn-btn-primary" id = 'btn2' 
             onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
             style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  margin-left: 725px; '>제출</button>
       </form>
