@@ -272,6 +272,10 @@ def page_num(index):
     elif((index % 8)+1 == 7):
         page = 7   
         page_url = 'mbti/q7.html'
+    
+    elif((index % 8)+1 == 8):
+        page = 7   
+        page_url = 'mbti/q8.html'
 
 #Function : HTML Page의 url을 주고 html의 정보를 받아오는 함수
 #Input : url
@@ -299,7 +303,7 @@ def get_html(url):
 def Crawling_Image(request):
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    #중복체크용 변수
+     #중복체크용 변수
     key = 0
     #image_name_set의 길이는 8이며-> Index당 8개 데이터로 총 64개 Set
     for j in range(len(image_name_set)):
@@ -464,3 +468,20 @@ def mbti1(request):
 
 
     return JsonResponse(result)
+def signin0(request):
+    return render(request, 'mbti/q3.html')
+
+def signin1(request):
+    return render(request, 'mbti/q4.html')
+
+def signin2(request):
+    return render(request, '/q5.html')
+
+def signin3(request):
+    return render(request, '/q6.html')
+
+def signin4(request):
+    return render(request, '/q7.html')
+
+def signin5(request):
+    return render(request, '/q8.html')
