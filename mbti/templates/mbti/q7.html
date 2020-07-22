@@ -49,6 +49,34 @@
     <input type="radio" name="answer3" id="answer3_3" value="3">보기3 /
     <hr>
 -->
+
+<form action="/mbti/q8">
+  <!-- views.py(서버) 에서 넘겨준 값을 받아오기 -->
+
+<input type="hidden" name="q1-1" value="{{ q1-1 }}">
+<input type="hidden" name="q1-2" value="{{ q1-2 }}">
+<input type="hidden" name="q2-1" value="{{ q2-1 }}">
+<input type="hidden" name="q2-2" value="{{ q2-2 }}">
+<input type="hidden" name="q3-1" value="{{ q1-1 }}">
+<input type="hidden" name="q3-2" value="{{ q1-2 }}">
+<input type="hidden" name="q4-1" value="{{ q1-1 }}">
+<input type="hidden" name="q4-2" value="{{ q1-2 }}">
+<input type="hidden" name="q5-1" value="{{ q1-1 }}">
+<input type="hidden" name="q5-2" value="{{ q1-2 }}">
+<input type="hidden" name="q6-1" value="{{ q1-1 }}">
+<input type="hidden" name="q6-2" value="{{ q1-2 }}">
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="jumbotron text-center" style = 'background-color: #F3F781; height : 150px ;width : 1100px; margin-left : 175px; '>
   <h2 style = 'font-weight : bold'>Q1. 모임에서의 첫 시간, </h2>
   <p>다른 사람에게 자신을 소개할 때 내 모습은?</p> 
@@ -111,5 +139,6 @@
   <button type="submit" class="btn btn-primary" id = 'btn8' 
   onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
   style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  margin-left: 725px; '>다음</button>
+</form>
 </body>
 </html>

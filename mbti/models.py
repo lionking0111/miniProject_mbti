@@ -20,3 +20,4 @@ class QuestionList(models.Model):
 class AnswerList(models.Model):
     answer = models.CharField(max_length=255)
 
+#db로 저장되는 함수를 구현해야함 
