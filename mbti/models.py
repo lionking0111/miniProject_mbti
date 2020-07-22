@@ -1,6 +1,12 @@
 from django.db import models
 
 # Create your models here.
+class inputClient(models.Model):
+    nickname = models.CharField(max_length=255)
+    gender = models.CharField(max_length=10)
+    password = models.IntegerField(default=0)  
+    email = models.EmailField(max_length=255, null=True)
+
 
 class MbtiResult(models.Model):
     nickname = models.CharField(max_length=255)
