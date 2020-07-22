@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import request, JsonResponse
 import requests
-from .models import inputClient, MbtiResult
+from .models import  MbtiResult
 from bs4 import BeautifulSoup
 import smtplib
 from email.mime.text import MIMEText
@@ -586,9 +586,24 @@ def mbti1(request):
 
     return JsonResponse(result)
 
+    #이메일 중복검사관련 함수
+def id_overlap_check(request):
+    mail = request.GET.get('mail')
+    try: #중복검사실패
+        user = User.objects.get(mail = mail)
+    except: #중복검사 성공
+        user = None #해당 아이디의 user가 없을 경우
+    if user is None:
+        overlap = '성공 >3<'
+    else:
+        overlap = '실패 ㅠ!ㅠ'
+    context = {'overlap' : overlap}
+    return JsonResponse(context)
+
 def question(request, num):
     # HTML에서 선택한(입력된) 내용 받아오기
     q1_1 = request.GET.get('q1-1')
+    print(q1_1)
     q1_2 = request.GET.get('q1-2')
     q2_1 = request.GET.get('q2-1')
     q2_2 = request.GET.get('q2-2')
@@ -604,7 +619,20 @@ def question(request, num):
     q7_2 = request.GET.get('q7-2')
     q8_1 = request.GET.get('q8-1')
     q8_2 = request.GET.get('q8-2')
-
+   
+    total1 = [[],[],[],[]] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [[],[],[],[]] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    
+    page_url = 'mbti/q%s.html'%num
+    page = num
+    for j in range(len(image_name_set)):
+        
+        if(j < 4):
+            total1[0].append(image_name_set[page-1][j])
+            total1[1].append(j+1)
+        else:
+            total2[0].append(image_name_set[page-1][j])
+            total2[1].append(j-3)
 
     # 위의 값들을 HTML로 넘겨주기
     return render(request, 'mbti/q%s.html' % num, 
@@ -625,10 +653,10 @@ def question(request, num):
             'q7-2': q7_2, #
             'q8-1': q8_1,
             'q8-2': q8_2, #
+
+            'total1' : total1[0],
+            'total2' : total2[0],
+            'index_return1' : total1[1],
+            'index_return2' : total2[1],
         } 
     )
-
-
-
-
-
