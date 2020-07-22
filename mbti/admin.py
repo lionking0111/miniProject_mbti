@@ -3,3 +3,4 @@ from .models import MbtiResult
 
 # Register your models here.
 admin.site.register(MbtiResult)
+# admin.site.register(lawywerAccount)

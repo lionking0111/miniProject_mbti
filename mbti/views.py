@@ -5,9 +5,8 @@ from .models import MbtiResult
 from bs4 import BeautifulSoup
 
 #Variable Initialize
-total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
 page = 7    #질문페이지 번호
+image_name_set_1 = []
 
 page_url = 'mbti/q1.html' #질문페이지를 띄워줄 HTML URL 저장용 변수
  
@@ -129,11 +128,10 @@ image_url_set = [
                          'https://namu.wiki/w/%EC%95%84%EB%B3%B4%ED%81%AC',
                          'https://namu.wiki/w/%EB%8B%A5%ED%8A%B8%EB%A6%AC%EC%98%A4',
 
-                         'https://namu.wiki/w/%EB%A6%AC%EC%9E%90%EB%93%9C',
+                         'https://pokemon.fandom.com/ko/wiki/%EB%A6%AC%EC%9E%90%EB%93%9C_(%ED%8F%AC%EC%BC%93%EB%AA%AC)',
                          'https://namu.wiki/w/%EB%A7%88%EC%9E%84%EB%A7%A8',
                          'https://namu.wiki/w/%EB%A9%94%ED%83%80%EB%AA%BD',
                          'https://namu.wiki/w/%EB%9E%84%ED%86%A0%EC%8A%A4'
-
                         ]
                      ]
 
@@ -230,12 +228,26 @@ image_name_set =[
                           "//ww.namu.la/s/d89328c92c5efce14394a33c7c1237bede979bbd19fa510e44ac370db188ce101b93417816bca32f45e8b0c200f66cca99f8475c6e05210c633404434041d1cc94abfa910f3307f4c65c391a4ad8ed5d87036adaa87fd2d84d9543963ae5a8ec",
                           "//ww.namu.la/s/7d93b5bf491582266eea375fcae3138b83a7e722c89c98be06a4f736d504c95ae25971fb88eff3c5cceff501ec98fb2f8ae7ee604ff17013bf7b50c7a7d23f6119cb95614b51359cc4f5f284179b7b31c98628cc09f11b7ed5865792ccb52ca6",
 
-                          "//w.namu.la/s/60819cc042c0b4ec0f51de022528d1ba14d4fd9687422a0126041db665f81239d6ec8bd73f493884a52c39be9d3a5e9869e728b4d6984fac7bf676c2888cd1e3a3e9d58219e339c99b7b13883acc77443ad6c887adb831463813a62e48ec392b",
+                          "//vignette.wikia.nocookie.net/pokemon/images/8/8a/%EB%8F%84%ED%8A%B8_5%EB%B8%94%ED%99%942_005.gif/revision/latest?cb=20120902080152&path-prefix=ko",
                           "//ww.namu.la/s/313e7873b7d058134d167c7a7c18d43b2972a31c21fadd18fae3a37477ae4c335b2691b9d6eb076c08343cabf941f03a54f8e9ca0f16aa715c33419f66af4ead0303d907eaf5667a80ca5dff599b3510e2553aa523ee57d0fc37453427a9d246",
                           "//ww.namu.la/s/dcede70cc2c69d440138a5f3e36718ca15db27ba18fe324acf3743273c2f8c6a405f85d24c8b4fc4cf57f13ac65a9ba79609f0544ada705b7ac7b5706da6b5cb39f60e1dd84ae92243040a6c0567fa0f5801eb7c6a6d489cdaee44d9e63b3658",
                           "//ww.namu.la/s/d519324ae53183aaf766bff34b71d8fc316a05df98cae5774507d3878ad8f7653e900c55c6b9d667091e923ec42c28feafc0f15a3c483d71856d374b65bb6a514b184c273d647794eb30c9322099ac192b89e0fe7f3457444a48ece20d095c59"
                       ]
                 ]
+
+#Function : HTML Page의 url을 주고 html의 정보를 받아오는 함수
+#Input : url
+#Return : html
+#Data : 2020.07.20
+#Author : Jrespect.im
+#etc : -
+def get_html(url):    
+    html = ''    
+    res = requests.get(url)    
+    if res.status_code == 200:        
+        res.encoding = None        
+        html = res.text    
+    return html
 
 #Function : HTML Page의 Value를 받아 URL, PAGE Number를 변환해주는 함수
 #Input : Page Number Index
@@ -245,7 +257,7 @@ image_name_set =[
 #etc : 개노가다의 흔적...
 def page_num(index):
     
-    if((index % 8)+ 1 == 1):
+    if((index % 8)+1 == 1):
         page = 1
         page_url = 'mbti/q1.html'
 
@@ -277,41 +289,122 @@ def page_num(index):
         page = 7   
         page_url = 'mbti/q8.html'
 
-#Function : HTML Page의 url을 주고 html의 정보를 받아오는 함수
-#Input : url
-#Return : html
-#Data : 2020.07.20
-#Author : Jrespect.im
-#etc : -
-def get_html(url):    
-    html = ''    
-    res = requests.get(url)    
-    if res.status_code == 200:        
-        res.encoding = None        
-        html = res.text    
-    return html
 
-#Function : 포켓몬 이미지가 저장되어있는 url을 참조하여 8개 1Set으로 쪼개어 질문HTML쪽으로 URL데이터를 넘겨주는 함수
-#Input : request
-#Return : request/url/image_name
-#Data : 2020.07.21
-#Author : Jrespect.im
-#etc : 
-#개노가다의 흔적2..
-#동일 url에 크롤링할 이미지가 여러개인 경우를 대비하여 KEY FLAG를 사용하여 1번만 얻어오도록 만듬
-#질문 1개당 4개의 이미지가 필요하여 FOR문내 증가변수의 크기로 4/4씩 나눔..(딕셔너리 어케쓰면 잘 다 듬을수있을거같음)
-def Crawling_Image(request):
+def q1(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page = 1
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q2(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q2.html'
+    page = 2
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q3(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q3.html'
+    page = 3
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q4(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q4.html'
+    page = 4
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q5(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q5.html'
+    page = 5
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q6(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q6.html'
+    page = 6
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q7(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q7.html'
+    page = 7
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q8(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q8.html'
+    page = 8
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+
+def q10(request):
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
      #중복체크용 변수
     key = 0
     #image_name_set의 길이는 8이며-> Index당 8개 데이터로 총 64개 Set
     for j in range(len(image_name_set)):
-        print(j)
-        
+    #     print(j)
         result = get_html(image_url_set[page][j])   # 이미지를 뽑아올 url_Set Data를 가져옴
         soup = BeautifulSoup(result, 'html.parser') # 뷰티풀 숩을 이용한 HTML 파씽
         tags = soup.select('.wiki-image-wrapper')   # 긁은 사이트가 나무위키이므로 이미지가 저장되어있는 ClassName참조
+        
         #Page 1번문제
         if(j < 4):
             for i in tags:
@@ -322,8 +415,10 @@ def Crawling_Image(request):
 
                     # 크롤링해온 이미지의 이름이 긁어올려는 이미지와 갖고 중복이 아닌경우에만
                     if(image_name == (image_name_set[page][j]) and (key == 0)):
-                        total1.append(image_name)
-                        key  = 1
+                        if((key == 0)):
+                            total1.append(image_name_set[page][j])
+                            key  = 1
+
             key = 0 #이미지 1개 크롤링완료 후 중복체크 초기화
 
         #Page 2번문제
@@ -333,9 +428,12 @@ def Crawling_Image(request):
 
                 if(img) : 
                     image_name = str(img.get('src'))
+
                     if(image_name == (image_name_set[page][j]) and (key == 0)):
-                        total2.append(image_name)
-                        key  = 1
+                        if((key == 0)):
+                            total2.append(image_name_set[page][j])
+                            key  = 1
+
             key = 0
 
     #total1 : 질문페이지의 첫번째 질문에 넘겨줄 이미지 name
@@ -468,20 +566,22 @@ def mbti1(request):
 
 
     return JsonResponse(result)
-def signin0(request):
-    return render(request, 'mbti/q3.html')
 
-def signin1(request):
-    return render(request, 'mbti/q4.html')
+    #이메일 중복검사관련 함수
+def id_overlap_check(request):
+    mail = request.GET.get('mail')
+    try: #중복검사실패
+        user = User.objects.get(mail = mail)
+    except: #중복검사 성공
+        user = None #해당 아이디의 user가 없을 경우
+    if user is None:
+        overlap = '성공 >3<'
+    else:
+        overlap = '실패 ㅠ!ㅠ'
+    context = {'overlap' : overlap}
+    return JsonResponse(context)
 
-def signin2(request):
-    return render(request, '/q5.html')
 
-def signin3(request):
-    return render(request, '/q6.html')
 
-def signin4(request):
-    return render(request, '/q7.html')
 
-def signin5(request):
-    return render(request, '/q8.html')
+

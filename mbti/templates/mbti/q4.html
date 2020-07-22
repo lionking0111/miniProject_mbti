@@ -31,8 +31,17 @@
         }
     </style>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        $(".btn-btn-primary").click(function(){
+        location.href = '/mbti/signin/q5/';
+        });
+    });
+</script>
 
 <body style="text-align: center; position : absolute">
+<form action="/mbti/signin/q5" class="was-validated" style = 'position : absolute'>
     <!--  
     질문 1. ㅌㅌㅌㅌㅌㅌㅌㅌㅌ<br>
     <input type="radio" name="answer1" id="answer1_1" value="1">보기1 / 
@@ -97,6 +106,7 @@
 <button type="submit" class="btn btn-primary" id = 'btn2' 
 onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
 style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  margin-left: 725px; '>다음</button>
+</form>
 </body>
 
 </html>

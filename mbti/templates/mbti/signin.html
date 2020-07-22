@@ -7,44 +7,115 @@
     <h1>개인정보 입력</h1>    
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(function(){
-        $(".btn-btn-primary").click(function(){
-        location.href = 'q1/';
+<script type="text/javascript">
+    $(function()
+    {
+        $(".btn-btn-primary").click(function()
+        {
+          var radioVal_1 = $('input:radio[name=q1]').is(':checked');
+          var radioVal_2 = $('input:radio[name=q2]').is(':checked');
+          if(!radioVal && !radioVal_2) 
+          {   
+            alert("1개 이상 선택해 주세요.");
+            return; 
+          }
+          
+          else
+          {
+            location.href = '/mbti/signin/q2/';
+          }
         });
     });
+//////////////////////////////////////////////////////////////////////////  이메일 중복 검사 
+function id_overlap_check(){
+    $('.username_input').change(function () {
+      $('#id_check_sucess').hide();
+      $('.id_overlap_button').show();
+      $('.username_input').attr("check_result", "fail");
+    })
+    
+    if ($('.username_input').val()){
+        alert('에메일을 입력해주세요.')
+        return;
+    }
+
+    id_overlap_input = document.querySelector('input[name="username"]');
+
+    $.ajax({      
+        url: "{% url 'id_overlap_check' %}", //url 경로상 이름
+        data: {
+            'username': id_overlap_input.value
+        },
+        datatype: 'json',
+        success: function(data){
+            console.log(data['overlap']);
+            if(data['overlap'] == 'fail'){
+                alert('이미 존재하는 이메일 입니당~. 포기하지 말고재도전하세요!');  
+                id_overlap_input.focus();
+                return;
+            }
+            else{
+                alert('사용가능한 이메일 입니당~!! 축하해요!!');
+                $('.username_input').attr('check_result', 'success');
+                $('#id_check_success').show();
+                $('.id_overlap_button').hide();
+                return;
+                }
+        }
+    });
+} 
+        //해당 url로 data를 넘겨줌, 데이터는 id_overlap_input에서 가져온 값, 사용자가 입력한 값
+/////////////////////////////////////////////////////////////////
 </script>
 
-<body style="text-align: center; margin-top : 150px; ">
+<center>
+<body style="text-align: center; margin-top : 150px;  ">
     
     <form action="/mbti/signin/q1" class="was-validated" >
+        
         <div class="form-group">
-          <label for="uname" >사용자 닉네임:</label>
-          <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required style = 'width : 500px;'>
+            <label for="gen" ><b>성별</b>:</label>
+            <input type="radio" class="form-control" id="gen" placeholder="Enter gender" name="gender" style="margin-top : 30px;" required>남자
+            <input type="radio" class="form-control" id="gen" placeholder="Enter gender" name="gender" style="margin-top : 30px;" required>여자
+        
+        <div class="form-group" style="margin-top : 30px;">
+          <label for="uname" ><b>사용자 닉네임</b>:</label>
+          <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" style = 'width : 500px;' required>
           
         </div>
 
-        <div class="form-group">
-            <label for="gen" style="margin-top : 30px;">성별:</label>
-            <input type="radio" class="form-control" id="gen" placeholder="Enter gender" name="gender" required style="margin-top : 30px;" >남자
-            <input type="radio" class="form-control" id="gen" placeholder="Enter gender" name="gender" required style="margin-top : 30px;">여자
         
         <div class="form-group">
-            <label for="pwd" style=" margin-left: 30px; margin-top : 30px;">비밀번호:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required style = 'width : 500px; margin-left: 10px; margin-top : 30px;'>
+            <label for="pwd" style=" margin-left: 37px; margin-top : 30px;"><b>비밀번호</b>:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required style = 'width : 500px;  margin-top : 30px;'>
           
         </div>
         
+        <div class="form-group">
+            <label for="email" style=" margin-left: 50px; margin-top : 30px;"><b>이메일</b>:</label>
+            <input type="email" class="username_input" name = 'mail' id="email" check_result = 'fail' placeholder="Enter email" required style = 'width : 500px;  margin-top : 30px;'>
+            <button type="button" class="id_overlap_button" id = 'btn1' position : fixed onclick = 'id_overlap_check()'
+            onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
+            style='margin-top : 10px ; display : flex ; justify-content: center; align-items: ; height: 20px;  width: 70px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 12px; cursor: pointer;  '>중복조회</button>
+            <img id = 'id_check_success' style = 'display : none;'>
+
+            <div class="invalid-feedback" style="margin-top : 20px; ">추후 조회를 희망하신다면, <b>'필수'</b>작성해주세요.</div>
+        </div>
+
+        
+      </form>
+
         <div class="form-group form-check">
             <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="remember" required style="margin-top : 30px;"> (동의) 기재한 내용에 대해서는 조회의 목적으로만 사용되며, 상업의 목적으로 절대 사용되지 않습니다.
+            <input class="form-check-input" type="checkbox"  name="remember" required style="margin-top : 30px;" > <b>(동의)</b> 기재한 내용에 대해서는 조회의 목적으로만 사용되며, 상업의 목적으로 절대 사용되지 않습니다.
             <div class="invalid-feedback" style="margin-top : 20px; font-weight: bold;">위 체크박스를 체크해주세요.</div>
-          
+         
             </label>
         </div>
-        <button type="submit" class="btn-btn-primary" id = 'btn2' 
+        <button type="submit" class="btn-btn-primary" id = 'btn2' position : fixed
             onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
-            style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  margin-left: 725px; '>조회</button>
+            style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  '>조회</button>
       </form>
 </body>
+</center>
 </html>
