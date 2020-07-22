@@ -6,7 +6,7 @@ urlpatterns = [
     path('signin/',views.signin),
     path('signin/q1/',views.Crawling_Image),
     path('signin/q2/',views.Crawling_Image),
-    path('signin/q3/',views.signin0),
+    path('mbti/signin/q3/',views.signin0),
     path('signin/q4/',views.signin1),
     path('signin/q5/',views.signin2),
     path('signin/q6/',views.signin3),
