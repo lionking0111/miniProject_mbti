@@ -71,8 +71,8 @@ function id_overlap_check(){
 <center>
 <body style="text-align: center; margin-top : 150px;  ">
     
-    <form action="/mbti/signin/q1" class="was-validated" >
-        
+    <form action="/mbti/signin/q1/" class="was-validated" method="POST">
+        {%csrf_token %}
         <div class="form-group">
             <label for="gen" ><b>성별</b>:</label>
             <input type="radio" class="form-control" id="gen" placeholder="Enter gender" name="gender" style="margin-top : 30px;" required>남자
@@ -89,6 +89,12 @@ function id_overlap_check(){
             <label for="pwd" style=" margin-left: 37px; margin-top : 30px;"><b>비밀번호</b>:</label>
             <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required style = 'width : 500px;  margin-top : 30px;'>
           
+        </div>
+
+        <div class="form-group">
+            <label for="email" style=" margin-left: 30px; margin-top : 30px;">이메일:</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter email" name="mail" required style = 'width : 500px; margin-left: 10px; margin-top : 30px;'>
+            <div class="invalid-feedback" style="margin-top : 20px; font-weight: bold;">추후 조회를 희망하신다면, '필수'작성해주세요.</div>
         </div>
         
         <div class="form-group">
@@ -114,7 +120,7 @@ function id_overlap_check(){
         </div>
         <button type="submit" class="btn-btn-primary" id = 'btn2' position : fixed
             onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
-            style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  '>조회</button>
+            style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  margin-left: 725px; '>제출</button>
       </form>
 </body>
 </center>

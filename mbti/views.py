@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import request, JsonResponse
 import requests
-from .models import MbtiResult
+from .models import inputClient, MbtiResult
 from bs4 import BeautifulSoup
+import smtplib
+from email.mime.text import MIMEText
 
 #Variable Initialize
 page = 7    #질문페이지 번호
@@ -291,6 +293,12 @@ def page_num(index):
 
 
 def q1(request):
+    if request.method == 'POST':
+        uname = request.POST['uname']
+        pswd = request.POST['pswd']
+        mail = request.POST['mail']
+        newUser = inputClient(nickname=uname, password=pswd, email=mail)
+        newUser.save()
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
     page = 1
@@ -447,6 +455,17 @@ def intro(request):
 
 def signin(request):
     return render(request, 'mbti/signin.html')
+
+ 
+def sendMail(from_email, to_email, msg):
+    smtp = smtplib.SMTP_SSL('smtp.gmail.com', 587)
+    smtp.login(from_email, 'zpsdvcrzkzmmkmqr') 
+    msg = MIMEText(msg)
+    msg['Subject'] = '[인증번호]포켓몬으로 알아보는 성향검사결과 조회'
+    msg['To'] = to_email
+    smtp.sendmail(from_email, to_email, msg.as_string())
+    smtp.quit()
+#ajax 보낼수있게 
 
 # def Question(request):
 #     return render(request, 'mbti/q1.html')
