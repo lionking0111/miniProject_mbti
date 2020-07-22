@@ -6,8 +6,6 @@ from bs4 import BeautifulSoup
 
 #Variable Initialize
 page = 7    #질문페이지 번호
-total1 = []
-total2 = []
 image_name_set_1 = []
 
 page_url = 'mbti/q1.html' #질문페이지를 띄워줄 HTML URL 저장용 변수
@@ -134,67 +132,8 @@ image_url_set = [
                          'https://namu.wiki/w/%EB%A7%88%EC%9E%84%EB%A7%A8',
                          'https://namu.wiki/w/%EB%A9%94%ED%83%80%EB%AA%BD',
                          'https://namu.wiki/w/%EB%9E%84%ED%86%A0%EC%8A%A4'
-
                         ]
                      ]
-
-#Function : HTML Page의 url을 주고 html의 정보를 받아오는 함수
-#Input : url
-#Return : html
-#Data : 2020.07.20
-#Author : Jrespect.im
-#etc : -
-def get_html(url):    
-    html = ''    
-    res = requests.get(url)    
-    if res.status_code == 200:        
-        res.encoding = None        
-        html = res.text    
-    return html
-
-
-#Function : 포켓몬 이미지가 저장되어있는 url을 참조하여 8개 1Set으로 쪼개어 질문HTML쪽으로 URL데이터를 넘겨주는 함수
-#Input : request
-#Return : request/url/image_name
-#Data : 2020.07.21
-#Author : Jrespect.im
-#etc : 
-#개노가다의 흔적2..
-#동일 url에 크롤링할 이미지가 여러개인 경우를 대비하여 KEY FLAG를 사용하여 1번만 얻어오도록 만듬
-#질문 1개당 4개의 이미지가 필요하여 FOR문내 증가변수의 크기로 4/4씩 나눔..(딕셔너리 어케쓰면 잘 다 듬을수있을거같음)
-def Crawling_Image():
-    #중복체크용 변수
-    key = 0
-    image_name_set_1 = []
-    
-    for k in range(0,7):
-        print("k값은 :" , k)
-        for j in range(len(image_name_set)):
-            print("j값은 :" , j)
-            result = get_html(image_url_set[k][j])   # 이미지를 뽑아올 url_Set Data를 가져옴
-            soup = BeautifulSoup(result, 'html.parser') # 뷰티풀 숩을 이용한 HTML 파씽
-            tags = soup.select('.wiki-image-wrapper')   # 긁은 사이트가 나무위키이므로 이미지가 저장되어있는 ClassName참조
-            
-            for i in tags:
-
-                img = i.select('img')          # 이미지로 되어있는 것을 선택
-                print(img)
-                if(len(img) > 1) : 
-                    image_name = str(img.get('src'))# src의 값을 가져옴
-                    print(image_name)
-            # 크롤링해온 이미지의 이름이 긁어올려는 이미지와 갖고 중복이 아닌경우에만
-                    if((key == 0)):
-                        image_name_set_1.append(image_name)
-                        key  = 1
-        
-            key = 0 #이미지 1개 크롤링완료 후 중복체크 초기화
-    print(image_name_set_1)
-
-
-        #total1 : 질문페이지의 첫번째 질문에 넘겨줄 이미지 name
-        #total2 : 질문페이지의 두번째 질문에 넘겨줄 이미지 name
-        #return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
 
 #포켓몬 이미지 이름셋
 #INDEX당 1개의페이지의 보기
@@ -296,6 +235,20 @@ image_name_set =[
                       ]
                 ]
 
+#Function : HTML Page의 url을 주고 html의 정보를 받아오는 함수
+#Input : url
+#Return : html
+#Data : 2020.07.20
+#Author : Jrespect.im
+#etc : -
+def get_html(url):    
+    html = ''    
+    res = requests.get(url)    
+    if res.status_code == 200:        
+        res.encoding = None        
+        html = res.text    
+    return html
+
 #Function : HTML Page의 Value를 받아 URL, PAGE Number를 변환해주는 함수
 #Input : Page Number Index
 #Return : None
@@ -304,7 +257,7 @@ image_name_set =[
 #etc : 개노가다의 흔적...
 def page_num(index):
     
-    if((index % 8)+ 1 == 1):
+    if((index % 8)+1 == 1):
         page = 1
         page_url = 'mbti/q1.html'
 
@@ -331,13 +284,119 @@ def page_num(index):
     elif((index % 8)+1 == 7):
         page = 7   
         page_url = 'mbti/q7.html'
+    
+    elif((index % 8)+1 == 8):
+        page = 7   
+        page_url = 'mbti/q8.html'
 
 
 def q1(request):
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    Crawling_Image()
-    #중복체크용 변수
+    page = 1
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q2(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q2.html'
+    page = 2
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q3(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q3.html'
+    page = 3
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q4(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q4.html'
+    page = 4
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q5(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q5.html'
+    page = 5
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q6(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q6.html'
+    page = 6
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q7(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q7.html'
+    page = 7
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q8(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q8.html'
+    page = 8
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+
+def q10(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+     #중복체크용 변수
     key = 0
     #image_name_set의 길이는 8이며-> Index당 8개 데이터로 총 64개 Set
     for j in range(len(image_name_set)):
@@ -354,11 +413,11 @@ def q1(request):
                 if(img) : 
                     image_name = str(img.get('src'))# src의 값을 가져옴
 
-            # 크롤링해온 이미지의 이름이 긁어올려는 이미지와 갖고 중복이 아닌경우에만
-            if(image_name == (image_name_set[page][j]) and (key == 0)):
-                if((key == 0)):
-                    total1.append(image_name_set[page][j])
-                    key  = 1
+                    # 크롤링해온 이미지의 이름이 긁어올려는 이미지와 갖고 중복이 아닌경우에만
+                    if(image_name == (image_name_set[page][j]) and (key == 0)):
+                        if((key == 0)):
+                            total1.append(image_name_set[page][j])
+                            key  = 1
 
             key = 0 #이미지 1개 크롤링완료 후 중복체크 초기화
 
@@ -369,10 +428,11 @@ def q1(request):
 
                 if(img) : 
                     image_name = str(img.get('src'))
-            if(image_name == (image_name_set[page][j]) and (key == 0)):
-                if((key == 0)):
-                    total2.append(image_name_set[page][j])
-                    key  = 1
+
+                    if(image_name == (image_name_set[page][j]) and (key == 0)):
+                        if((key == 0)):
+                            total2.append(image_name_set[page][j])
+                            key  = 1
 
             key = 0
 
