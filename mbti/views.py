@@ -251,47 +251,6 @@ def get_html(url):
         html = res.text    
     return html
 
-#Function : HTML Page의 Value를 받아 URL, PAGE Number를 변환해주는 함수
-#Input : Page Number Index
-#Return : None
-#Data : 2020.07.21
-#Author : Jrespect.im
-#etc : 개노가다의 흔적...
-def page_num(index):
-    
-    if((index % 8)+1 == 1):
-        page = 1
-        page_url = 'mbti/q1.html'
-
-    elif((index % 8)+1 == 2):
-        page = 2
-        page_url = 'mbti/q2.html'
-
-    elif((index % 8)+1 == 3):
-        page = 3
-        page_url = 'mbti/q3.html'
-        
-    elif((index % 8)+1 == 4):
-        page = 4
-        page_url = 'mbti/q4.html'
-
-    elif((index % 8)+1 == 5):
-        page = 5
-        page_url = 'mbti/q5.html'
-
-    elif((index % 8)+1 == 6):
-        page = 6
-        page_url = 'mbti/q6.html'
-
-    elif((index % 8)+1 == 7):
-        page = 7   
-        page_url = 'mbti/q7.html'
-    
-    elif((index % 8)+1 == 8):
-        page = 7   
-        page_url = 'mbti/q8.html'
-
-
 def q1(request):
     if request.method == 'POST':
         uname = request.POST['uname']
@@ -309,99 +268,73 @@ def q1(request):
             total2.append(image_name_set[page-1][j])
     return render(request, page_url, {'total1' : total1, 'total2' : total2})
 
-def q2(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q2.html'
-    page = 2
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
 
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q3(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q3.html'
-    page = 3
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q4(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q4.html'
-    page = 4
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q5(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q5.html'
-    page = 5
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q6(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q6.html'
-    page = 6
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q7(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q7.html'
-    page = 7
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q8(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q8.html'
-    page = 8
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+def question(request, num):
+    # HTML에서 선택한(입력된) 내용 받아오기
+    q1_1 = request.GET.get('q1-1')
+    q1_2 = request.GET.get('q1-2')
+    q2_1 = request.GET.get('q2-1')
+    q2_2 = request.GET.get('q2-2')
+    q3_1 = request.GET.get('q3-1')
+    q3_2 = request.GET.get('q3-2')
+    q4_1 = request.GET.get('q4-1')
+    q4_2 = request.GET.get('q4-2')
+    q5_1 = request.GET.get('q5-1')
+    q5_2 = request.GET.get('q5-2')
+    q6_1 = request.GET.get('q6-1')
+    q6_2 = request.GET.get('q6-2')
+    q7_1 = request.GET.get('q7-1')
+    q7_2 = request.GET.get('q7-2')
+    q8_1 = request.GET.get('q8-1')
+    q8_2 = request.GET.get('q8-2')
 
 
-def q10(request):
+    total1 = [[],[],[],[]] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [[],[],[],[]] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+ 
+    page_url = 'mbti/q%s.html'%num
+
+    if(num < 9):
+        page = num
+        for j in range(len(image_name_set)):
+            
+            if(j < 4):
+                total1[0].append(image_name_set[page-1][j])
+                total1[1].append(j+1)
+            else:
+                total2[0].append(image_name_set[page-1][j])
+                total2[1].append(j-3)
+        #print(total1)
+
+    # 위의 값들을 HTML로 넘겨주기
+    return render(request, page_url, 
+        { 
+            'q1_1': q1_1,
+            'q1_2': q1_2,
+            'q2_1': q2_1,
+            'q2_2': q2_2,
+            'q3_1': q3_1,
+            'q3_2': q3_2,
+            'q4_1': q4_1,
+            'q4_2': q4_2,
+            'q5_1': q5_1,
+            'q5_2': q5_2,
+            'q6_1': q6_1,
+            'q6_2': q6_2,
+            'q7_1': q7_1,
+            'q7_2': q7_2,
+            'q8_1': q8_1,
+            'q8_2': q8_2,
+            'total1' : total1[0],
+            'total2' : total2[0],
+            'index_return1' : total1[1],
+            'index_return2' : total2[1],
+        } 
+    )
+
+
+
+def Crawling_Image(request):
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
      #중복체크용 변수
@@ -490,101 +423,6 @@ def showQuestion(request):
 
 def index(request):
     return render(request, 'mbti/index_초기설정.html')
-
-def mbti_exam1(request):
-    return render(request, 'mbti/mbti_exam1.html')
-
-question = [
-    {
-        'question1' : "1. 모임에서의 첫 시간, 다른 사람에게 소개할 때 내 모습은?",
-        'ques1Answer' : {
-            "1" : "자신감 넘치며 당당히 일어나서 말을 한다.",
-            "2" : "아무렇지 않게 소개한다.",
-            "3" : "저..저는..감사합니다...(쭈뼛쭈뼛)",
-            "4" : "(아...이런 시간 지나가라..너무 싫다..)"
-        }
-    },
-    {
-        'question2' : "2. sldfjalsd"
-        
-    }
-
-]
-
-def mbti1(request):
-    extraIntro = 50 
-
-    myAnswer1 = request.GET.get('answer1')
-    myAnswer1 = int(myAnswer1)
-    if myAnswer1 == 1:
-        result1 = extraIntro + 12.5
-        print(result1)
-    elif myAnswer1 == 2:
-        result1= extraIntro + 6.25 
-        print(result1)
-    elif myAnswer1 == 3:
-        result1= extraIntro - 6.25
-        print(result1)
-    elif myAnswer1 == 4:
-        result1= extraIntro - 12.5
-        print(result1)
-
-    myAnswer2 = request.GET.get('answer2')
-    myAnswer2 = int(myAnswer2)
-
-    #print(myAnswer2)
-    if myAnswer2 == 1:
-        result2 = result1 - 12.5
-        print(result2)
-        
-    elif myAnswer2 == 2:
-        result2= result1 - 6.25 
-        print(result2)
-        
-    elif myAnswer2 == 3:
-        result2 = result1 + 6.25
-        print(result2)
-        
-    elif myAnswer2 == 4:
-        result2 = result1 + 12.5
-        print(result2)
-        
-    else:
-        print("잘못된 명령입니다. 다시 입력하세요.")
-        
-#E/I 3번문제
-
-    myAnswer3 = request.GET.get('answer3')
-    myAnswer3 = int(myAnswer3)
-    result3 = 0
-    #print(myAnswer2)
-    if myAnswer3 == 1:
-        result3 = result2 + 12.5
-        print(result3)
-        
-    elif myAnswer3 == 2:
-        result3= result2 + 6.25 
-        print(result3)
-        
-    elif myAnswer3 == 3:
-        result3 = result2 - 6.25
-        print(result3)
-        
-    elif myAnswer3 == 4:
-        result3 = result2 - 12.5
-        print(result3)
-
-
-    result = {}
-    if result3 > 50:
-        result["a"] = 'E'
-        result['score'] = result3
-    else:
-        result["a"] = 'I'
-        result['score'] = result3
-
-
-    return JsonResponse(result)
 
     #이메일 중복검사관련 함수
 def id_overlap_check(request):

@@ -40,88 +40,91 @@
     });
 </script>
 <body style="text-align: center; position : absolute">
-  <form action="/mbti/signin/q7" class="was-validated" style = 'position : absolute'>  
-    <div class="jumbotron text-center" style = 'background-color: #F3F781 ; margin-top : 50px ; height : 150px ; width : 1100px; margin-left : 175px; '>
-      <h2 style = 'font-weight : bold'>Q11. 친구를 위해 3시간 동안 머핀을 만들었는데, </h2>
-      <p>내가 먹어도 맛이 없을때 친구가 해줬으면 하는 말은?</p> 
+  <form action="/mbti/signin/q7" class="was-validated" style = 'position : absolute'>
+    <input type="hidden" name="q1-1" value="{{q1_1}}">
+    <input type="hidden" name="q1-2" value="{{q1_2}}">
+    <input type="hidden" name="q2-1" value="{{q2_1}}">
+    <input type="hidden" name="q2-2" value="{{q2_2}}">  
+    <input type="hidden" name="q3-1" value="{{q3_1}}">
+    <input type="hidden" name="q3-2" value="{{q3_2}}">
+    <input type="hidden" name="q4-1" value="{{q4_1}}">
+    <input type="hidden" name="q4-2" value="{{q4_2}}">
+    <input type="hidden" name="q5-1" value="{{q5_1}}">
+    <input type="hidden" name="q5-2" value="{{q5_2}}">
+
+<div class="jumbotron text-center" style = 'background-color: #F3F781 ; margin-top : 50px ; height : 150px ; width : 1100px; margin-left : 175px; '>
+  <h2 style = 'font-weight : bold'>Q11. 친구를 위해 3시간 동안 머핀을 만들었는데, </h2>
+  <p>내가 먹어도 맛이 없을때 친구가 해줬으면 하는 말은?</p> 
+</div>
+
+<div class="container" style="margin-left : 145px">
+  <div class="row">
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"흐엉~ 날 위해서 3시간 동안 만들었다구? 감동~"</h4>
+      <p> 나의 노력을 생각해 말해줬으면 한다.</p>
+      <input id="{{total1.0}}" type="radio" name="q6-1" value ="{{index_return1.0}}" required>
+      <label for="{{total1.0}}"><img src= 'https:{{total1.0}}' width=100px, height=100px></label>
     </div>
 
-      <div class="container" style="margin-left : 145px">
-        <div class="row">
-          <div class="col-sm-4" style="width:25%;">
-            <h4>"흐엉~ 날 위해서 3시간 동안 만들었다구? 감동~"</h4>
-            <p> 나의 노력을 생각해 말해줬으면 한다.</p>
-          </div>
-
-          <div class="col-sm-4" style="width:25%;">
-            <h4>"대박~ 너무 잘 만들었다. 맛있어."</h4>
-            <p>영혼없이 칭찬을 해줬으면 한다.</p>
-          </div>
-
-          <div class="col-sm-4" style="width:25%;">
-            <h4>"여기에 견과류 넣으면 더 좋았을 것 같아!"</h4>
-            <p>맛과 고생에 대한 고마움보다 더 좋은 방법을 말한다.</p>
-          </div>
-
-          <div class="col-sm-4" style="width:25%;">
-            <h4>"너무 달다, 다음에 덜 달게 하면 완벽!"</h4>
-            <p>솔직히 말하고 조언을 해준다.</p>
-          </div>
-
-          {% if total1 %}
-            {% for question in total1 %}
-            
-              <div class="col-sm-4" style="width:25%;">
-                <img src= 'https:{{question}}' width=100px, height=100px>
-                <input class="form-check-input" type="radio"  name="remember" required style="margin-top : 30px;">
-              </div>
-              
-            {% endfor %}
-          {% endif %}
-        </div>
-      </div>
-
-
-
-    <div class="jumbotron text-center" style = 'background-color: #F3F781 ; margin-top : 50px ; height : 150px ; width : 1100px; margin-left : 175px; '>
-      <h2 style = 'font-weight : bold'>Q12. 친구가 시험을 망쳤다고 속상해 할때, </h2>
-      <p>이때 나의 행동은?</p> 
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"대박~ 너무 잘 만들었다. 맛있어."</h4>
+      <p>영혼없이 칭찬을 해줬으면 한다.</p>
+      <input id="{{total1.1}}" type="radio" name="q6-1" value ="{{index_return1.1}}" required>
+      <label for="{{total1.1}}"><img src= 'https:{{total1.1}}' width=100px, height=100px></label>
     </div>
-      
-    <div class="container" style="margin-left : 145px">
-      <div class="row">
-        <div class="col-sm-4" style="width:25%;">
-          <h4>"이번에 어려웠어 ㅠㅠ 다 못봤을거야 속상해 하지마"</h4>
-          <p>친구의 기분을 풀어주려 노력한다.</p>
-        </div>
 
-        <div class="col-sm-4" style="width:25%;">
-          <h4>"나도 망했어~인생 참 어렵다"</h4>
-          <p>위로보다는 동질감을 느끼게 해준다.</p>
-        </div>
-
-        <div class="col-sm-4" style="width:25%;">
-          <h4>"어디서 틀렸는데? 그 부분을 좀더 보완하자"</h4>
-          <p>친구의 기분과 상관없이 방법을 제시한다.</p>
-        </div>
-
-        <div class="col-sm-4" style="width:25%;">
-          <h4>"우울해 하지말고 다음 시험이나 준비하자~"</h4>
-          <p>공감보다는 미래 일에 대해 각인해준다.</p>
-        </div>
-
-        {% if total2 %}
-          {% for question in total2 %}
-          
-            <div class="col-sm-4" style="width:25%;">
-              <img src= 'https:{{question}}' width=100px, height=100px>
-              <input class="form-check-input" type="radio"  name="remember" required style="margin-top : 30px;">
-            </div>
-            
-          {% endfor %}
-        {% endif %}
-      </div>
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"여기에 견과류 넣으면 더 좋았을 것 같아!"</h4>
+      <p>맛과 고생에 대한 고마움보다 더 좋은 방법을 말한다.</p>
+      <input id="{{total1.2}}" type="radio" name="q6-1" value ="{{index_return1.2}}" required>
+      <label for="{{total1.2}}"><img src= 'https:{{total1.2}}' width=100px, height=100px></label>
     </div>
+
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"너무 달다, 다음에 덜 달게 하면 완벽!"</h4>
+      <p>솔직히 말하고 조언을 해준다.</p>
+      <input id="{{total1.3}}" type="radio" name="q6-1" value ="{{index_return1.3}}" required>
+      <label for="{{total1.3}}"><img src= 'https:{{total1.3}}' width=100px, height=100px></label>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron text-center" style = 'background-color: #F3F781 ; margin-top : 50px ; height : 150px ; width : 1100px; margin-left : 175px; '>
+  <h2 style = 'font-weight : bold'>Q12. 친구가 시험을 망쳤다고 속상해 할때, </h2>
+  <p>이때 나의 행동은?</p> 
+</div>
+  
+<div class="container" style="margin-left : 145px">
+  <div class="row">
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"이번에 어려웠어 ㅠㅠ 다 못봤을거야 속상해 하지마"</h4>
+      <p>친구의 기분을 풀어주려 노력한다.</p>
+      <input id="{{total2.0}}" type="radio" name="q6-2" value ="{{index_return2.0}}" required>
+      <label for="{{total2.0}}"><img src= 'https:{{total2.0}}' width=100px, height=100px></label>
+    </div>
+
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"나도 망했어~인생 참 어렵다"</h4>
+      <p>위로보다는 동질감을 느끼게 해준다.</p>
+      <input id="{{total2.1}}" type="radio" name="q6-2" value ="{{index_return2.1}}" required>
+      <label for="{{total2.1}}"><img src= 'https:{{total2.1}}' width=100px, height=100px></label>
+    </div>
+
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"어디서 틀렸는데? 그 부분을 좀더 보완하자"</h4>
+      <p>친구의 기분과 상관없이 방법을 제시한다.</p>
+      <input id="{{total2.2}}" type="radio" name="q6-2" value ="{{index_return2.2}}" required>
+      <label for="{{total2.2}}"><img src= 'https:{{total2.2}}' width=100px, height=100px></label>
+    </div>
+
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"우울해 하지말고 다음 시험이나 준비하자~"</h4>
+      <p>공감보다는 미래 일에 대해 각인해준다.</p>
+      <input id="{{total2.3}}" type="radio" name="q6-2" value ="{{index_return2.3}}" required>
+      <label for="{{total2.3}}"><img src= 'https:{{total2.3}}' width=100px, height=100px></label>
+    </div>
+  </div>
+</div>
 
 
 <button type="submit" class="btn btn-primary" id = 'btn2' 
