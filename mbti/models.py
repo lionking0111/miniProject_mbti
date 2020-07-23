@@ -10,7 +10,8 @@ class inputClient(models.Model):
 
 class MbtiResult(models.Model):
     nickname = models.CharField(max_length=255)
-    gender = models.CharField(max_length=10)
+    password = models.IntegerField(default=0)
+    email = models.EmailField(max_length=255, null=True)
     extraScore = models.IntegerField(default=0)
     introScore = models.IntegerField(default=0)
     senseScore = models.IntegerField(default=0)

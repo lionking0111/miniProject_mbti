@@ -5,6 +5,9 @@ from .models import inputClient, MbtiResult
 from bs4 import BeautifulSoup
 import smtplib
 from email.mime.text import MIMEText
+import string
+import random
+
 
 #Variable Initialize
 page = 7    #질문페이지 번호
@@ -257,14 +260,61 @@ def get_html(url):
         html = res.text    
     return html
 
+#Function : HTML Page의 Value를 받아 URL, PAGE Number를 변환해주는 함수
+#Input : Page Number Index
+#Return : None
+#Data : 2020.07.21
+#Author : Jrespect.im
+#etc : 개노가다의 흔적...
+def page_num(index):
+    
+    if((index % 8)+1 == 1):
+        page = 1
+        page_url = 'mbti/q1.html'
+
+    elif((index % 8)+1 == 2):
+        page = 2
+        page_url = 'mbti/q2.html'
+
+    elif((index % 8)+1 == 3):
+        page = 3
+        page_url = 'mbti/q3.html'
+        
+    elif((index % 8)+1 == 4):
+        page = 4
+        page_url = 'mbti/q4.html'
+
+    elif((index % 8)+1 == 5):
+        page = 5
+        page_url = 'mbti/q5.html'
+
+    elif((index % 8)+1 == 6):
+        page = 6
+        page_url = 'mbti/q6.html'
+
+    elif((index % 8)+1 == 7):
+        page = 7   
+        page_url = 'mbti/q7.html'
+    
+    elif((index % 8)+1 == 8):
+        page = 7   
+        page_url = 'mbti/q8.html'
+
+        
+    
+
+
 
 def q1(request):
     if request.method == 'POST':
         uname = request.POST['uname']
+        gender = request.POST['gender']
         pswd = request.POST['pswd']
         mail = request.POST['mail']
-        newUser = inputClient(nickname=uname, password=pswd, email=mail)
+        newUser = inputClient(nickname=uname, gender=gender, password=pswd, email=mail)
+        resultClient = MbtiResult(nickname=uname, password=pswd, email=mail)
         newUser.save()
+        resultClient.save()
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
     page = 1
@@ -275,6 +325,97 @@ def q1(request):
             total2.append(image_name_set[page-1][j])
     return render(request, page_url, {'total1' : total1, 'total2' : total2})
 
+def q2(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q2.html'
+    page = 2
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q3(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q3.html'
+    page = 3
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q4(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q4.html'
+    page = 4
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q5(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q5.html'
+    page = 5
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q6(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q6.html'
+    page = 6
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q7(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q7.html'
+    page = 7
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
+def q8(request):
+    
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page_url = 'mbti/q8.html'
+    page = 8
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
 
 
 def question(request, num):
@@ -402,25 +543,46 @@ def intro(request):
 def signin(request):
     return render(request, 'mbti/signin.html')
 
- 
+
+#인증번호 생성함수임
+def makeNumber(): 
+    _LENGTH = 6 #몇자리?
+    stringPool = string.digits # "0123456789"
+    result = "" #결과값
+    for n in range(_LENGTH):
+        result += random.choice(stringPool)
+    return result
+#수신자메일 선택함수
+def toEmail():
+    sendEmail = inputClient.objects.filter(email)
+    for e in sendEmail:
+
+#메일발송 함수
 def sendMail(from_email, to_email, msg):
     smtp = smtplib.SMTP_SSL('smtp.gmail.com', 587)
     smtp.login(from_email, 'zpsdvcrzkzmmkmqr') 
     msg = MIMEText(msg)
     msg['Subject'] = '[인증번호]포켓몬으로 알아보는 성향검사결과 조회'
     msg['To'] = to_email
-    smtp.sendmail(from_email, to_email, msg.as_string())
+    smtp.sendmail(from_email, to_email, makeNumber())
     smtp.quit()
 #ajax 보낼수있게 
 
 # def Question(request):
 #     return render(request, 'mbti/q1.html')
 
-def result(request):
+def q9(request):
+    
     return render(request, 'mbti/result.html')
 
 def info_inquiry(request):
     return render(request, 'mbti/info_inquiry.html')
+
+#조회화면 후 조회결과 다음 화면 테스트함수
+def searchTest(request):
+
+    return render(request, 'mbti/searchTest.html')
+
 
 # DB보기 함수
 def showResult(request):

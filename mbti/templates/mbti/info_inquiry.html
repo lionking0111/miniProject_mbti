@@ -6,9 +6,22 @@
     <title>Document</title>
     <h1>회원정보 조회</h1>    
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function()
+    {
+        $(".btn2").click(function()
+        {
+            location.href = 'searchTest/';
+
+        });
+    });
+
+</script>
 <body style="text-align: center; margin-top : 200px;">
     
-    <form action="/mbti/signin/result" class="was-validated">
+    <form action="/mbti/info_inquiry/searchTest/" class="was-validated" method="POST">
+        {% csrf_token %}
         <div class="form-group">
           <label for="uname" >사용자 닉네임:</label>
           <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required style = 'width : 500px;'>
@@ -23,7 +36,7 @@
         
         <div class="form-group">
             <label for="num" style=" margin-left: 30px; margin-top : 30px;">인증번호:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required style = 'width : 500px; margin-left: 10px; margin-top : 30px;'>
+            <input type="password" class="form-control" id="certNum" placeholder="인증번호를 입력하세요." name="certNum" required style = 'width : 500px; margin-left: 10px; margin-top : 30px;'>
           
         </div>
             </label>
