@@ -10,21 +10,11 @@
 <script type="text/javascript">
     $(function()
     {
-        $(".btn-btn-primary").click(function()
-        {
-          var radioVal_1 = $('input:radio[name=q1]').is(':checked');
-          var radioVal_2 = $('input:radio[name=q2]').is(':checked');
-          if(!radioVal && !radioVal_2) 
-          {   
-            alert("1개 이상 선택해 주세요.");
-            return; 
-          }
-          
-          else
-          {
-            location.href = '/mbti/signin/q2/';
-          }
-        });
+        // $(".btn-btn-primary").click(function()
+        // {
+        //   location.href = '/mbti/signin/q1/';
+
+        //   })
     });
 //////////////////////////////////////////////////////////////////////////  이메일 중복 검사 
 function id_overlap_check(){
@@ -114,7 +104,6 @@ function id_overlap_check(){
         </div>
 
         
-      </form>
 
         <div class="form-group form-check">
             <label class="form-check-label">
@@ -125,7 +114,9 @@ function id_overlap_check(){
         </div>
         <button type="submit" class="btn-btn-primary" id = 'btn2' position : fixed
             onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
-            style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  margin-left: 725px; '>제출</button>
+            style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  margin-left: 725px; '>
+            제출
+        </button>
       </form>
 </body>
 </center>
