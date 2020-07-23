@@ -11,25 +11,25 @@
 </head>
 <style>
     html, body {
-	 width: 100%;
-	 height: 100%;
+    width: 100%;
+    height: 100%;
     }
     .bg-img {
-	 position: relative;
-	 width: 100%;
-	 height: 100%;
-	 background: url('http://unsplash.it/1200x800') center center no-repeat;
-	 background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url('http://unsplash.it/1200x800') center center no-repeat;
+    background-size: cover;
 }
  .bg-img:before {
-	 content: '';
-	 position: absolute;
-	 top: 0;
-	 right: 0;
-	 bottom: 0;
-	 left: 0;
-	 background-image: linear-gradient(to bottom right, #f3f5f7, #dc4225);
-	 opacity: 0.6;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right, #f3f5f7, #dc4225);
+    opacity: 0.6;
 }
 </style>
 <body style = 'position : absolute'>
@@ -56,48 +56,46 @@
     <div class="bg-img">
         <h1 style="position :absolute; left : 330px;top : 50px ; font-weight: bold; font-family: 'Arial' ; font-size :xxx-large" >나와 닮은 포켓몬은 ?</h1>
 
+        <img src = 'https:{{result_image}}' style =' width: 400px; height:300px; opacity : 1 ; position :absolute; left : 350px; top : 120px;'>  <!--크롤링-->
         
+        <div style ='opacity : 0.99; position :absolute; left : 400px; top : 440px; font-family : serif ; font-size: 30px;'> 불같이 열정적인 파이리</div>
 
-        <img src = 'http://img.danawa.com/prod_img/500000/997/861/img/4861997_1.jpg?shrink=500:500&_v=20170202105323' width = '300' height = '300' style ='opacity : 0.99; position :absolute; left : 350px; top : 120px;'>  <!--크롤링-->
-        
-        <div style ='opacity : 0.99; position :absolute; left : 350px; top : 440px; font-family : serif ; font-size: 30px;'> 불같이 열정적인 파이리</div>
-
-        <div class="container" style="border: 3px solid gold; text-align: center; opacity : 0.9 ; position: absolute; left: 350px; top: 500px; width : 800px;">
+        <div class="container" style="border: 5px solid gold ; text-align: center; opacity : 0.9 ; position: absolute; left: 350px; top: 500px; width : 800px;">
             <h2>MBTI 결과 그래프</h2>
             
             <div class="progress progress1" id="progress1" >
-                <div class="progress-bar bg-E" style="width:68% ; background-color: #ff3401c0 ;">
-                    E(외향)
+                <div class="progress-bar bg-E" style="width:{{test.1}}% ; background-color: #ff7301c0 ;">
+                    I(내향) : {{test.1}}
                 </div>
-                <div class="progress-bar bg-I" style="width:32%  ; background-color: #e47712 ;">
-                    I(내향)
-                </div>
-            </div>
-            
-            <div class="progress" style = 'margin-top : 15px'>
-                <div class="progress-bar bg-S" style="width:68% ; background-color: #76a4fa ;" >
-                    S(감각)
-                </div>
-                <div class="progress-bar bg-N" style="width:32%  ; background-color: #d5dadf9f ;">
-                    N(직관)
+                <div class="progress-bar bg-I" style="width:{{test.2}}% ; background-color: #76a4fa ;">
+                    E(외향) : {{test.2}}
                 </div>
             </div>
             
             <div class="progress" style = 'margin-top : 15px'>
-                <div class="progress-bar bg-T" style="width:68% ; background-color: #eb6363f5 ;"">
-                    T(사고)
+                <div class="progress-bar bg-S" style="width:{{test.4}}%  ; background-color: #39e922b9 ;" >
+                    N(직관) : {{test.4}}
                 </div>
-                <div class="progress-bar bg-F" style="width:32%  ;background-color: #8ec0faa2 ;">
-                    F(감정)
+                <div class="progress-bar bg-N" style="width:{{test.5}}% ; background-color: #76a4fa ;">
+                    S(감각) : {{test.5}}
+                </div>
+            </div>
+            
+            <div class="progress" style = 'margin-top : 15px'>
+                <div class="progress-bar bg-T" style="width:{{test.7}}% ; background-color: #f200dbf8 ;" >
+                    T(사고) : {{test.7}}
+                </div>
+                <div class="progress-bar bg-F" style="width:{{test.8}}% ; background-color: #76a4fa ; ">
+                    F(감정) : {{test.8}}
                 </div>
             </div>
             
             <div class="progress" style = 'margin-top : 15px ; margin-bottom: 15px;' >
-                <div class="progress-bar bg-J" style="width:68%">
-                    J(판단)
+                <div class="progress-bar bg-J" style="width:{{test.10}}% ;background-color: red ;">
+                    P(인식) : {{test.10}}
                 </div>
-                <div class="progress-bar bg-P" style="width:32%  ;background-color: red ;">
-                    p(인식)
+                <div class="progress-bar bg-P" style="width:{{test.11}}% ; background-color: #76a4fa ; ">
+                    J(판단) : {{test.11}}
                 </div>
             </div>
         </div>
