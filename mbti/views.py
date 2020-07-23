@@ -5,11 +5,13 @@ from .models import inputClient, MbtiResult
 from bs4 import BeautifulSoup
 import smtplib
 from email.mime.text import MIMEText
+import string
+import random
+
 
 #Variable Initialize
 page = 7    #질문페이지 번호
 image_name_set_1 = []
-
 page_url = 'mbti/q1.html' #질문페이지를 띄워줄 HTML URL 저장용 변수
  
     #포켓몬 크롤링 URL
@@ -37,8 +39,6 @@ page_url = 'mbti/q1.html' #질문페이지를 띄워줄 HTML URL 저장용 변�
     #랜턴/후딘/네이티오/마자용
     #시드라/캐터피/야돈/고라파덕
     #꾸꾸리/누오/라프라스/미뇽
-
-
 
 #포켓몬 이미지 URL셋
 #INDEX당 1개의 페이지의 보기갯수
@@ -243,6 +243,81 @@ image_name_set =[
 
                 ]
 
+    # #MBTI 검사 결과
+    # 0.ISTJ : 홍수몬
+    # 1.ISFJ : 망나뇽
+    # 2.INFJ : 메가후딘
+    # 3.INTJ : 엔테이
+    # 4.ISTP : 하랑우탄
+    # 5.ISFP : 메가파비코리
+    # 6.INFP : 뮤
+    # 7.INTP : 레어코일
+    # 8.ESTP : 닥트리오
+    # 9.ESFP : 피카츄
+    # 10.ENFP : 파이숭이
+    # 11.ENTP : 기기어르
+    # 12.ESTJ : 레파르다스
+    # 13.ESFJ : 해피너스
+    # 14.ENFJ : 로즈레이드
+    # 15.ENTJ : 메가거북왕
+
+# result_image_set = [
+#     '//w.namu.la/s/47a653a5c504a6b9d725ac3e51489243eb3bba42ce11591179c41b0878f8181d5c6713247c4338db364375985b9b87f053eaad86636329b184512dd974fbd4f0e6469d708510f341cf1d126baa2b90777aca62875eb1b0cbf4b483b3888df353',
+#     '//ww.namu.la/s/df6edc8811c2c89bb247600d7f4cfb308449c117f044d32f707e87f6fc382b68bab27c5b728d4e1dbf0d11209bf26d600efe524ad6f7001cb050e47ca6c0ab67eca62b0ccdc8e3c1d5af3c71ef105d711bd996632a8ef6d805b540df34e4a0df',
+#     '//w.namu.la/s/1868c23de2e1471f56762715d9fa569a0bced08223217bd96f9bb092a4529e99980727436b8d93a8592278b8d9749560be4e07c9a9895bd51ab59332421f0950848021afe466b9609e7df4dc485dded291c7b487558ef67cbfed5bd3d84c9cc9',
+#     '//ww.namu.la/s/7cd7e1057e89ed2ff501149b5699f38a2ebec4d3e4b82bd6f3f9d106cc6b3f5972dfc9a41a39b7378080d42bfab0341cb05e0089b02cf351a4895b7ff4aefc54979cd5cf0b1677651f7d6c5526cfa7f54b8c93704859175f38ffab2099ff5427',
+#     '//ww.namu.la/s/0b31eefd786f294fecd9015c8dfb25cd18e5fa06277f7102d09c013b617590502bfa1e0bcf9556108d15b4296fc1ebc713262ca929e52d7faa0b4983526ec6264a7f159ba6e9d6c2ae29207e6089afd1ce21bdcfbe2c387286c76ed99e13cfda',
+#     '//w.namu.la/s/748ac0d97c28b47c5a91e74c2199e12a68eee456b421d68a2d04673e52e20e007167808448818dafcd86b1fef5e1a0cf7ffb0b7aea18fb5a5d4e644c11fb62f0e1db2d686b23be6ee7b96abc2d1e5ae6cae0cfab14fa7b75ebe73b63d8efba4e',
+#     '//w.namu.la/s/5b11873a1fa4084a85b6df0a0147dc7e50cf8a5b5b4479dde7dbd1c9c24eb4d25eff1184724586131759c8181d6a38e5e010a106b714250e8261d976ce8e7514ec7c8784d0b0613df555696a5645e056d0a70914e402c6481b0cfd7290482724',
+#     '//w.namu.la/s/3f12fd1ce4a60fdb33bb40b0cf13be58514b3aed12bd110b5664d81d88e6a3a69ccd7fd43e03230d7b3cd088030ed27109fcc5841f43243025f9c7283e761a7787ba70c49d382695335901db7f20b73ed7f18762e77e90bd98af11fa741812d2',
+    
+#     '//w.namu.la/s/d950b7c9a6e86e12abb241b322ad57464affe42ab65b4e53ef5fa70b12bf29d65ef4dcddbb4e3f99eb24cc5e4fc08f1f2a247e96c6df9d322685e4cb0dbb3e027a7a6971a910376b4c6ef76a473e343eae5c4f045ff4d9ba74325960b5c2c237',
+#     '//ww.namu.la/s/db8a3870c415ce660d2f01b5c8e439ae855c363537939c7bcb821e7a94ab50d3b78666e1704e1b00d4c52409ee4323d18c42080ee19c1d533d6f795a830d438bd484e149073743e6efa291b7a65d87ec2b73ada70e2d65aff3dbb8299baf72bb',
+#     '//ww.namu.la/s/52be22a3ec6b7e4dcc1b050636f4eb4b346053c67bb7254d6e7c48ca620c337ae786cb561305ce64b5c9e739ddf63b370fbee6f19df74ec921c3e4af3f8804105ed10d4f40a6c71a05f266885f302b996184aabc492ed044ac422479f1343b7a',
+#     '//w.namu.la/s/a27ee68653db74ee5a64cf19366da16e655d82595b8f912d561225a9f4eeb664e94001b58e87f72172a5cbe8c1c4c1ff8adbc92a61be1137c32ff1d7290cc21e82ec100ff3985ef9587f4e23f7aeaa14a89abf05f480240db863a72e429f611f',
+#     '//w.namu.la/s/32ccd3e774deecbfcd3fae5721c3b7fdf46347dd2f680cd1ed39d16d9d8d1d7a5f400f477076f9470291f2e6bff7fc045e392692bf42de089c6d7df0f10167da2beba4129b0c0b27fed7257969d9dde311b1fbdb3b20ac5ecdaece5b82af21b9',
+#     '//w.namu.la/s/15f1a928fecfd11b743e042a3ab6b5ae23638740173718150e057eac0942bb679bf0aad87ea1f1d85a2e9d2a0c84a5d9c73543aa2f51b2902ab0f76b2f203864c1d96856f28ca712f5be9b20f1c6f85bd64484f03cddcf44f2f75cb12e489889',
+#     '//w.namu.la/s/9688537c22135f573b28c9a7e135edb92118ebf842b5b9b24f245130d70780b8305b88b782f78d60391ba23f1c2f809ff51d7c55c31fe5bf2a11b4334561ccc9867934cd8e65810be5ae0f259033893ec958903187a4e19d61afc7d872a9a064',
+#     '//ww.namu.la/s/67e13dca43c19f54d2bbed18041f257ea2a0aa126f48d1f973ce5cc9cd664c4991ee72c48f04d8bb47ae128701720b7f30c2ce6d40833adba5a48ed6bd3d1744495525c94a678c020999c8e5dbbd4debe6036f4865cf858281ca0d1cf609eece',
+# ]
+
+#0 ISTJ : 홍수몬
+#1 ISTP : 루카리오
+#2 ISFJ : 망나뇽
+#3 ISFP : 메가파비코리
+#4 INTJ : 엔테이
+#5 INTP : 레어코일
+#6 INFJ : 메가후딘
+#7 INFP : 뮤
+#8 ESTJ : 샤미드
+#9 ESTP : 뽀뽀라 
+#10 ESFJ : 해피너스
+#11 ESFP : 피카츄
+#12 ENTJ : 메가거북왕
+#13 ENTP : 기기어르
+#14 ENFJ : 로즈레이드
+#15 ENFP: 파이숭이
+
+result_image_set1 = [
+    '//post-phinf.pstatic.net/MjAxODA0MDNfMTU2/MDAxNTIyNjg4Njk2MTY4.Mvyj9N6ANc3uAgVTO1dDT3leClH_zE2pkkMgWeY-Unwg.D5gKckpYVGiNYM3cNRrxVFvbm73iUJT7BF0BfTizJ9sg.GIF/%EC%9E%AC%ED%82%A4%EC%B0%AC2.gif?type=w1200',
+    '//45.media.tumblr.com/d2c36aed16916b433c523de756c7f613/tumblr_n72p1ngmyw1rpn9eno1_500.gif',
+    '//t1.daumcdn.net/cfile/tistory/223F724E57E5BA5319',
+    '//blogfiles.pstatic.net/MjAxOTAyMTdfMjkx/MDAxNTUwNDEyMjUxNjIx.rAPl_fGZQfTGJ6JWQWiIy3Jm5F06racZ5fGGowTb93Qg.1wQUKqyZwtKRz5nirjJW59wjkc1A_m1UoSEsUUf0hbcg.GIF.unesco1128/19.gif?type=w2',
+    '//post-phinf.pstatic.net/MjAxODA5MTRfMjEz/MDAxNTM2ODg3NzM3MzAx.YLeRemJ8sX8VYMd8cNw5zbpkBxUMn6qPSlRBxMVssaEg.Ro3OwdOGTX6quxroguBIMkvloKgtGniqP9tHREvf3tsg.GIF/%EC%95%A4%ED%85%8C%EC%9D%B4.gif?type=w1200',
+    '//postfiles.pstatic.net/MjAxODA5MjdfNDkg/MDAxNTM3OTc3MjYzMjIy.J1H5D1v8e2nXuyp__l_K79lSKQ0IEesZ3xFEpqqDKQ8g.DGFmZ6gF_6m2ewS53qZ5nzOA6yj6KrFOOgFzvDK49qMg.GIF.lcj1222/f92b9fa247937eadd4a3dea8656c5f3d33f7aed7_hq.gif?type=w966',
+    '//upload2.inven.co.kr/upload/2017/08/17/bbs/i16690725871.gif',
+    '////t1.daumcdn.net/cfile/tistory/9942BC3C5ADC889403',
+
+    '//1.gall-gif.com/hygall/files/attach/images/82/754/913/187/9f633675734c20042e1a2cba5c27d260.gif',
+    '//img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile2.uf.tistory.com%2Fimage%2F99078C395ADC88F00AA639',
+    '//img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile24.uf.tistory.com%2Fimage%2F99F65A375ADC88FF22FAD4',
+    '//m.dragonvillage.net/assets/data/board/humor/2017_03_01/20170301_b8c358bf9743ab592ef7fb03f0606a13/2317895460_1488345287468103.gif',
+    '//t1.daumcdn.net/cfile/tistory/262AF65057E5BA621D',
+    '//mblogthumb-phinf.pstatic.net/MjAxOTA4MjJfMjM0/MDAxNTY2NDY4MDk5MzU2.15E2JzL9RyWz3oA8tI1lRVhGW8DxXTbm6y_jJh-MnIgg.G8p5phrs2iOu93kRuFY4NXtgUuIdOe83HI0TAA1iv6Ig.GIF.lcj1222/tumblr_nuzeu64SbF1sr6y44o3_500.gif?type=w800',
+    '//t1.daumcdn.net/cfile/tistory/992BB43C5AE797231A',
+    '//mblogthumb-phinf.pstatic.net/MjAxODAzMDJfNjEg/MDAxNTE5OTc5NjIyNTc0.WBSXHZCqZmrNXLRcia_9zOnQztVpmkJfKimpW4m2MlMg.dEY1tOneJeSrNC4bqSqHVOm8Z3TVEVKll11PNiTc0skg.GIF.lcj1222/giphy_%2815%29.gif?type=w800',
+]
+
 #Function : HTML Page의 url을 주고 html의 정보를 받아오는 함수
 #Input : url
 #Return : html
@@ -261,10 +336,13 @@ def get_html(url):
 def q1(request):
     if request.method == 'POST':
         uname = request.POST['uname']
+        gender = request.POST['gender']
         pswd = request.POST['pswd']
         mail = request.POST['mail']
-        newUser = inputClient(nickname=uname, password=pswd, email=mail)
+        newUser = inputClient(nickname=uname, gender=gender, password=pswd, email=mail)
+        resultClient = MbtiResult(nickname=uname, password=pswd, email=mail)
         newUser.save()
+        resultClient.save()
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
     page = 1
@@ -275,8 +353,12 @@ def q1(request):
             total2.append(image_name_set[page-1][j])
     return render(request, page_url, {'total1' : total1, 'total2' : total2})
 
-
-
+#Function : 질문 Page를 순서대로 처리해주는 함수
+#Input : num(page번호)
+#Return : q1~q8 : 질문을 선택한 값, total : 이미지url, index_return : 이미지별 index, test : 검사종류결과
+#Data : 2020.07.20
+#Author : Jrespect.im
+#etc : -
 def question(request, num):
     # HTML에서 선택한(입력된) 내용 받아오기
     q1_1 = request.GET.get('q1-1')
@@ -301,6 +383,8 @@ def question(request, num):
     total2 = [[],[],[],[]] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
     test = []
     page_url = 'mbti/q%s.html'%num
+    myType = []
+    Type_hex = 0
 
     if(num < 9):
         page = num
@@ -316,8 +400,76 @@ def question(request, num):
     
     else:
         test += cal(q1_1,q1_2,q2_1,q2_2,q3_1,q3_2,q4_1,q4_2,q5_1,q5_2,q6_1, q6_2, q7_1, q7_2, q8_1, q8_2) 
-    
-    print("test:", test)
+        
+        for i in range(len(test)):
+            if((i % 3) == 0):
+                myType += test[i]
+
+        if(myType[0] == 'I'):
+
+            if(myType[1] == 'S'):
+
+                if(myType[2] == 'T'):
+                        
+                    if(myType[3] == 'J'):
+                        Type_hex = 0    
+                    else:
+                        Type_hex = 1
+                else:
+
+                    if(myType[3] == 'J'):
+                        Type_hex = 2
+                    else:
+                        Type_hex = 3
+            else:
+
+                if(myType[2] == 'T'):
+                        
+                    if(myType[3] == 'J'):
+                        Type_hex = 4  
+                    else:
+                        Type_hex = 5  
+                else:
+
+                    if(myType[3] == 'J'):
+                        Type_hex = 6  
+                    else:
+                        Type_hex = 7  
+                
+        else : 
+            if(myType[1] == 'S'):
+
+                if(myType[2] == 'T'):
+                        
+                    if(myType[3] == 'J'):
+                        Type_hex = 8  
+                    else:
+                        Type_hex = 9  
+                else:
+
+                    if(myType[3] == 'J'):
+                        Type_hex = 10 
+                    else:
+                        Type_hex = 11
+            else:
+                if(myType[2] == 'T'):
+                        
+                    if(myType[3] == 'J'):
+                        Type_hex = 12  
+                    else:
+                        Type_hex = 13 
+                else:
+
+                    if(myType[3] == 'J'):
+                        Type_hex = 14  
+                    else:
+                        Type_hex = 15  
+
+        print(test)
+        print(myType)
+        print(Type_hex)
+        print(result_image_set1[Type_hex])
+
     # 위의 값들을 HTML로 넘겨주기
     return render(request, page_url, 
         { 
@@ -341,12 +493,17 @@ def question(request, num):
             'total2' : total2[0],
             'index_return1' : total1[1],
             'index_return2' : total2[1],
-            'test' : test
+            'test' : test,
+            'result_image' : result_image_set1[Type_hex]
         } 
     )
 
-
-
+#Function : url을 입력하여 포켓몬 이미지를 크롤링 해오는 함수
+#Input : request
+#Return : total : 이미지url
+#Data : 2020.07.20
+#Author : Jrespect.im
+#etc : 너무오래걸려서 안씁니다
 def Crawling_Image(request):
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
@@ -402,25 +559,41 @@ def intro(request):
 def signin(request):
     return render(request, 'mbti/signin.html')
 
- 
+#인증번호 생성함수임
+def makeNumber(): 
+    _LENGTH = 6 #몇자리?
+    stringPool = string.digits # "0123456789"
+    result = "" #결과값
+    for n in range(_LENGTH):
+        result += random.choice(stringPool)
+    return result
+
+#수신자메일 선택함수
+def toEmail():
+    sendEmail = inputClient.objects.filter(email)
+    for e in sendEmail:
+        pass
+
+#메일발송 함수
 def sendMail(from_email, to_email, msg):
     smtp = smtplib.SMTP_SSL('smtp.gmail.com', 587)
     smtp.login(from_email, 'zpsdvcrzkzmmkmqr') 
     msg = MIMEText(msg)
     msg['Subject'] = '[인증번호]포켓몬으로 알아보는 성향검사결과 조회'
     msg['To'] = to_email
-    smtp.sendmail(from_email, to_email, msg.as_string())
+    smtp.sendmail(from_email, to_email, makeNumber())
     smtp.quit()
 #ajax 보낼수있게 
 
 # def Question(request):
 #     return render(request, 'mbti/q1.html')
 
-def result(request):
-    return render(request, 'mbti/result.html')
-
 def info_inquiry(request):
     return render(request, 'mbti/info_inquiry.html')
+
+#조회화면 후 조회결과 다음 화면 테스트함수
+def searchTest(request):
+    return render(request, 'mbti/searchTest.html')
 
 # DB보기 함수
 def showResult(request):
@@ -431,13 +604,10 @@ def showQuestion(request):
     question = QuestionList.objects.all()
     return render(request, '/show_question.html',)
 
-
-
-
 def index(request):
     return render(request, 'mbti/index_초기설정.html')
 
-    #이메일 중복검사관련 함수
+#이메일 중복검사관련 함수
 def id_overlap_check(request):
     mail = request.GET.get('mail')
     try: #중복검사실패
@@ -451,7 +621,12 @@ def id_overlap_check(request):
     context = {'overlap' : overlap}
     return JsonResponse(context)
 
-
+#Function : 각각의 질문페이지에서 받은 값을 저장하여 MBTI결과를 계산해주는 함수
+#Input :  q1~q8 : 질문을 선택한 값
+#Return : 타입결과 및 점수
+#Data : 2020.07.23
+#Author : Jrespect.im / Smalla
+#etc : 노가다의 결정체
 def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, q7_1, q7_2, q8_1, q8_2):
 
     extraIntro = 50       #외향/내향 초기 변수= 50 
