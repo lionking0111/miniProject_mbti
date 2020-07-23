@@ -305,16 +305,7 @@ def page_num(index):
 
 
 
-def q1(request):
-    if request.method == 'POST':
-        uname = request.POST['uname']
-        gender = request.POST['gender']
-        pswd = request.POST['pswd']
-        mail = request.POST['mail']
-        newUser = inputClient(nickname=uname, gender=gender, password=pswd, email=mail)
-        resultClient = MbtiResult(nickname=uname, password=pswd, email=mail)
-        newUser.save()
-        resultClient.save()
+def q1(request):        
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
     page = 1
@@ -419,6 +410,18 @@ def q8(request):
 
 
 def question(request, num):
+    if request.method == 'POST':
+        uname = request.POST['uname']
+        gender = request.POST['gender']
+        pswd = request.POST['pswd']
+        mail = request.POST['mail']
+        newUser = inputClient(nickname=uname, gender=gender, password=pswd, email=mail)
+        newUser.save()
+    else :
+        extra_score = request.GET['q1-1']
+        resultScore = MbtiResult(extraScore=extra_score)
+        resultScore.save()    
+
     # HTML에서 선택한(입력된) 내용 받아오기
     q1_1 = request.GET.get('q1-1')
     q1_2 = request.GET.get('q1-2')
@@ -548,23 +551,27 @@ def signin(request):
 def makeNumber(): 
     _LENGTH = 6 #몇자리?
     stringPool = string.digits # "0123456789"
-    result = "" #결과값
+    certifiNum = "" #결과값
     for n in range(_LENGTH):
-        result += random.choice(stringPool)
-    return result
+        certifiNum += random.choice(stringPool)
+    return certifiNum
 #수신자메일 선택함수
-def toEmail():
-    sendEmail = inputClient.objects.filter(email)
-    for e in sendEmail:
+# def toEmail():
+#     sendEmail = inputClient.objects.get(email=email)
+#     res = sendEmail.get()
+
+    #request 로 받아서 넣어주어야 한다.
+    
+        
 
 #메일발송 함수
-def sendMail(from_email, to_email, msg):
+def sendMail(from_email, to_email, certifiNum):
     smtp = smtplib.SMTP_SSL('smtp.gmail.com', 587)
     smtp.login(from_email, 'zpsdvcrzkzmmkmqr') 
-    msg = MIMEText(msg)
-    msg['Subject'] = '[인증번호]포켓몬으로 알아보는 성향검사결과 조회'
-    msg['To'] = to_email
-    smtp.sendmail(from_email, to_email, makeNumber())
+    certifiNum = MIMEText(certifiNum)
+    certifiNum['Subject'] = '[인증번호]포켓몬으로 알아보는 성향검사결과 조회'
+    certifiNum['To'] = to_email
+    smtp.sendmail(from_email, to_email, certifiNum.as_string())
     smtp.quit()
 #ajax 보낼수있게 
 
@@ -572,7 +579,6 @@ def sendMail(from_email, to_email, msg):
 #     return render(request, 'mbti/q1.html')
 
 def q9(request):
-    
     return render(request, 'mbti/result.html')
 
 def info_inquiry(request):
