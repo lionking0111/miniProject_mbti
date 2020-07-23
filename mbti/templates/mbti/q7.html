@@ -41,7 +41,21 @@
 </script>
 <body style="text-align: center; position : absolute">
   <form action="/mbti/signin/q8" class="was-validated" style = 'position : absolute'>    
-  <!--  
+    <input type="hidden" name="q1-1" value="{{q1_1}}">
+    <input type="hidden" name="q1-2" value="{{q1_2}}">
+    <input type="hidden" name="q2-1" value="{{q2_1}}">
+    <input type="hidden" name="q2-2" value="{{q2_2}}">  
+    <input type="hidden" name="q3-1" value="{{q3_1}}">
+    <input type="hidden" name="q3-2" value="{{q3_2}}">
+    <input type="hidden" name="q4-1" value="{{q4_1}}">
+    <input type="hidden" name="q4-2" value="{{q4_2}}">
+    <input type="hidden" name="q5-1" value="{{q5_1}}">
+    <input type="hidden" name="q5-2" value="{{q5_2}}">
+    <input type="hidden" name="q6-1" value="{{q6_1}}">
+    <input type="hidden" name="q6-2" value="{{q6_2}}">
+  
+  
+    <!--  
     질문 1. ㅌㅌㅌㅌㅌㅌㅌㅌㅌ<br>
     <input type="radio" name="answer1" id="answer1_1" value="1">보기1 / 
     <input type="radio" name="answer1" id="answer1_2" value="2">보기2 /
@@ -64,21 +78,37 @@
   <p>다른 사람에게 자신을 소개할 때 내 모습은?</p> 
 </div>
 
-  <div class="container" style="margin-left : 145px">
-    <div class="row">
-      {% if total1 %}
-        {% for question in total1 %}
-        
-          <div class="col-sm-4" style="width:25%;">
-            <h4>"제가 먼저 시작하겠습니다."</h4>
-            <p>자신감 넘치게 당당히 일어나서 말을 한다.</p>
-            <img src= 'https:{{question}}' width=100px, height=100px>
-          </div>
+<div class="container" style="margin-left : 145px">
+  <div class="row">
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"제가 먼저 시작하겠습니다."</h4>
+      <p>자신감 넘치게 당당히 일어나서 말을 한다.</p>
+      <input id="{{total1.0}}" type="radio" name="q7-1" value ="{{index_return1.0}}" required>
+      <label for="{{total1.0}}"><img src= 'https:{{total1.0}}' width=100px, height=100px></label>
+    </div>
 
-        {% endfor %}
-      {% endif %}
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"제가 먼저 시작하겠습니다."</h4>
+      <p>자신감 넘치게 당당히 일어나서 말을 한다.</p>
+      <input id="{{total1.1}}" type="radio" name="q7-1" value ="{{index_return1.1}}" required>
+      <label for="{{total1.1}}"><img src= 'https:{{total1.1}}' width=100px, height=100px></label>
+    </div>
+
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"제가 먼저 시작하겠습니다."</h4>
+      <p>자신감 넘치게 당당히 일어나서 말을 한다.</p>
+      <input id="{{total1.2}}" type="radio" name="q7-1" value ="{{index_return1.2}}" required>
+      <label for="{{total1.2}}"><img src= 'https:{{total1.2}}' width=100px, height=100px></label>
+    </div>
+
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"제가 먼저 시작하겠습니다."</h4>
+      <p>자신감 넘치게 당당히 일어나서 말을 한다.</p>
+      <input id="{{total1.3}}" type="radio" name="q7-1" value ="{{index_return1.3}}" required>
+      <label for="{{total1.3}}"><img src= 'https:{{total1.3}}' width=100px, height=100px></label>
     </div>
   </div>
+</div>
 
 
 
@@ -87,19 +117,37 @@
   <p>다른 사람에게 자신을 소개할 때 내 모습은?</p> 
 </div>
   
-    <div class="container" style="margin-left : 145px">
-      <div class="row">
-        {% if total2 %}
-          {% for question in total2 %}
-            <div class="col-sm-4" style="width:25%;">
-              <h4>"제가 먼저 시작하겠습니다."</h4>
-              <p>자신감 넘치게 당당히 일어나서 말을 한다.</p>
-              <img src= 'https:{{question}}' width=100px, height=100px>
-            </div>
-          {% endfor %}
-        {% endif %}
-      </div>
+<div class="container" style="margin-left : 145px">
+  <div class="row">
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"제가 먼저 시작하겠습니다."</h4>
+      <p>자신감 넘치게 당당히 일어나서 말을 한다.</p>
+      <input id="{{total2.0}}" type="radio" name="q7-2" value ="{{index_return2.0}}" required>
+      <label for="{{total2.0}}"><img src= 'https:{{total2.0}}' width=100px, height=100px></label>
     </div>
+
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"제가 먼저 시작하겠습니다."</h4>
+      <p>자신감 넘치게 당당히 일어나서 말을 한다.</p>
+      <input id="{{total2.1}}" type="radio" name="q7-2" value ="{{index_return2.1}}" required>
+      <label for="{{total2.1}}"><img src= 'https:{{total2.1}}' width=100px, height=100px></label>
+    </div>
+
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"제가 먼저 시작하겠습니다."</h4>
+      <p>자신감 넘치게 당당히 일어나서 말을 한다.</p>
+      <input id="{{total2.2}}" type="radio" name="q7-2" value ="{{index_return2.2}}" required>
+      <label for="{{total2.2}}"><img src= 'https:{{total2.2}}' width=100px, height=100px></label>
+    </div>
+
+    <div class="col-sm-4" style="width:25%;">
+      <h4>"제가 먼저 시작하겠습니다."</h4>
+      <p>자신감 넘치게 당당히 일어나서 말을 한다.</p>
+      <input id="{{total2.3}}" type="radio" name="q7-2" value ="{{index_return2.3}}" required>
+      <label for="{{total2.3}}"><img src= 'https:{{total2.3}}' width=100px, height=100px></label>
+    </div>
+  </div>
+</div>
 
 
 <button type="submit" class="btn btn-primary" id = 'btn2' 

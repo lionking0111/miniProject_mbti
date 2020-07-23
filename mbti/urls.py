@@ -13,6 +13,8 @@ urlpatterns = [
     path('signin/q7/',views.q7),
     path('signin/q8/',views.q8),
     path('signin/result/',views.q9),
+    path('signin/q<int:num>/', views.question),
+    #path('signin/result/',views.question),
     path('info_inquiry/', views.info_inquiry),
     path('show_result/',views.showResult, name='show_result'),
     path('sign/',views.id_overlap_check, name='id_overlap_check'),
