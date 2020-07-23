@@ -595,9 +595,6 @@ def fourthClass(judgePerce): # J/P 관련문항
 
 
 
-
-
-
      if result4 > 50:
         return "J", result4
      else:

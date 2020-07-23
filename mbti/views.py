@@ -251,47 +251,6 @@ def get_html(url):
         html = res.text    
     return html
 
-#Function : HTML Page의 Value를 받아 URL, PAGE Number를 변환해주는 함수
-#Input : Page Number Index
-#Return : None
-#Data : 2020.07.21
-#Author : Jrespect.im
-#etc : 개노가다의 흔적...
-def page_num(index):
-    
-    if((index % 8)+1 == 1):
-        page = 1
-        page_url = 'mbti/q1.html'
-
-    elif((index % 8)+1 == 2):
-        page = 2
-        page_url = 'mbti/q2.html'
-
-    elif((index % 8)+1 == 3):
-        page = 3
-        page_url = 'mbti/q3.html'
-        
-    elif((index % 8)+1 == 4):
-        page = 4
-        page_url = 'mbti/q4.html'
-
-    elif((index % 8)+1 == 5):
-        page = 5
-        page_url = 'mbti/q5.html'
-
-    elif((index % 8)+1 == 6):
-        page = 6
-        page_url = 'mbti/q6.html'
-
-    elif((index % 8)+1 == 7):
-        page = 7   
-        page_url = 'mbti/q7.html'
-    
-    elif((index % 8)+1 == 8):
-        page = 7   
-        page_url = 'mbti/q8.html'
-
-
 def q1(request):
     if request.method == 'POST':
         uname = request.POST['uname']
@@ -309,99 +268,10 @@ def q1(request):
             total2.append(image_name_set[page-1][j])
     return render(request, page_url, {'total1' : total1, 'total2' : total2})
 
-def q2(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q2.html'
-    page = 2
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q3(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q3.html'
-    page = 3
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q4(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q4.html'
-    page = 4
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q5(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q5.html'
-    page = 5
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q6(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q6.html'
-    page = 6
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q7(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q7.html'
-    page = 7
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
-def q8(request):
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page_url = 'mbti/q8.html'
-    page = 8
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
 
 
-def q10(request):
+
+def Crawling_Image(request):
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
      #중복체크용 변수
@@ -491,101 +361,6 @@ def showQuestion(request):
 def index(request):
     return render(request, 'mbti/index_초기설정.html')
 
-def mbti_exam1(request):
-    return render(request, 'mbti/mbti_exam1.html')
-
-question = [
-    {
-        'question1' : "1. 모임에서의 첫 시간, 다른 사람에게 소개할 때 내 모습은?",
-        'ques1Answer' : {
-            "1" : "자신감 넘치며 당당히 일어나서 말을 한다.",
-            "2" : "아무렇지 않게 소개한다.",
-            "3" : "저..저는..감사합니다...(쭈뼛쭈뼛)",
-            "4" : "(아...이런 시간 지나가라..너무 싫다..)"
-        }
-    },
-    {
-        'question2' : "2. sldfjalsd"
-        
-    }
-
-]
-
-def mbti1(request):
-    extraIntro = 50 
-
-    myAnswer1 = request.GET.get('answer1')
-    myAnswer1 = int(myAnswer1)
-    if myAnswer1 == 1:
-        result1 = extraIntro + 12.5
-        print(result1)
-    elif myAnswer1 == 2:
-        result1= extraIntro + 6.25 
-        print(result1)
-    elif myAnswer1 == 3:
-        result1= extraIntro - 6.25
-        print(result1)
-    elif myAnswer1 == 4:
-        result1= extraIntro - 12.5
-        print(result1)
-
-    myAnswer2 = request.GET.get('answer2')
-    myAnswer2 = int(myAnswer2)
-
-    #print(myAnswer2)
-    if myAnswer2 == 1:
-        result2 = result1 - 12.5
-        print(result2)
-        
-    elif myAnswer2 == 2:
-        result2= result1 - 6.25 
-        print(result2)
-        
-    elif myAnswer2 == 3:
-        result2 = result1 + 6.25
-        print(result2)
-        
-    elif myAnswer2 == 4:
-        result2 = result1 + 12.5
-        print(result2)
-        
-    else:
-        print("잘못된 명령입니다. 다시 입력하세요.")
-        
-#E/I 3번문제
-
-    myAnswer3 = request.GET.get('answer3')
-    myAnswer3 = int(myAnswer3)
-    result3 = 0
-    #print(myAnswer2)
-    if myAnswer3 == 1:
-        result3 = result2 + 12.5
-        print(result3)
-        
-    elif myAnswer3 == 2:
-        result3= result2 + 6.25 
-        print(result3)
-        
-    elif myAnswer3 == 3:
-        result3 = result2 - 6.25
-        print(result3)
-        
-    elif myAnswer3 == 4:
-        result3 = result2 - 12.5
-        print(result3)
-
-
-    result = {}
-    if result3 > 50:
-        result["a"] = 'E'
-        result['score'] = result3
-    else:
-        result["a"] = 'I'
-        result['score'] = result3
-
-
-    return JsonResponse(result)
-
     #이메일 중복검사관련 함수
 def id_overlap_check(request):
     mail = request.GET.get('mail')
@@ -600,10 +375,18 @@ def id_overlap_check(request):
     context = {'overlap' : overlap}
     return JsonResponse(context)
 
+
+
+
+
+
+
+
+
+
 def question(request, num):
     # HTML에서 선택한(입력된) 내용 받아오기
     q1_1 = request.GET.get('q1-1')
-    print(q1_1)
     q1_2 = request.GET.get('q1-2')
     q2_1 = request.GET.get('q2-1')
     q2_2 = request.GET.get('q2-2')
@@ -619,44 +402,678 @@ def question(request, num):
     q7_2 = request.GET.get('q7-2')
     q8_1 = request.GET.get('q8-1')
     q8_2 = request.GET.get('q8-2')
-   
+
+
     total1 = [[],[],[],[]] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [[],[],[],[]] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    
+ 
     page_url = 'mbti/q%s.html'%num
-    page = num
-    for j in range(len(image_name_set)):
+
+    if(num < 9):
+        page = num
+        for j in range(len(image_name_set)):
+            
+            if(j < 4):
+                total1[0].append(image_name_set[page-1][j])
+                total1[1].append(j+1)
+            else:
+                total2[0].append(image_name_set[page-1][j])
+                total2[1].append(j-3)
+        #print(total1)
+    else:
+        cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, q7_1, q7_2, q8_1, q8_2)
+
+    return render(request, '결과html')
+
+def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, q7_1, q7_2, q8_1, q8_2):
+
+    extraIntro = 50       #외향/내향 초기 변수= 50 
+    sensIntu = 50         #감각/직관 초기 변수 = 50
+    thinkFeel = 50        #사고/감정 초기 변수 = 50
+    judgePerce = 50       #판단/인식 초기 변수 = 50
+
+    #print(myAnswer2)
+    if q1_1 == 1:
+        result1 = extraIntro + 17
+    elif q1_1 == 2:
+        result1= extraIntro + 15
+     
+    elif q1_1 == 3:
+        result1= extraIntro + 11
         
-        if(j < 4):
-            total1[0].append(image_name_set[page-1][j])
-            total1[1].append(j+1)
-        else:
-            total2[0].append(image_name_set[page-1][j])
-            total2[1].append(j-3)
+    elif q1_1 == 4:
+        result1= extraIntro + 7
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+    #print(myAnswer2)
+    if q1_2 == 1:
+        result2 = result1 + 8
+        
+    elif q1_2 == 2:
+        result2= result1 + 10 
+        
+    elif q1_2 == 3:
+        result2 = result1 + 13
+       
+    elif q1_2 == 4:
+        result2 = result1 + 19
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+     #print(myAnswer3)
+    if q2_1== 1:
+        result3 = result2 - 12
+        
+       
+    elif q2_1== 2:
+        result3= result2 - 14
+        
+       
+    elif q2_1== 3:
+        result3 = result2 - 6
+        
+        
+    elif q2_1 == 4:
+        result3 = result2 - 18
+        
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+
+       
+    if q2_2 == 1:
+        result4 = result3 -5
+        
+     
+    elif q2_2 == 2:
+        result4 = result3 - 9
+       
+    elif q2_2 == 3:
+        result4 = result3 - 16
+        print(result4)
+       
+    elif q2_2 == 4:
+        result4 = result3 - 20
+        
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+
+        #print(myAnswer2)
+    if  q3_1== 1:
+        result5 = sensIntu +  17
+        
+        
+    elif  q3_1== 2:
+        result5= sensIntu +  15
+        print(result5)
+       
+    elif  q3_1== 3:
+        result5= sensIntu + 11   
+        print(result5)
+       
+    elif  q3_1== 4:
+        result5= sensIntu + 7
+        print(result5)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+
+    #print(myAnswer2)
+    if  q3_2== 1:
+        result6 = result5 + 19
+        print(result6)
+       
+    elif  q3_2== 2:
+        result6= result5  + 13
+        print(result6)
+        
+    elif  q3_2== 3:
+        result6 = result5 + 10
+        print(result6)
+        
+    elif  q3_2== 4:
+        result6 = result5 + 8
+        print(result6)
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+        
+    if    q4_1 == 1:
+        result7 = result6 -6
+        print(result7)
+        
+    elif q4_1== 2:
+        result7= result6 -12
+        print(result7)
+       
+    elif q4_1== 3:
+        result7 = result6 -14
+        print(result7)
+        
+    elif q4_1== 4:
+        result7 = result6 -18
+        print(result7)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+
+
+    #print(myAnswer2)
+    if q4_2== 1:
+        result8 = result7 -5
+        print(result8)
+        
+    elif 4_2== 2:
+        result8= result7  -9
+        print(result8)
+        
+    elif 4_2== 3:
+        result8 = result7 -16
+        print(result8)
+       
+    elif 4_2== 4:
+        result8 = result7 -20
+        print(result8)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+     
+
+ 
+
+    if q5_1== 1:
+        result9 = thinkFeel + 17
+        print(result9)
+        
+    elif q5_1== 2:
+        result9= thinkFeel + 15
+        
+        print(result9)
+       
+    elif q5_1== 3:
+        result9= thinkFeel + 11
+        print(result9)
+        
+    elif q5_1== 4:
+        result9= thinkFeel + 7
+        print(result9)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+
+    if q5_2== 1:
+        result10 = result9 + 19
+        print(result10)
+     
+    elif 5_2== 2:
+        result10 = result9 + 13
+        print(result10)
+        
+    elif 5_2== 3:
+        result10 = result9 + 10
+        print(result10)
+        
+    elif 5_2== 4:
+        result10= result9 + 8
+        print(result10)
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+
+
+    if q6_1 == 1:
+        result11 = result10 -6
+        print(result3)
+        
+    elif q6_1 == 2:
+        result11= result10 -12
+        print(result3)
+     
+    elif q6_1== 3:
+        result11= result10 -14
+        print(result3)
+      
+    elif q6_1 == 4:
+        result11= result10 -18
+        print(result3)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+      
+
+
+    if q6_2== 1:
+        result12 = result11 - 20
+        print(result1)
+       
+    elif q6_2== 2:
+        result12= result11 - 16
+        print(result1)
+        
+    elif q6_2== 3:
+        result12= result11 - 9
+        print(result1)
+        
+    elif q6_2== 4:
+        result12 = result11 - 5
+        print(result1)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+ #print(myAnswer2)
+    if q7_1== 1:
+        result13 = judgePerce + 17
+        print(result13)
+         
+    elif q7_1== 2:
+        result13= judgePerce + 15
+        print(result13)
+          
+    elif q7_1== 3:
+        result13= judgePerce +11
+        print(result13)
+           
+    elif q7_1== 4:
+        result13= judgePerce +7
+        print(result13)
+           
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+ #print(myAnswer2)
+    if q7_2== 1:
+        result14 = result13 + 19
+        print(result14)
+       
+    elif q7_2== 2:
+        result14= result13 + 13
+        print(result2)
+       
+    elif q7_2== 3:
+        result14= result13 + 10
+        print(result2)
+       
+    elif q7_2== 4:
+        result14= result13 + 8
+        print(result2)
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+
+    #print(myAnswer2)
+    if q8_1== 1:
+        result15 = result14 - 6
+        print(result15)
+          
+    elif q8_1== 2:
+        result15= result14 - 12
+        print(result15)
+         
+    elif q8_1== 3:
+        result15= result14 - 14
+        print(result15)
+          
+    elif q8_1== 4:
+        result15= result14 - 18
+        print(result15)
+         
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+
+
+
+def bye():
+    if result4 > 50:
+        return "E", result4
+    else:
+        return "I", result4
+      
+    if  result8 > 50:
+        return "S",  result8
+    else:
+        return "N", result8
+
+    if result12 > 50:
+        return "T", result12
+    else:
+        return "F", result12
+
+    if result16 > 50:
+        return "J", result16
+    else:
+        return "P",result16
+
+
+ ########################################################         
 
     # 위의 값들을 HTML로 넘겨주기
-    return render(request, 'mbti/q%s.html' % num, 
+    return render(request, page_url, 
         { 
-            'q1-1': q1_1,
-            'q1-2': q1_2, #
-            'q2-1': q2_1,
-            'q2-2': q2_2, #
-            'q3-1': q3_1,
-            'q3-2': q3_2, #
-            'q4-1': q4_1,
-            'q4-2': q4_2, #
-            'q5-1': q5_1,
-            'q5-2': q5_2, #
-            'q6-1': q6_1,
-            'q6-2': q6_2, #
-            'q7-1': q7_1,
-            'q7-2': q7_2, #
-            'q8-1': q8_1,
-            'q8-2': q8_2, #
-
+            'q1_1': q1_1,
+            'q1_2': q1_2,
+            'q2_1': q2_1,
+            'q2_2': q2_2,
+            'q3_1': q3_1,
+            'q3_2': q3_2,
+            'q4_1': q4_1,
+            'q4_2': q4_2,
+            'q5_1': q5_1,
+            'q5_2': q5_2,
+            'q6_1': q6_1,
+            'q6_2': q6_2,
+            'q7_1': q7_1,
+            'q7_2': q7_2,
+            'q8_1': q8_1,
+            'q8_2': q8_2,
             'total1' : total1[0],
             'total2' : total2[0],
             'index_return1' : total1[1],
             'index_return2' : total2[1],
         } 
     )
+
+
+def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, q7_1, q7_2, q8_1, q8_2):
+
+    extraIntro = 50       #외향/내향 초기 변수= 50 
+    sensIntu = 50         #감각/직관 초기 변수 = 50
+    thinkFeel = 50        #사고/감정 초기 변수 = 50
+    judgePerce = 50       #판단/인식 초기 변수 = 50
+    
+    emotion =[]
+
+    if int(q1_1) == 1:
+        extraIntro = extraIntro + 17
+    elif int(q1_1) == 2:
+        extraIntro = extraIntro + 15
+    elif int(q1_1) == 3:
+        extraIntro = extraIntro + 11
+    elif int(q1_1) == 4:
+        extraIntro = extraIntro + 7
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+    #print(myAnswer2)
+    if int(q1_2) == 1:
+        extraIntro = extraIntro + 8
+    elif int(q1_2) == 2:
+        extraIntro= extraIntro + 10 
+    elif int(q1_2) == 3:
+        extraIntro = extraIntro + 13
+    elif int(q1_2) == 4:
+        extraIntro = extraIntro + 19
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+     #print(myAnswer3)
+    if int(q2_1) == 1:
+        extraIntro = extraIntro - 12    
+    elif int(q2_1) == 2:
+        extraIntro= extraIntro - 14   
+    elif int(q2_1) == 3:
+        extraIntro = extraIntro - 6      
+    elif int(q2_1) == 4:
+        extraIntro = extraIntro - 18   
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+         
+    if int(q2_2) == 1:
+        extraIntro = extraIntro -5
+    elif q2_2 == 2:
+        extraIntro = extraIntro - 9
+    elif q2_2 == 3:
+        extraIntro = extraIntro - 16
+    elif q2_2 == 4:
+        extraIntro = extraIntro - 20   
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+    if  q3_1== 1:
+        sensIntu = sensIntu +  17
+    elif  q3_1== 2:
+        sensIntu = sensIntu +  15
+    elif  q3_1== 3:
+        sensIntu = sensIntu + 11   
+    elif  q3_1== 4:
+        sensIntu = sensIntu + 7  
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+    if  q3_2== 1:
+        sensIntu = sensIntu + 19
+    elif  q3_2== 2:
+        sensIntu= sensIntu  + 13
+    elif  q3_2== 3:
+        sensIntu = sensIntu + 10
+    elif  q3_2== 4:
+        sensIntu = sensIntu + 8    
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+    if q4_1 == 1:
+        sensIntu = sensIntu -6
+    elif q4_1== 2:
+        sensIntu= sensIntu -12
+    elif q4_1== 3:
+        sensIntu = sensIntu -14     
+    elif q4_1== 4:
+        sensIntu = sensIntu -18   
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+ 
+    if q4_2== 1:
+        sensIntu = sensIntu -5
+    elif 4_2== 2:
+        sensIntu= sensIntu  -9   
+    elif 4_2== 3:
+        sensIntu = sensIntu -16  
+    elif 4_2== 4:
+        sensIntu = sensIntu -20     
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+    
+    if q5_1== 1:
+        result9 = thinkFeel + 17     
+    elif q5_1== 2:
+        result9= thinkFeel + 15    
+    elif q5_1== 3:
+        result9= thinkFeel + 11      
+    elif q5_1== 4:
+        result9= thinkFeel + 7   
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+    if q5_2== 1:
+        result10 = result9 + 19   
+    elif 5_2== 2:
+        result10 = result9 + 13     
+    elif 5_2== 3:
+        result10 = result9 + 10     
+    elif 5_2== 4:
+        result10= result9 + 8
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+    if q6_1 == 1:
+        result11 = result10 -6
+        print(result3)
+        
+    elif q6_1 == 2:
+        result11= result10 -12
+        print(result3)
+     
+    elif q6_1== 3:
+        result11= result10 -14
+        print(result3)
+      
+    elif q6_1 == 4:
+        result11= result10 -18
+        print(result3)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+      
+    if q6_2== 1:
+        result12 = result11 - 20
+        print(result1)
+       
+    elif q6_2== 2:
+        result12= result11 - 16
+        print(result1)
+        
+    elif q6_2== 3:
+        result12= result11 - 9
+        print(result1)
+        
+    elif q6_2== 4:
+        result12 = result11 - 5
+        print(result1)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+ #print(myAnswer2)
+    if q7_1== 1:
+        result13 = judgePerce + 17
+        print(result13)
+         
+    elif q7_1== 2:
+        result13= judgePerce + 15
+        print(result13)
+          
+    elif q7_1== 3:
+        result13= judgePerce +11
+        print(result13)
+           
+    elif q7_1== 4:
+        result13= judgePerce +7
+        print(result13)
+           
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+ #print(myAnswer2)
+    if q7_2== 1:
+        result14 = result13 + 19
+        print(result14)
+       
+    elif q7_2== 2:
+        result14= result13 + 13
+        print(result2)
+       
+    elif q7_2== 3:
+        result14= result13 + 10
+        print(result2)
+       
+    elif q7_2== 4:
+        result14= result13 + 8
+        print(result2)
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+
+    #print(myAnswer2)
+    if q8_1== 1:
+        result15 = result14 - 6
+        print(result15)
+          
+    elif q8_1== 2:
+        result15= result14 - 12
+        print(result15)
+         
+    elif q8_1== 3:
+        result15= result14 - 14
+        print(result15)
+          
+    elif q8_1== 4:
+        result15= result14 - 18
+        print(result15)
+         
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+            
+    if q8_2== 1:
+        result16 = result15 -5
+        print(result16)
+           
+    elif q8_2== 2:
+        result16= result15 -9
+        print(result16)
+            
+    elif q8_2== 3:
+        result16= result15 - 16
+        print(result16)
+         
+    elif q8_2== 4:
+        result16= result15 - 20
+        print(result16)
+         
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+    if extraIntro > 50:
+        emotion += "E", extraIntro
+    else:
+        emotion += "I", extraIntro
+      
+    if  sensIntu > 50:
+        emotion += "S", sensIntu
+    else:
+        emotion += "N", sensIntu
+
+    # if result12 > 50:
+    #     emotion += "T", result12
+    # else:
+    #     emotion += "F", result12
+
+    # if result16 > 50:
+    #     emotion += "J", result16
+    # else:
+    #     emotion += "P", result16
+
+    return emotion
+         
+
+
+
+
+def bye():
+    if result4 > 50:
+        return "E", result4
+    else:
+        return "I", result4
+      
+    if  result8 > 50:
+        return "S",  result8
+    else:
+        return "N", result8
+
+    if result12 > 50:
+        return "T", result12
+    else:
+        return "F", result12
+
+    if result16 > 50:
+        return "J", result16
+    else:
+        return "P",result16

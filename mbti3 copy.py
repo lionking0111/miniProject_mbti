@@ -253,6 +253,10 @@ fourthClass(judgePerce)
 
 
 
+extraIntro = 50       #외향/내향 초기 변수= 50 
+sensIntu = 50         #감각/직관 초기 변수 = 50
+thinkFeel = 50        #사고/감정 초기 변수 = 50
+judgePerce = 50       #판단/인식 초기 변수 = 50
 
 while(True):
     #print(myAnswer2)
