@@ -62,42 +62,42 @@
         
         <div style ='opacity : 0.99; position :absolute; left : 350px; top : 440px; font-family : serif ; font-size: 30px;'> 불같이 열정적인 파이리</div>
 
-        <div class="container" style="border: 3px solid gold; text-align: center; opacity : 0.9 ; position: absolute; left: 350px; top: 500px; width : 800px;">
+        <div class="container" style="border: 3px solid gold ; text-align: center; opacity : 0.9 ; position: absolute; left: 350px; top: 500px; width : 800px;">
             <h2>MBTI 결과 그래프</h2>
             
             <div class="progress progress1" id="progress1" >
-                <div class="progress-bar bg-E" style="width:68%">
-                    E(외향)
-                </div>
-                <div class="progress-bar bg-I" style="width:32%  ; background-color: #e2a942 ;">
+                <div class="progress-bar bg-E" style="width:{{test.1}}% ; background-color: #e2a942 ;">
                     I(내향)
                 </div>
+                <div class="progress-bar bg-I" style="width:{{test.2}}% ; background-color: #e2a942 ;">
+                    E(외향)
+                </div>
             </div>
             
             <div class="progress" style = 'margin-top : 15px'>
-                <div class="progress-bar bg-S" style="width:68%">
-                    S(감각)
-                </div>
-                <div class="progress-bar bg-N" style="width:32%  ; background-color: #cfa0b6 ;">
+                <div class="progress-bar bg-S" style="width:{{test.4}}%">
                     N(직관)
                 </div>
+                <div class="progress-bar bg-N" style="width:{{test.5}}%  ; background-color: #cfa0b6 ;">
+                    S(감각)
+                </div>
             </div>
             
             <div class="progress" style = 'margin-top : 15px'>
-                <div class="progress-bar bg-T" style="width:68%">
+                <div class="progress-bar bg-T" style="width:{{test.7}}%">
                     T(사고)
                 </div>
-                <div class="progress-bar bg-F" style="width:32%  ;background-color: #8a7298 ;">
+                <div class="progress-bar bg-F" style="width:{{test.8}}% ;background-color: #8a7298 ;">
                     F(감정)
                 </div>
             </div>
             
             <div class="progress" style = 'margin-top : 15px ; margin-bottom: 15px;' >
-                <div class="progress-bar bg-J" style="width:68%">
-                    J(판단)
+                <div class="progress-bar bg-J" style="width:{{test.10}}%">
+                    P(인식)
                 </div>
-                <div class="progress-bar bg-P" style="width:32%  ;background-color: red ;">
-                    p(인식)
+                <div class="progress-bar bg-P" style="width:{{test.11}}%  ;background-color: red ;">
+                    J(판단)
                 </div>
             </div>
         </div>
