@@ -35,11 +35,11 @@ function id_overlap_check(){
     })
     
     if ($('.username_input').val()){
-        alert('에메일을 입력해주세요.')
+        alert('이메일을 입력해주세요.')
         return;
     }
 
-    id_overlap_input = document.querySelector('input[name="username"]');
+    id_overlap_input = document.querySelector('input[mail="mail"]');
 
     $.ajax({      
         url: "{% url 'id_overlap_check' %}", //url 경로상 이름
@@ -75,8 +75,8 @@ function id_overlap_check(){
         {%csrf_token %}
         <div class="form-group">
             <label for="gen" ><b>성별</b>:</label>
-            <input type="radio" class="form-control" id="gen" placeholder="Enter gender" name="gender" style="margin-top : 30px;" required>남자
-            <input type="radio" class="form-control" id="gen" placeholder="Enter gender" name="gender" style="margin-top : 30px;" required>여자
+            <input type="radio" class="form-control" id="gen" value='man' placeholder="Enter gender" name="gender" style="margin-top : 30px;" required>남자
+            <input type="radio" class="form-control" id="gen" value='woman' placeholder="Enter gender" name="gender" style="margin-top : 30px;" required>여자
         
         <div class="form-group" style="margin-top : 30px;">
           <label for="uname" ><b>사용자 닉네임</b>:</label>
@@ -88,18 +88,14 @@ function id_overlap_check(){
         <div class="form-group">
             <label for="pwd" style=" margin-left: 37px; margin-top : 30px;"><b>비밀번호</b>:</label>
             <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required style = 'width : 500px;  margin-top : 30px;'>
-          
+            <h6 style='font-weight: bold; color: red;' >**패스워드는 숫자로만 입력해주세용~ 무시할 경우, 에러가 납니당~ ㅋㅋ</h6>
         </div>
 
-        <div class="form-group">
-            <label for="email" style=" margin-left: 30px; margin-top : 30px;">이메일:</label>
-            <input type="text" class="form-control" id="email" placeholder="Enter email" name="mail" required style = 'width : 500px; margin-left: 10px; margin-top : 30px;'>
-            <div class="invalid-feedback" style="margin-top : 20px; font-weight: bold;">추후 조회를 희망하신다면, '필수'작성해주세요.</div>
-        </div>
+       
         
         <div class="form-group">
-            <label for="email" style=" margin-left: 50px; margin-top : 30px;"><b>이메일</b>:</label>
-            <input type="email" class="username_input" name = 'mail' id="email" check_result = 'fail' placeholder="Enter email" required style = 'width : 500px;  margin-top : 30px;'>
+            <label for="email" style=" margin-left: 50px; margin-top : 20px;"><b>이메일</b>:</label>
+            <input type="email" class="username_input" name = 'mail' id="email" check_result = 'fail' placeholder="Enter email" required style = 'width : 500px;  margin-top : 10px;'>
             <button type="button" class="id_overlap_button" id = 'btn1' position : fixed onclick = 'id_overlap_check()'
             onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
             style='margin-top : 10px ; display : flex ; justify-content: center; align-items: ; height: 20px;  width: 70px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 12px; cursor: pointer;  '>중복조회</button>

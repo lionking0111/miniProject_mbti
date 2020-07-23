@@ -5,6 +5,9 @@ from .models import inputClient, MbtiResult
 from bs4 import BeautifulSoup
 import smtplib
 from email.mime.text import MIMEText
+import string
+import random
+
 
 #Variable Initialize
 page = 7    #질문페이지 번호
@@ -291,14 +294,21 @@ def page_num(index):
         page = 7   
         page_url = 'mbti/q8.html'
 
+        
+    
+
+
 
 def q1(request):
     if request.method == 'POST':
         uname = request.POST['uname']
+        gender = request.POST['gender']
         pswd = request.POST['pswd']
         mail = request.POST['mail']
-        newUser = inputClient(nickname=uname, password=pswd, email=mail)
+        newUser = inputClient(nickname=uname, gender=gender, password=pswd, email=mail)
+        resultClient = MbtiResult(nickname=uname, password=pswd, email=mail)
         newUser.save()
+        resultClient.save()
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
     page = 1
@@ -388,6 +398,7 @@ def q7(request):
     return render(request, page_url, {'total1' : total1, 'total2' : total2})
 
 def q8(request):
+    
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
     page_url = 'mbti/q8.html'
@@ -456,25 +467,46 @@ def intro(request):
 def signin(request):
     return render(request, 'mbti/signin.html')
 
- 
+
+#인증번호 생성함수
+def makeNumber(): 
+    _LENGTH = 6 #몇자리?
+    stringPool = string.digits # "0123456789"
+    result = "" #결과값
+    for n in range(_LENGTH):
+        result += random.choice(stringPool)
+    return result
+#수신자메일 선택함수
+def toEmail():
+    sendEmail = inputClient.objects.filter(email)
+    for e in sendEmail:
+
+#메일발송 함수
 def sendMail(from_email, to_email, msg):
     smtp = smtplib.SMTP_SSL('smtp.gmail.com', 587)
     smtp.login(from_email, 'zpsdvcrzkzmmkmqr') 
     msg = MIMEText(msg)
     msg['Subject'] = '[인증번호]포켓몬으로 알아보는 성향검사결과 조회'
     msg['To'] = to_email
-    smtp.sendmail(from_email, to_email, msg.as_string())
+    smtp.sendmail(from_email, to_email, makeNumber())
     smtp.quit()
 #ajax 보낼수있게 
 
 # def Question(request):
 #     return render(request, 'mbti/q1.html')
 
-def result(request):
+def q9(request):
+    
     return render(request, 'mbti/result.html')
 
 def info_inquiry(request):
     return render(request, 'mbti/info_inquiry.html')
+
+#조회화면 후 조회결과 다음 화면 테스트함수
+def searchTest(request):
+
+    return render(request, 'mbti/searchTest.html')
+
 
 # DB보기 함수
 def showResult(request):
