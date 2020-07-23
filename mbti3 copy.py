@@ -5,7 +5,7 @@ thinkFeel = 50        #사고/감정 초기 변수 = 50
 judgePerce = 50       #판단/인식 초기 변수 = 50
 
 def firstClass(extraIntro): # E/I 관련문항
-    while True:
+    
 #E/I 1번문제
         question1 = ("1. 모임에서의 첫 시간, 다른 사람에게 소개할 때 내 모습은?") #질문1
         ques1Answer = {
@@ -18,28 +18,8 @@ def firstClass(extraIntro): # E/I 관련문항
         print(ques1Answer)
         myAnswer1 = int(input("답변 : "))
 
-        #print(myAnswer2)
-        if myAnswer1 == 1:
-            result1 = extraIntro + 17
-            print(result1)
-            break
-        elif myAnswer1 == 2:
-            result1= extraIntro + 15
-            print(result1)
-            break
-        elif myAnswer1 == 3:
-            result1= extraIntro + 11
-            print(result1)
-            break
-        elif myAnswer1 == 4:
-            result1= extraIntro + 7
-            print(result1)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
 #E/I 2번문제    
-    while True:    
+     
         question2 = ("2. 모처럼의 휴일, 그럴 때 나는?") #질문2
         ques2Answer = {
         "1" : "먹고, 자고, 먹고, 자고가 최고지", 
@@ -51,30 +31,8 @@ def firstClass(extraIntro): # E/I 관련문항
         print(ques2Answer)
 
         myAnswer2 = int(input("답변 : "))
-
-        #print(myAnswer2)
-        if myAnswer2 == 1:
-            result2 = result1 + 8
-            print(result2)
-            break
-        elif myAnswer2 == 2:
-            result2= result1 + 10 
-            print(result2)
-            break
-        elif myAnswer2 == 3:
-            result2 = result1 + 13
-            print(result2)
-            break
-        elif myAnswer2 == 4:
-            result2 = result1 + 19
-            print(result2)
-            break
-        else:10
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
-##########################################################################
 #E/I 3번문제    
-    while True:    
+      
         question3 = ("3.새내기 배움터에서 가장 늦게 도착했다. 이 때, 나는 어디에 앉을 것인가?") #질문3
         ques3Answer = {
         "1" : "아무대나 앉아도 상관없다. 대신 혼자는 싫어", 
@@ -87,28 +45,9 @@ def firstClass(extraIntro): # E/I 관련문항
 
         myAnswer3 = int(input("답변 : "))
 
-        #print(myAnswer3)
-        if myAnswer3 == 1:
-            result3 = result2 - 12
-            print(result3)
-            break
-        elif myAnswer3 == 2:
-            result3= result2 - 14
-            print(result3)
-            break
-        elif myAnswer3 == 3:
-            result3 = result2 - 6
-            print(result3)
-            break
-        elif myAnswer3 == 4:
-            result3 = result2 - 18
-            print(result3)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
+       
 #E/I 4번문제 
-    while True:    
+      
         question4 = ("4.친구의 소개팅으로 만난 이상형, 그럴 때 나는?")  #질문4
         ques4Answer = {
         "1" : "그녀의 관심을 사기 위해 쉴틈없이 말을 한다.", 
@@ -120,39 +59,13 @@ def firstClass(extraIntro): # E/I 관련문항
         print(ques4Answer)
 
         myAnswer4 = int(input("답변 : "))
-
-        #print(myAnswer2)
-        if myAnswer4 == 1:
-            result4 = result3 -5
-            print(result4)
-            break
-        elif myAnswer4 == 2:
-            result4 = result3 - 9
-            print(result4)
-            break
-        elif myAnswer4 == 3:
-            result4 = result3 - 16
-            print(result4)
-            break
-        elif myAnswer4 == 4:
-            result4 = result3 - 20
-            print(result4)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
-
-    if result4 > 50:
-        return "E", result4
-    else:
-        return "I", result4
 firstClass(extraIntro)
 
-###########################################################################E/i ############
+
 
 
 def secondClass(sensIntu): # S/N 관련문항
-     while True:
+    
 # #S/N 1번문제
         question1 = ("5.어두운 숲을 지나는 당신, 무언가 내 앞을 스쳐지나갔다. 그럴 때 나는?") #질문1
         ques1Answer = {
@@ -165,29 +78,10 @@ def secondClass(sensIntu): # S/N 관련문항
         print(ques1Answer)
         myAnswer1 = int(input("답변 : "))
 
-        #print(myAnswer2)
-        if myAnswer1 == 1:
-            result1 = sensIntu +  17
-            print(result1)
-            break
-        elif myAnswer1 == 2:
-            result1= sensIntu +  15
-            print(result1)
-            break
-        elif myAnswer1 == 3:
-            result1= sensIntu + 11   
-            print(result1)
-            break
-        elif myAnswer1 == 4:
-            result1= sensIntu + 7
-            print(result1)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
+   
 
     #S/N 2번문제    
-     while True:    
+        
         question2 = ("6.꿈에 조상님이 나와 숫자 5개를 불러주셨다.. 미쳐 하나를 듣지 못하고 깨버린 나, 그럴 때 나는?") #질문2
         ques2Answer = {
         "1" : "드디어 내게도 이런 날이?!! 당장 복권을 사러가서 듣지 못한 숫자는 모두 해본다.", 
@@ -200,29 +94,10 @@ def secondClass(sensIntu): # S/N 관련문항
 
         myAnswer2 = int(input("답변 : "))
 
-        #print(myAnswer2)
-        if myAnswer2 == 1:
-            result2 = result1 + 19
-            print(result2)
-            break
-        elif myAnswer2 == 2:
-            result2= result1  + 13
-            print(result2)
-            break
-        elif myAnswer2 == 3:
-            result2 = result1 + 10
-            print(result2)
-            break
-        elif myAnswer2 == 4:
-            result2 = result1 + 8
-            print(result2)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
+   
 
 #     #S/N 3번문제    
-     while True:    
+     
         question3 = ("7.학점이 걸린 조별과제, 그 속에 나는 어떤 자세로 임할까??") #질문2
         ques3Answer = {
         "1" : "과정이 어떻든, 학점만 A+이면 되는거야!", 
@@ -235,29 +110,10 @@ def secondClass(sensIntu): # S/N 관련문항
 
         myAnswer3 = int(input("답변 : "))
 
-        #print(myAnswer2)
-        if myAnswer3 == 1:
-            result3 = result2 -6
-            print(result3)
-            break
-        elif myAnswer3 == 2:
-            result3= result2 -12
-            print(result3)
-            break
-        elif myAnswer3 == 3:
-            result3 = result2 -14
-            print(result3)
-            break
-        elif myAnswer3 == 4:
-            result3 = result2 -18
-            print(result3)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
+
 
 #     #S/N 4번문제    
-     while True:    
+        
         question4 = ("8.우리 동네에서 범죄가 발생했다. 그 때 나의 생각 및 행동은?") #질문2
         ques4Answer = {
         "1" : "당장 도어락과 방범창을 달아야겠어! 범죄로부터 벗어나려 행동한다.", 
@@ -269,40 +125,12 @@ def secondClass(sensIntu): # S/N 관련문항
         print(ques4Answer)
 
         myAnswer4 = int(input("답변 : "))
-
-        #print(myAnswer2)
-        if myAnswer4 == 1:
-            result4 = result3 -5
-            print(result4)
-            break
-        elif myAnswer4 == 2:
-            result4= result3  -9
-            print(result4)
-            break
-        elif myAnswer4 == 3:
-            result4 = result3 -16
-            print(result4)
-            break
-        elif myAnswer4 == 4:
-            result4 = result3 -20
-            print(result4)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
-
-
-     if result4 > 50:
-        return "S", result4
-     else:
-        return "N", result4
-
 secondClass(sensIntu)
 
-# # ###########################################################################S/N
+
 
 def ThirdClass(thinkFeel): # T/F 관련문항
-      while True:
+     
 # #T/F 1번문제
         question1= ("9.직장 상사에게 엄청 혼난 친구, 그럴 때 나는?") #질문1
         ques1Answer = {
@@ -315,29 +143,8 @@ def ThirdClass(thinkFeel): # T/F 관련문항
         print(ques1Answer)
         myAnswer1 = int(input("답변 : "))
 
-        #print(myAnswer2)
-        if myAnswer1 == 1:
-            result1 = thinkFeel + 17
-            print(result1)
-            break
-        elif myAnswer1 == 2:
-            result1= thinkFeel + 15
-            print(result1)
-            break
-        elif myAnswer1 == 3:
-            result1= thinkFeel + 11
-            print(result1)
-            break
-        elif myAnswer1 == 4:
-            result1= thinkFeel + 7
-            print(result1)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
-
-
-      while True:
+       
+    
 #T/F 2번문제
         question2 = ("10.비 오는 날 여자친구와의 데이트중인 당신, 파전이 먹고싶다. 하지만, 여자친구는 아니라고 말하는데..그럴 때 당신은?") #질문1
         ques2Answer = {
@@ -350,28 +157,8 @@ def ThirdClass(thinkFeel): # T/F 관련문항
         print(ques2Answer)
         myAnswer2 = int(input("답변 : "))
 
-        #print(myAnswer2)
-        if myAnswer2 == 1:
-            result2 = result1 + 19
-            print(result2)
-            break
-        elif myAnswer2 == 2:
-            result2= result1 + 13
-            print(result2)
-            break
-        elif myAnswer2 == 3:
-            result2= result1 + 10
-            print(result2)
-            break
-        elif myAnswer2 == 4:
-            result2= result1 + 8
-            print(result2)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
 
-      while True:
+      
 #T/F 3번문제
         question3 = ("11.친구를 위해 3시간 동안 머핀을 만들어서 줬는데, 내가 먹어봐도 심각하게 달다. 친구가 나에게 해줬으면 하는 말은?") 
         ques3Answer = {
@@ -384,28 +171,7 @@ def ThirdClass(thinkFeel): # T/F 관련문항
         print(ques3Answer)
         myAnswer3 = int(input("답변 : "))
 
-        #print(myAnswer2)
-        if myAnswer3 == 1:
-            result3 = result2 -6
-            print(result3)
-            break
-        elif myAnswer3 == 2:
-            result3= result2 -12
-            print(result3)
-            break
-        elif myAnswer3 == 3:
-            result3= result2 -14
-            print(result3)
-            break
-        elif myAnswer3 == 4:
-            result3= result2 -18
-            print(result3)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
-
-      while True:
+      
 #T/F 4번문제
         question4 = ("12.친구가 시험을 망쳤다고 속상해 한다. 당신이 할 말은?") #질문1
         ques4Answer = {
@@ -417,43 +183,12 @@ def ThirdClass(thinkFeel): # T/F 관련문항
         print(question4)
         print(ques4Answer)
         myAnswer4 = int(input("답변 : "))
-
-        #print(myAnswer2)
-        if myAnswer4 == 1:
-            result4 = result3 - 20
-            print(result1)
-            break
-        elif myAnswer4 == 2:
-            result4= result3 - 16
-            print(result1)
-            break
-        elif myAnswer4 == 3:
-            result4= result3 - 9
-            print(result1)
-            break
-        elif myAnswer4 == 4:
-            result4 = result3 - 5
-            print(result1)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
-
-
-      if result4 > 50:
-        return "T", result4
-      else:
-        return "F", result4
-
 ThirdClass(thinkFeel)
 
 
-
-
-# # #########################################################################T/F
 def fourthClass(judgePerce): # J/P 관련문항
 
-     while True:
+     
 # #J/P 1번문제
         question1 = ("13.오랜시간 꺼진 핸드폰, 켜보니 수많은 카톡들이 쌓여있다. 이럴 때 나는?") #질문1
         ques1Answer = {
@@ -466,29 +201,9 @@ def fourthClass(judgePerce): # J/P 관련문항
         print(ques1Answer)
         myAnswer1 = int(input("답변 : "))
 
-        #print(myAnswer2)
-        if myAnswer1 == 1:
-            result1 = judgePerce + 17
-            print(result1)
-            break
-        elif myAnswer1 == 2:
-            result1= judgePerce + 15
-            print(result1)
-            break
-        elif myAnswer1 == 3:
-            result1= judgePerce +11
-            print(result1)
-            break
-        elif myAnswer1 == 4:
-            result1= judgePerce +7
-            print(result1)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
+       
 
 
-     while True:
 # #J/P 2번문제
         question2 = ("14.친구들과의 해외여행, 이럴 때 나의 역할은?") #질문1
         ques2Answer = {
@@ -501,29 +216,10 @@ def fourthClass(judgePerce): # J/P 관련문항
         print(ques2Answer)
         myAnswer2 = int(input("답변 : "))
 
-        #print(myAnswer2)
-        if myAnswer2 == 1:
-            result2 = result1 + 19
-            print(result2)
-            break
-        elif myAnswer2 == 2:
-            result2= result1 + 13
-            print(result2)
-            break
-        elif myAnswer2 == 3:
-            result2= result1 + 10
-            print(result2)
-            break
-        elif myAnswer2 == 4:
-            result2= result1 + 8
-            print(result2)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
+       
 
 
-     while True:
+     
 #J/P 3번문제
         question3 = ("15.오늘 하기로 한 공부를 다 못 끝낼 것 같다. 이럴때 나는?") 
         ques3Answer = {
@@ -536,30 +232,11 @@ def fourthClass(judgePerce): # J/P 관련문항
         print(ques3Answer)
         myAnswer3 = int(input("답변 : "))
 
-        #print(myAnswer2)
-        if myAnswer3 == 1:
-            result3 = result2 - 6
-            print(result3)
-            break
-        elif myAnswer3 == 2:
-            result3= result2 - 12
-            print(result3)
-            break
-        elif myAnswer3 == 3:
-            result3= result2 - 14
-            print(result3)
-            break
-        elif myAnswer3 == 4:
-            result3= result2 - 18
-            print(result3)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
+    
     
 
 
-     while True:
+  
 # #J/P 4번문제
         question4 = ("16.다이어리를 선물 받은나, 어떻게 활용할 것인가?") 
         ques4Answer = {
@@ -571,35 +248,377 @@ def fourthClass(judgePerce): # J/P 관련문항
         print(question4)
         print(ques4Answer)
         myAnswer4 = int(input("답변 : "))
-
-        #print(myAnswer2)
-        if myAnswer4 == 1:
-            result4 = result3 -5
-            print(result4)
-            break
-        elif myAnswer4 == 2:
-            result4= result3 -9
-            print(result4)
-            break
-        elif myAnswer4 == 3:
-            result4= result3 - 16
-            print(result4)
-            break
-        elif myAnswer4 == 4:
-            result4= result3 - 20
-            print(result4)
-            break
-        else:
-            print("잘못된 명령입니다. 다시 입력하세요.")
-            break
-
-
-
-     if result4 > 50:
-        return "J", result4
-     else:
-        return "P", result4
-
 fourthClass(judgePerce)
 
-# # #############################################################J/P
+
+
+
+extraIntro = 50       #외향/내향 초기 변수= 50 
+sensIntu = 50         #감각/직관 초기 변수 = 50
+thinkFeel = 50        #사고/감정 초기 변수 = 50
+judgePerce = 50       #판단/인식 초기 변수 = 50
+
+while(True):
+    #print(myAnswer2)
+    if myAnswer1 == 1:
+        result1 = extraIntro + 17
+        print(result1)
+    elif myAnswer1 == 2:
+        result1= extraIntro + 15
+        print(result1)
+    elif myAnswer1 == 3:
+        result1= extraIntro + 11
+        print(result1)
+    elif myAnswer1 == 4:
+        result1= extraIntro + 7
+        print(result1)
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+    #print(myAnswer2)
+    if myAnswer2 == 1:
+        result2 = result1 + 8
+        print(result2)
+    elif myAnswer2 == 2:
+        result2= result1 + 10 
+        print(result2)
+    elif myAnswer2 == 3:
+        result2 = result1 + 13
+        print(result2)
+    elif myAnswer2 == 4:
+        result2 = result1 + 19
+        print(result2)
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+
+     #print(myAnswer3)
+    if myAnswer3 == 1:
+        result3 = result2 - 12
+        print(result3)
+       
+    elif myAnswer3 == 2:
+        result3= result2 - 14
+        print(result3)
+       
+    elif myAnswer3 == 3:
+        result3 = result2 - 6
+        print(result3)
+        
+    elif myAnswer3 == 4:
+        result3 = result2 - 18
+        print(result3)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+
+        #print(myAnswer2)
+    if myAnswer4 == 1:
+        result4 = result3 -5
+        print(result4)
+     
+    elif myAnswer4 == 2:
+        result4 = result3 - 9
+        print(result4)
+        
+    elif myAnswer4 == 3:
+        result4 = result3 - 16
+        print(result4)
+       
+    elif myAnswer4 == 4:
+        result4 = result3 - 20
+        print(result4)
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+
+        #print(myAnswer2)
+    if myAnswer1 == 1:
+        result1 = sensIntu +  17
+        print(result1)
+        
+    elif myAnswer1 == 2:
+        result1= sensIntu +  15
+        print(result1)
+       
+    elif myAnswer1 == 3:
+        result1= sensIntu + 11   
+        print(result1)
+       
+    elif myAnswer1 == 4:
+        result1= sensIntu + 7
+        print(result1)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+
+    #print(myAnswer2)
+    if myAnswer2 == 1:
+        result2 = result1 + 19
+        print(result2)
+       
+    elif myAnswer2 == 2:
+        result2= result1  + 13
+        print(result2)
+        
+    elif myAnswer2 == 3:
+        result2 = result1 + 10
+        print(result2)
+        
+    elif myAnswer2 == 4:
+        result2 = result1 + 8
+        print(result2)
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+        #print(myAnswer2)
+    if myAnswer3 == 1:
+        result3 = result2 -6
+        print(result3)
+        
+    elif myAnswer3 == 2:
+        result3= result2 -12
+        print(result3)
+       
+    elif myAnswer3 == 3:
+        result3 = result2 -14
+        print(result3)
+        
+    elif myAnswer3 == 4:
+        result3 = result2 -18
+        print(result3)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+
+
+    #print(myAnswer2)
+    if myAnswer4 == 1:
+        result4 = result3 -5
+        print(result4)
+        
+    elif myAnswer4 == 2:
+        result4= result3  -9
+        print(result4)
+        
+    elif myAnswer4 == 3:
+        result4 = result3 -16
+        print(result4)
+       
+    elif myAnswer4 == 4:
+        result4 = result3 -20
+        print(result4)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+     
+
+
+
+    #print(myAnswer2)
+    if myAnswer1 == 1:
+        result1 = thinkFeel + 17
+        print(result1)
+        
+    elif myAnswer1 == 2:
+        result1= thinkFeel + 15
+        print(result1)
+       
+    elif myAnswer1 == 3:
+        result1= thinkFeel + 11
+        print(result1)
+        
+    elif myAnswer1 == 4:
+        result1= thinkFeel + 7
+        print(result1)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+
+
+
+
+    #print(myAnswer2)
+    if myAnswer2 == 1:
+        result2 = result1 + 19
+        print(result2)
+     
+    elif myAnswer2 == 2:
+        result2= result1 + 13
+        print(result2)
+        
+    elif myAnswer2 == 3:
+        result2= result1 + 10
+        print(result2)
+        
+    elif myAnswer2 == 4:
+        result2= result1 + 8
+        print(result2)
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+
+#print(myAnswer2)
+    if myAnswer3 == 1:
+        result3 = result2 -6
+        print(result3)
+        
+    elif myAnswer3 == 2:
+        result3= result2 -12
+        print(result3)
+     
+    elif myAnswer3 == 3:
+        result3= result2 -14
+        print(result3)
+      
+    elif myAnswer3 == 4:
+        result3= result2 -18
+        print(result3)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+      
+
+
+    #print(myAnswer2)
+    if myAnswer4 == 1:
+        result4 = result3 - 20
+        print(result1)
+       
+    elif myAnswer4 == 2:
+        result4= result3 - 16
+        print(result1)
+        
+    elif myAnswer4 == 3:
+        result4= result3 - 9
+        print(result1)
+        
+    elif myAnswer4 == 4:
+        result4 = result3 - 5
+        print(result1)
+       
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+ #print(myAnswer2)
+    if myAnswer1 == 1:
+        result1 = judgePerce + 17
+        print(result1)
+         
+    elif myAnswer1 == 2:
+        result1= judgePerce + 15
+        print(result1)
+          
+    elif myAnswer1 == 3:
+        result1= judgePerce +11
+        print(result1)
+           
+    elif myAnswer1 == 4:
+        result1= judgePerce +7
+        print(result1)
+           
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+        
+
+ #print(myAnswer2)
+    if myAnswer2 == 1:
+        result2 = result1 + 19
+        print(result2)
+       
+    elif myAnswer2 == 2:
+        result2= result1 + 13
+        print(result2)
+       
+    elif myAnswer2 == 3:
+        result2= result1 + 10
+        print(result2)
+       
+    elif myAnswer2 == 4:
+        result2= result1 + 8
+        print(result2)
+        
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+       
+
+    #print(myAnswer2)
+    if myAnswer3 == 1:
+        result3 = result2 - 6
+        print(result3)
+          
+    elif myAnswer3 == 2:
+        result3= result2 - 12
+        print(result3)
+         
+    elif myAnswer3 == 3:
+        result3= result2 - 14
+        print(result3)
+          
+    elif myAnswer3 == 4:
+        result3= result2 - 18
+        print(result3)
+         
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+            
+
+
+
+
+        #print(myAnswer2)
+    if myAnswer4 == 1:
+        result4 = result3 -5
+        print(result4)
+           
+    elif myAnswer4 == 2:
+        result4= result3 -9
+        print(result4)
+            
+    elif myAnswer4 == 3:
+        result4= result3 - 16
+        print(result4)
+         
+    elif myAnswer4 == 4:
+        result4= result3 - 20
+        print(result4)
+         
+    else:
+        print("잘못된 명령입니다. 다시 입력하세요.")
+         
+
+
+
+
+def bye():
+    if result4 > 50:
+        return "E", result4
+    else:
+        return "I", result4
+      
+    if result4 > 50:
+        return "S", result4
+    else:
+        return "N", result4
+   
+    if result4 > 50:
+        return "T", result4
+    else:
+        return "F", result4
+
+    if result4 > 50:
+        return "J", result4
+    else:
+        return "P", result4
+

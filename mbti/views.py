@@ -343,6 +343,18 @@ def q1(request):
 #Author : Jrespect.im
 #etc : -
 def question(request, num):
+    if request.method == 'POST':
+        uname = request.POST['uname']
+        gender = request.POST['gender']
+        pswd = request.POST['pswd']
+        mail = request.POST['mail']
+        newUser = inputClient(nickname=uname, gender=gender, password=pswd, email=mail)
+        newUser.save()
+    else :
+        extra_score = request.GET['q1-1']
+        resultScore = MbtiResult(extraScore=extra_score)
+        resultScore.save()    
+
     # HTML에서 선택한(입력된) 내용 받아오기
     q1_1 = request.GET.get('q1-1')
     q1_2 = request.GET.get('q1-2')
@@ -548,25 +560,27 @@ def signin(request):
 def makeNumber(): 
     _LENGTH = 6 #몇자리?
     stringPool = string.digits # "0123456789"
-    result = "" #결과값
+    certifiNum = "" #결과값
     for n in range(_LENGTH):
-        result += random.choice(stringPool)
-    return result
-
+        certifiNum += random.choice(stringPool)
+    return certifiNum
 #수신자메일 선택함수
-def toEmail():
-    sendEmail = inputClient.objects.filter(email)
-    for e in sendEmail:
-        pass
+# def toEmail():
+#     sendEmail = inputClient.objects.get(email=email)
+#     res = sendEmail.get()
+
+    #request 로 받아서 넣어주어야 한다.
+    
+        
 
 #메일발송 함수
-def sendMail(from_email, to_email, msg):
+def sendMail(from_email, to_email, certifiNum):
     smtp = smtplib.SMTP_SSL('smtp.gmail.com', 587)
     smtp.login(from_email, 'zpsdvcrzkzmmkmqr') 
-    msg = MIMEText(msg)
-    msg['Subject'] = '[인증번호]포켓몬으로 알아보는 성향검사결과 조회'
-    msg['To'] = to_email
-    smtp.sendmail(from_email, to_email, makeNumber())
+    certifiNum = MIMEText(certifiNum)
+    certifiNum['Subject'] = '[인증번호]포켓몬으로 알아보는 성향검사결과 조회'
+    certifiNum['To'] = to_email
+    smtp.sendmail(from_email, to_email, certifiNum.as_string())
     smtp.quit()
 #ajax 보낼수있게 
 
@@ -634,36 +648,36 @@ def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, 
 
     #print(myAnswer2)
     if int(q1_2) == 1:
-        extraIntro = extraIntro + 8
+        extraIntro = extraIntro + 18
     elif int(q1_2) == 2:
-        extraIntro= extraIntro + 10 
+        extraIntro= extraIntro + 14 
     elif int(q1_2) == 3:
-        extraIntro = extraIntro + 13
+        extraIntro = extraIntro + 12
     elif int(q1_2) == 4:
-        extraIntro = extraIntro + 19
+        extraIntro = extraIntro + 6
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
 
      #print(myAnswer3)
     if int(q2_1) == 1:
-        extraIntro = extraIntro - 12    
+        extraIntro = extraIntro - 5    
     elif int(q2_1) == 2:
-        extraIntro= extraIntro - 14   
+        extraIntro= extraIntro - 7   
     elif int(q2_1) == 3:
-        extraIntro = extraIntro - 6      
+        extraIntro = extraIntro - 13      
     elif int(q2_1) == 4:
-        extraIntro = extraIntro - 18   
+        extraIntro = extraIntro - 15   
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
          
     if int(q2_2) == 1:
-        extraIntro = extraIntro -5
+        extraIntro = extraIntro -3
     elif int(q2_2) == 2:
         extraIntro = extraIntro - 9
     elif int(q2_2) == 3:
-        extraIntro = extraIntro - 16
+        extraIntro = extraIntro - 11
     elif int(q2_2) == 4:
-        extraIntro = extraIntro - 20   
+        extraIntro = extraIntro - 17   
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
         
@@ -679,35 +693,35 @@ def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, 
         print("잘못된 명령입니다. 다시 입력하세요.")
 
     if  int(q3_2)== 1:
-        sensIntu = sensIntu + 19
+        sensIntu = sensIntu + 18
     elif  int(q3_2) == 2:
-        sensIntu= sensIntu  + 13
+        sensIntu= sensIntu  + 14
     elif  int(q3_2) == 3:
-        sensIntu = sensIntu + 10
+        sensIntu = sensIntu + 12
     elif  int(q3_2) == 4:
-        sensIntu = sensIntu + 8    
+        sensIntu = sensIntu + 6   
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
         
     if int(q4_1) == 1:
-        sensIntu = sensIntu -6
+        sensIntu = sensIntu -5
     elif int(q4_1) == 2:
-        sensIntu= sensIntu -12
+        sensIntu= sensIntu -7
     elif int(q4_1) == 3:
-        sensIntu = sensIntu -14     
+        sensIntu = sensIntu -13     
     elif int(q4_1) == 4:
-        sensIntu = sensIntu -18   
+        sensIntu = sensIntu -15   
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
  
     if int(q4_2) == 1:
-        sensIntu = sensIntu -5
+        sensIntu = sensIntu -3
     elif int(q4_2)== 2:
         sensIntu= sensIntu  -9   
     elif int(q4_2) == 3:
-        sensIntu = sensIntu -16  
+        sensIntu = sensIntu -11  
     elif int(q4_2) == 4:
-        sensIntu = sensIntu -20     
+        sensIntu = sensIntu -17     
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
     
@@ -723,35 +737,35 @@ def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, 
         print("잘못된 명령입니다. 다시 입력하세요.")
        
     if int(q5_2) == 1:
-        thinkFeel = thinkFeel + 19   
+        thinkFeel = thinkFeel + 18 
     elif int(q5_2) == 2:
-        thinkFeel = thinkFeel + 13     
+        thinkFeel = thinkFeel + 14     
     elif int(q5_2) == 3:
-        thinkFeel = thinkFeel + 10     
+        thinkFeel = thinkFeel + 12     
     elif int(q5_2) == 4:
-        thinkFeel= thinkFeel + 8
+        thinkFeel= thinkFeel + 6
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
        
     if int(q6_1) == 1:
-        thinkFeel = thinkFeel -6   
+        thinkFeel = thinkFeel -5
     elif int(q6_1) == 2:
-        thinkFeel= thinkFeel -12
+        thinkFeel= thinkFeel -7
     elif int(q6_1)== 3:
-        thinkFeel= thinkFeel -14     
+        thinkFeel= thinkFeel -13     
     elif int(q6_1) == 4:
-        thinkFeel= thinkFeel -18
+        thinkFeel= thinkFeel -15
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
       
     if int(q6_2)== 1:
-        thinkFeel = thinkFeel - 20
+        thinkFeel = thinkFeel - 3
     elif int(q6_2)== 2:
-        thinkFeel = thinkFeel - 16      
+        thinkFeel = thinkFeel - 9      
     elif int(q6_2) == 3:
-        thinkFeel = thinkFeel - 9
+        thinkFeel = thinkFeel - 11
     elif int(q6_2) == 4:
-        thinkFeel = thinkFeel - 5
+        thinkFeel = thinkFeel - 17
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
         
@@ -768,35 +782,35 @@ def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, 
         print("잘못된 명령입니다. 다시 입력하세요.")
         
     if int(q7_2)== 1:
-        judgePerce = judgePerce + 19
+        judgePerce = judgePerce + 18
     elif  int(q7_2)== 2:
-        judgePerce= judgePerce + 13
+        judgePerce= judgePerce + 14
     elif  int(q7_2)== 3:
-        judgePerce= judgePerce + 10
+        judgePerce= judgePerce + 12
     elif  int(q7_2)== 4:
-        judgePerce= judgePerce + 8
+        judgePerce= judgePerce + 6
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
 
     if int(q8_1)== 1:
-        judgePerce = judgePerce - 6
+        judgePerce = judgePerce - 5
     elif int(q8_1) == 2:
-        judgePerce = judgePerce - 12
+        judgePerce = judgePerce - 7
     elif int(q8_1) == 3:
-        judgePerce = judgePerce - 14
+        judgePerce = judgePerce - 13
     elif int(q8_1) == 4:
-        judgePerce = judgePerce - 18 
+        judgePerce = judgePerce - 15 
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
             
     if int(q8_2)== 1:
-        judgePerce = judgePerce -5        
+        judgePerce = judgePerce -3      
     elif int(q8_2)== 2:
         judgePerce= judgePerce -9          
     elif int(q8_2)== 3:
-        judgePerce= judgePerce - 16      
+        judgePerce= judgePerce - 11      
     elif int(q8_2)== 4:
-        judgePerce= judgePerce - 20  
+        judgePerce= judgePerce - 17  
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
 
@@ -827,7 +841,6 @@ def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, 
 
     return emotion
          
-
 
 
 
