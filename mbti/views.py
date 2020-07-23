@@ -553,9 +553,9 @@ def makeNumber():
         result += random.choice(stringPool)
     return result
 #수신자메일 선택함수
-def toEmail():
-    sendEmail = inputClient.objects.filter(email)
-    for e in sendEmail:
+#def toEmail():
+ #   sendEmail = inputClient.objects.filter(email)
+  #  for e in sendEmail:
 
 #메일발송 함수
 def sendMail(from_email, to_email, msg):
