@@ -243,43 +243,7 @@ image_name_set =[
 
                 ]
 
-    # #MBTI 검사 결과
-    # 0.ISTJ : 홍수몬
-    # 1.ISFJ : 망나뇽
-    # 2.INFJ : 메가후딘
-    # 3.INTJ : 엔테이
-    # 4.ISTP : 하랑우탄
-    # 5.ISFP : 메가파비코리
-    # 6.INFP : 뮤
-    # 7.INTP : 레어코일
-    # 8.ESTP : 닥트리오
-    # 9.ESFP : 피카츄
-    # 10.ENFP : 파이숭이
-    # 11.ENTP : 기기어르
-    # 12.ESTJ : 레파르다스
-    # 13.ESFJ : 해피너스
-    # 14.ENFJ : 로즈레이드
-    # 15.ENTJ : 메가거북왕
-
-# result_image_set = [
-#     '//w.namu.la/s/47a653a5c504a6b9d725ac3e51489243eb3bba42ce11591179c41b0878f8181d5c6713247c4338db364375985b9b87f053eaad86636329b184512dd974fbd4f0e6469d708510f341cf1d126baa2b90777aca62875eb1b0cbf4b483b3888df353',
-#     '//ww.namu.la/s/df6edc8811c2c89bb247600d7f4cfb308449c117f044d32f707e87f6fc382b68bab27c5b728d4e1dbf0d11209bf26d600efe524ad6f7001cb050e47ca6c0ab67eca62b0ccdc8e3c1d5af3c71ef105d711bd996632a8ef6d805b540df34e4a0df',
-#     '//w.namu.la/s/1868c23de2e1471f56762715d9fa569a0bced08223217bd96f9bb092a4529e99980727436b8d93a8592278b8d9749560be4e07c9a9895bd51ab59332421f0950848021afe466b9609e7df4dc485dded291c7b487558ef67cbfed5bd3d84c9cc9',
-#     '//ww.namu.la/s/7cd7e1057e89ed2ff501149b5699f38a2ebec4d3e4b82bd6f3f9d106cc6b3f5972dfc9a41a39b7378080d42bfab0341cb05e0089b02cf351a4895b7ff4aefc54979cd5cf0b1677651f7d6c5526cfa7f54b8c93704859175f38ffab2099ff5427',
-#     '//ww.namu.la/s/0b31eefd786f294fecd9015c8dfb25cd18e5fa06277f7102d09c013b617590502bfa1e0bcf9556108d15b4296fc1ebc713262ca929e52d7faa0b4983526ec6264a7f159ba6e9d6c2ae29207e6089afd1ce21bdcfbe2c387286c76ed99e13cfda',
-#     '//w.namu.la/s/748ac0d97c28b47c5a91e74c2199e12a68eee456b421d68a2d04673e52e20e007167808448818dafcd86b1fef5e1a0cf7ffb0b7aea18fb5a5d4e644c11fb62f0e1db2d686b23be6ee7b96abc2d1e5ae6cae0cfab14fa7b75ebe73b63d8efba4e',
-#     '//w.namu.la/s/5b11873a1fa4084a85b6df0a0147dc7e50cf8a5b5b4479dde7dbd1c9c24eb4d25eff1184724586131759c8181d6a38e5e010a106b714250e8261d976ce8e7514ec7c8784d0b0613df555696a5645e056d0a70914e402c6481b0cfd7290482724',
-#     '//w.namu.la/s/3f12fd1ce4a60fdb33bb40b0cf13be58514b3aed12bd110b5664d81d88e6a3a69ccd7fd43e03230d7b3cd088030ed27109fcc5841f43243025f9c7283e761a7787ba70c49d382695335901db7f20b73ed7f18762e77e90bd98af11fa741812d2',
-    
-#     '//w.namu.la/s/d950b7c9a6e86e12abb241b322ad57464affe42ab65b4e53ef5fa70b12bf29d65ef4dcddbb4e3f99eb24cc5e4fc08f1f2a247e96c6df9d322685e4cb0dbb3e027a7a6971a910376b4c6ef76a473e343eae5c4f045ff4d9ba74325960b5c2c237',
-#     '//ww.namu.la/s/db8a3870c415ce660d2f01b5c8e439ae855c363537939c7bcb821e7a94ab50d3b78666e1704e1b00d4c52409ee4323d18c42080ee19c1d533d6f795a830d438bd484e149073743e6efa291b7a65d87ec2b73ada70e2d65aff3dbb8299baf72bb',
-#     '//ww.namu.la/s/52be22a3ec6b7e4dcc1b050636f4eb4b346053c67bb7254d6e7c48ca620c337ae786cb561305ce64b5c9e739ddf63b370fbee6f19df74ec921c3e4af3f8804105ed10d4f40a6c71a05f266885f302b996184aabc492ed044ac422479f1343b7a',
-#     '//w.namu.la/s/a27ee68653db74ee5a64cf19366da16e655d82595b8f912d561225a9f4eeb664e94001b58e87f72172a5cbe8c1c4c1ff8adbc92a61be1137c32ff1d7290cc21e82ec100ff3985ef9587f4e23f7aeaa14a89abf05f480240db863a72e429f611f',
-#     '//w.namu.la/s/32ccd3e774deecbfcd3fae5721c3b7fdf46347dd2f680cd1ed39d16d9d8d1d7a5f400f477076f9470291f2e6bff7fc045e392692bf42de089c6d7df0f10167da2beba4129b0c0b27fed7257969d9dde311b1fbdb3b20ac5ecdaece5b82af21b9',
-#     '//w.namu.la/s/15f1a928fecfd11b743e042a3ab6b5ae23638740173718150e057eac0942bb679bf0aad87ea1f1d85a2e9d2a0c84a5d9c73543aa2f51b2902ab0f76b2f203864c1d96856f28ca712f5be9b20f1c6f85bd64484f03cddcf44f2f75cb12e489889',
-#     '//w.namu.la/s/9688537c22135f573b28c9a7e135edb92118ebf842b5b9b24f245130d70780b8305b88b782f78d60391ba23f1c2f809ff51d7c55c31fe5bf2a11b4334561ccc9867934cd8e65810be5ae0f259033893ec958903187a4e19d61afc7d872a9a064',
-#     '//ww.namu.la/s/67e13dca43c19f54d2bbed18041f257ea2a0aa126f48d1f973ce5cc9cd664c4991ee72c48f04d8bb47ae128701720b7f30c2ce6d40833adba5a48ed6bd3d1744495525c94a678c020999c8e5dbbd4debe6036f4865cf858281ca0d1cf609eece',
-# ]
+# #MBTI 검사 결과
 
 #0 ISTJ : 홍수몬
 #1 ISTP : 루카리오
@@ -306,7 +270,7 @@ result_image_set1 = [
     '//post-phinf.pstatic.net/MjAxODA5MTRfMjEz/MDAxNTM2ODg3NzM3MzAx.YLeRemJ8sX8VYMd8cNw5zbpkBxUMn6qPSlRBxMVssaEg.Ro3OwdOGTX6quxroguBIMkvloKgtGniqP9tHREvf3tsg.GIF/%EC%95%A4%ED%85%8C%EC%9D%B4.gif?type=w1200',
     '//postfiles.pstatic.net/MjAxODA5MjdfNDkg/MDAxNTM3OTc3MjYzMjIy.J1H5D1v8e2nXuyp__l_K79lSKQ0IEesZ3xFEpqqDKQ8g.DGFmZ6gF_6m2ewS53qZ5nzOA6yj6KrFOOgFzvDK49qMg.GIF.lcj1222/f92b9fa247937eadd4a3dea8656c5f3d33f7aed7_hq.gif?type=w966',
     '//upload2.inven.co.kr/upload/2017/08/17/bbs/i16690725871.gif',
-    '////t1.daumcdn.net/cfile/tistory/9942BC3C5ADC889403',
+    '//t1.daumcdn.net/cfile/tistory/9942BC3C5ADC889403',
 
     '//1.gall-gif.com/hygall/files/attach/images/82/754/913/187/9f633675734c20042e1a2cba5c27d260.gif',
     '//img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile2.uf.tistory.com%2Fimage%2F99078C395ADC88F00AA639',
@@ -316,6 +280,25 @@ result_image_set1 = [
     '//mblogthumb-phinf.pstatic.net/MjAxOTA4MjJfMjM0/MDAxNTY2NDY4MDk5MzU2.15E2JzL9RyWz3oA8tI1lRVhGW8DxXTbm6y_jJh-MnIgg.G8p5phrs2iOu93kRuFY4NXtgUuIdOe83HI0TAA1iv6Ig.GIF.lcj1222/tumblr_nuzeu64SbF1sr6y44o3_500.gif?type=w800',
     '//t1.daumcdn.net/cfile/tistory/992BB43C5AE797231A',
     '//mblogthumb-phinf.pstatic.net/MjAxODAzMDJfNjEg/MDAxNTE5OTc5NjIyNTc0.WBSXHZCqZmrNXLRcia_9zOnQztVpmkJfKimpW4m2MlMg.dEY1tOneJeSrNC4bqSqHVOm8Z3TVEVKll11PNiTc0skg.GIF.lcj1222/giphy_%2815%29.gif?type=w800',
+]
+result_text_set = [
+    '1000승을 목표로 달리는 홍수몬',
+    '뛰어난 적응력, 논리적으로 사고하는 루카리오',
+    '성실하고 온화한 망나뇽',
+    '나보다 남을 먼저 ! 메가파비코리',
+    '비전을 제시하여 나아가는 엔테이',
+    '남다른 시선과 아이디어를 가진 레어코일',
+    '모든 것을 꿰뚫어 보는 메가후딘',
+    '유토피아를 꿈꾸는 뮤',
+
+    '팩트 중심! 실용 중심! 사업가 샤미드',
+    '혼자보다 함께! 다양함을 선호하는 뽀뽀라',
+    '친절하고 봉사정신으로 똘똘뭉친 해피너스',
+    '누구와도 분위기를 고조시키는 인싸 피카츄',
+    '비전을 향해 동료에게 힘을 불어 넣는 메가거북왕',
+    '풍부한 상상력을 가지고 새로운 것을 창조하려는 기기어르',
+    '언변능숙! 서번트리더십을 가진 로즈레이드',
+    '항상 열정적으로 새로운 관계를 만드는 파이숭이',
 ]
 
 #Function : HTML Page의 url을 주고 html의 정보를 받아오는 함수
@@ -333,7 +316,16 @@ def get_html(url):
     return html
 
 
-def q1(request):        
+def q1(request):
+    if request.method == 'POST':
+        uname = request.POST['uname']
+        gender = request.POST['gender']
+        pswd = request.POST['pswd']
+        mail = request.POST['mail']
+        newUser = inputClient(nickname=uname, gender=gender, password=pswd, email=mail)
+        resultClient = MbtiResult(nickname=uname, password=pswd, email=mail)
+        newUser.save()
+        resultClient.save()
     total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
     total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
     page = 1
@@ -472,6 +464,7 @@ def question(request, num):
         print(myType)
         print(Type_hex)
         print(result_image_set1[Type_hex])
+        print(result_text_set[Type_hex])
 
     # 위의 값들을 HTML로 넘겨주기
     return render(request, page_url, 
@@ -497,7 +490,8 @@ def question(request, num):
             'index_return1' : total1[1],
             'index_return2' : total2[1],
             'test' : test,
-            'result_image' : result_image_set1[Type_hex]
+            'result_image' : result_image_set1[Type_hex],
+            'result_text' : result_text_set[Type_hex]
         } 
     )
 
@@ -593,9 +587,6 @@ def sendMail(from_email, to_email, certifiNum):
 # def Question(request):
 #     return render(request, 'mbti/q1.html')
 
-def q9(request):
-    return render(request, 'mbti/result.html')
-
 def info_inquiry(request):
     return render(request, 'mbti/info_inquiry.html')
 
@@ -637,7 +628,7 @@ def id_overlap_check(request):
 #etc : 노가다의 결정체
 def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, q7_1, q7_2, q8_1, q8_2):
 
-    extraIntro = 50       #외향/내향 초기 변수= 50 
+    extraIntro = 50       #외향/내향 초기 변수 = 50 
     sensIntu = 50         #감각/직관 초기 변수 = 50
     thinkFeel = 50        #사고/감정 초기 변수 = 50
     judgePerce = 50       #판단/인식 초기 변수 = 50
@@ -657,36 +648,36 @@ def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, 
 
     #print(myAnswer2)
     if int(q1_2) == 1:
-        extraIntro = extraIntro + 8
+        extraIntro = extraIntro + 18
     elif int(q1_2) == 2:
-        extraIntro= extraIntro + 10 
+        extraIntro= extraIntro + 14 
     elif int(q1_2) == 3:
-        extraIntro = extraIntro + 13
+        extraIntro = extraIntro + 12
     elif int(q1_2) == 4:
-        extraIntro = extraIntro + 19
+        extraIntro = extraIntro + 6
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
 
      #print(myAnswer3)
     if int(q2_1) == 1:
-        extraIntro = extraIntro - 12    
+        extraIntro = extraIntro - 5    
     elif int(q2_1) == 2:
-        extraIntro= extraIntro - 14   
+        extraIntro= extraIntro - 7   
     elif int(q2_1) == 3:
-        extraIntro = extraIntro - 6      
+        extraIntro = extraIntro - 13      
     elif int(q2_1) == 4:
-        extraIntro = extraIntro - 18   
+        extraIntro = extraIntro - 15   
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
          
     if int(q2_2) == 1:
-        extraIntro = extraIntro -5
+        extraIntro = extraIntro -3
     elif int(q2_2) == 2:
         extraIntro = extraIntro - 9
     elif int(q2_2) == 3:
-        extraIntro = extraIntro - 16
+        extraIntro = extraIntro - 11
     elif int(q2_2) == 4:
-        extraIntro = extraIntro - 20   
+        extraIntro = extraIntro - 17   
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
         
@@ -702,35 +693,35 @@ def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, 
         print("잘못된 명령입니다. 다시 입력하세요.")
 
     if  int(q3_2)== 1:
-        sensIntu = sensIntu + 19
+        sensIntu = sensIntu + 18
     elif  int(q3_2) == 2:
-        sensIntu= sensIntu  + 13
+        sensIntu= sensIntu  + 14
     elif  int(q3_2) == 3:
-        sensIntu = sensIntu + 10
+        sensIntu = sensIntu + 12
     elif  int(q3_2) == 4:
-        sensIntu = sensIntu + 8    
+        sensIntu = sensIntu + 6   
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
         
     if int(q4_1) == 1:
-        sensIntu = sensIntu -6
+        sensIntu = sensIntu -5
     elif int(q4_1) == 2:
-        sensIntu= sensIntu -12
+        sensIntu= sensIntu -7
     elif int(q4_1) == 3:
-        sensIntu = sensIntu -14     
+        sensIntu = sensIntu -13     
     elif int(q4_1) == 4:
-        sensIntu = sensIntu -18   
+        sensIntu = sensIntu -15   
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
  
     if int(q4_2) == 1:
-        sensIntu = sensIntu -5
+        sensIntu = sensIntu -3
     elif int(q4_2)== 2:
         sensIntu= sensIntu  -9   
     elif int(q4_2) == 3:
-        sensIntu = sensIntu -16  
+        sensIntu = sensIntu -11  
     elif int(q4_2) == 4:
-        sensIntu = sensIntu -20     
+        sensIntu = sensIntu -17     
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
     
@@ -746,35 +737,35 @@ def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, 
         print("잘못된 명령입니다. 다시 입력하세요.")
        
     if int(q5_2) == 1:
-        thinkFeel = thinkFeel + 19   
+        thinkFeel = thinkFeel + 18 
     elif int(q5_2) == 2:
-        thinkFeel = thinkFeel + 13     
+        thinkFeel = thinkFeel + 14     
     elif int(q5_2) == 3:
-        thinkFeel = thinkFeel + 10     
+        thinkFeel = thinkFeel + 12     
     elif int(q5_2) == 4:
-        thinkFeel= thinkFeel + 8
+        thinkFeel= thinkFeel + 6
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
        
     if int(q6_1) == 1:
-        thinkFeel = thinkFeel -6   
+        thinkFeel = thinkFeel -5
     elif int(q6_1) == 2:
-        thinkFeel= thinkFeel -12
+        thinkFeel= thinkFeel -7
     elif int(q6_1)== 3:
-        thinkFeel= thinkFeel -14     
+        thinkFeel= thinkFeel -13     
     elif int(q6_1) == 4:
-        thinkFeel= thinkFeel -18
+        thinkFeel= thinkFeel -15
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
       
     if int(q6_2)== 1:
-        thinkFeel = thinkFeel - 20
+        thinkFeel = thinkFeel - 3
     elif int(q6_2)== 2:
-        thinkFeel = thinkFeel - 16      
+        thinkFeel = thinkFeel - 9      
     elif int(q6_2) == 3:
-        thinkFeel = thinkFeel - 9
+        thinkFeel = thinkFeel - 11
     elif int(q6_2) == 4:
-        thinkFeel = thinkFeel - 5
+        thinkFeel = thinkFeel - 17
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
         
@@ -791,35 +782,35 @@ def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, 
         print("잘못된 명령입니다. 다시 입력하세요.")
         
     if int(q7_2)== 1:
-        judgePerce = judgePerce + 19
+        judgePerce = judgePerce + 18
     elif  int(q7_2)== 2:
-        judgePerce= judgePerce + 13
+        judgePerce= judgePerce + 14
     elif  int(q7_2)== 3:
-        judgePerce= judgePerce + 10
+        judgePerce= judgePerce + 12
     elif  int(q7_2)== 4:
-        judgePerce= judgePerce + 8
+        judgePerce= judgePerce + 6
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
 
     if int(q8_1)== 1:
-        judgePerce = judgePerce - 6
+        judgePerce = judgePerce - 5
     elif int(q8_1) == 2:
-        judgePerce = judgePerce - 12
+        judgePerce = judgePerce - 7
     elif int(q8_1) == 3:
-        judgePerce = judgePerce - 14
+        judgePerce = judgePerce - 13
     elif int(q8_1) == 4:
-        judgePerce = judgePerce - 18 
+        judgePerce = judgePerce - 15 
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
             
     if int(q8_2)== 1:
-        judgePerce = judgePerce -5        
+        judgePerce = judgePerce -3      
     elif int(q8_2)== 2:
         judgePerce= judgePerce -9          
     elif int(q8_2)== 3:
-        judgePerce= judgePerce - 16      
+        judgePerce= judgePerce - 11      
     elif int(q8_2)== 4:
-        judgePerce= judgePerce - 20  
+        judgePerce= judgePerce - 17  
     else:
         print("잘못된 명령입니다. 다시 입력하세요.")
 
@@ -850,7 +841,6 @@ def cal(q1_1, q1_2, q2_1, q2_2, q3_1, q3_2, q4_1, q4_2, q5_1, q5_2, q6_1, q6_2, 
 
     return emotion
          
-
 
 
 
