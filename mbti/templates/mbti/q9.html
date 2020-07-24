@@ -17,11 +17,11 @@
     height: 100%;
     }
     .bg-img {
-	 position: absolute;
-	 width: 100%;
-	 height: 100%;
-	 background: url('http://unsplash.it/1200x800') center center no-repeat;
-	 background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('http://unsplash.it/1200x800') center center no-repeat;
+    background-size: cover;
 }
  .bg-img:before {
     content: '';
@@ -34,7 +34,7 @@
     opacity: 0.6;
 }
 </style>
-<body style = 'position : absolute'>
+<body style = 'position : relative'>
     
     <form>
     <input type="hidden" name="q1-1" value="{{q1_1}}">
@@ -53,20 +53,23 @@
     <input type="hidden" name="q7-2" value="{{q7_2}}">
     <input type="hidden" name="q8-1" value="{{q8_1}}">
     <input type="hidden" name="q8-2" value="{{q8_2}}">
+    <input type="hidden" name="uname" value="{{uname}}">
+    <input type="hidden" name="password" value="{{password}}">
+    <input type="hidden" name="email" value="{{email}}">
     </form>
 
 
     <div class="bg-img" >
-        <h1 style="position :absolute; left : 325px;top : 50px ; font-weight: bold; font-family: 'Arial' ; font-size :xxx-large" >나와 닮은 포켓몬은 ?</h1>
+        <h1 style="position :relative; left : 325px;top : 50px ; font-weight: bold; font-family: 'Arial' ; font-size :xxx-large" >나와 닮은 포켓몬은 ?</h1>
 
         <img src = 'https:{{result_image}}' style = 'font-family: "Arial"; width: 400px; height:300px; opacity : 1 ; position :absolute; left : 350px; top : 120px;'>  <!--크롤링-->
         
-        <div style ='box-shadow : 1px 1px 3px black ;font-family:"Verdana"; opacity : 0.99; position :absolute; left : 345px; top : 440px; font-size: 22px; '>{{result_text}}</div>
+        <div style ='box-shadow : 1px 1px 3px black ;font-family:"Verdana"; opacity : 0.99; position :relative; left : 350px; top : 360px; font-size: 22px; width : 400px'>{{result_text}}</div>
 
         <div class="container" style="border: 10px solid gold ; text-align: center; opacity : 0.9 ; position: absolute; left: 350px; top: 500px; width : 980px;">
             <h2>MBTI 결과 그래프</h2>
             
-            <div class="progress progress1" id="progress1" >
+            <div class="progress progress1" id="progress1" style = 'margin-top : 15px ;height : 20px' >
                 <div class="progress-bar bg-E" style="width:{{test.2}}% ; background-color: #ff7301c0 ;">
                     I(내향) : {{test.2}}
                 </div>
@@ -75,7 +78,7 @@
                 </div>
             </div>
             
-            <div class="progress" style = 'margin-top : 15px'>
+            <div class="progress" style = 'margin-top : 15px ;height : 20px'>
                 <div class="progress-bar bg-S" style="width:{{test.5}}%  ; background-color: #39e922b9 ;" >
                     N(직관) : {{test.5}}
                 </div>
@@ -93,7 +96,7 @@
                 </div>
             </div>
             
-            <div class="progress" style = 'margin-top : 15px ; margin-bottom: 15px;' >
+            <div class="progress" style = 'margin-top : 15px ; margin-bottom: 15px; height : 20px' >
                 <div class="progress-bar bg-J" style="width:{{test.11}}% ;background-color: red ;">
                     P(인식) : {{test.11}}
                 </div>
@@ -116,7 +119,7 @@
                     <b>{{result_text3}}</b> 
                 </div>
             </div>
-          </div>
+        </div>
     </div>
 
     

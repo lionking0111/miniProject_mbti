@@ -86,7 +86,7 @@ function id_overlap_check(){
         
         <div class="form-group">
             <label for="pwd" style=" margin-left: 37px; margin-top : 30px;"><b>비밀번호</b>:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required style = 'width : 500px;  margin-top : 30px;'>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required style = 'width : 500px;  margin-top : 30px;'>
             <h6 style='font-weight: bold; color: red;' >**패스워드는 숫자로만 입력해주세용~ 무시할 경우, 에러가 납니당~ ㅋㅋ</h6>
         </div>
 
@@ -94,10 +94,7 @@ function id_overlap_check(){
         
         <div class="form-group">
             <label for="email" style=" margin-left: 50px; margin-top : 20px;"><b>이메일</b>:</label>
-            <input type="email" class="username_input" name = 'mail' id="email" check_result = 'fail' placeholder="Enter email" required style = 'width : 500px;  margin-top : 10px;'>
-            <button type="button" class="id_overlap_button" id = 'btn1' position : fixed onclick = 'id_overlap_check()'
-            onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
-            style='margin-top : 10px ; display : flex ; justify-content: center; align-items: ; height: 20px;  width: 70px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 12px; cursor: pointer;  '>중복조회</button>
+            <input type="email" class="username_input" name = 'email' id="email" check_result = 'fail' placeholder="Enter email" required style = 'width : 500px;  margin-top : 10px;'>
             <img id = 'id_check_success' style = 'display : none;'>
 
             <div class="invalid-feedback" style="margin-top : 20px; ">추후 조회를 희망하신다면, <b>'필수'</b>작성해주세요.</div>
@@ -114,7 +111,7 @@ function id_overlap_check(){
         </div>
         <button type="submit" class="btn-btn-primary" id = 'btn2' position : fixed
             onmouseover = 'this.style.backgroundColor ="Goldenrod"' onmouseout = 'this.style.backgroundColor = "#FF026C"'
-            style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  margin-left: 725px; '>
+            style='margin-top : 30px ; display : flex ; justify-content: center; align-items: center; height: 60px; border-radius: 30px; width: 100px; max-width: 300px; background-color: #FF026C; font-weight: bold; color: white; font-size: 15px; cursor: pointer;  '>
             제출
         </button>
       </form>

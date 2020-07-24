@@ -13,7 +13,11 @@ import random
 page = 7    #질문페이지 번호
 image_name_set_1 = []
 page_url = 'mbti/q1.html' #질문페이지를 띄워줄 HTML URL 저장용 변수
- 
+name_t=""
+gender_t=""
+password_t=""
+email_t=""
+
     #포켓몬 크롤링 URL
 
     # E vs I
@@ -377,47 +381,29 @@ def get_html(url):
         html = res.text    
     return html
 
-
-def q1(request):
-    if request.method == 'POST':
-        uname = request.POST['uname']
-        gender = request.POST['gender']
-        pswd = request.POST['pswd']
-        mail = request.POST['mail']
-        newUser = inputClient(nickname=uname, gender=gender, password=pswd, email=mail)
-        resultClient = MbtiResult(nickname=uname, password=pswd, email=mail)
-        newUser.save()
-        resultClient.save()
-    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
-    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
-    page = 1
-    for j in range(len(image_name_set)):
-        if(j < 4):
-            total1.append(image_name_set[page-1][j])
-        else:
-            total2.append(image_name_set[page-1][j])
-    return render(request, page_url, {'total1' : total1, 'total2' : total2})
-
 #Function : 질문 Page를 순서대로 처리해주는 함수
 #Input : num(page번호)
 #Return : q1~q8 : 질문을 선택한 값, total : 이미지url, index_return : 이미지별 index, test : 검사종류결과
 #Data : 2020.07.20
 #Author : Jrespect.im
+#Modify : 현석이형 DB추가 + 결과 텍스트 추가 리턴(200723)
 #etc : -
 def question(request, num):
+
     if request.method == 'POST':
-        uname = request.POST['uname']
-        gender = request.POST['gender']
-        pswd = request.POST['pswd']
-        mail = request.POST['mail']
-        newUser = inputClient(nickname=uname, gender=gender, password=pswd, email=mail)
+        uname = request.POST.get('uname')
+        gender = request.POST.get('gender')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+        newUser = inputClient(nickname=uname, gender=gender, password=password, email=email)
         newUser.save()
-    else :
-        extra_score = request.GET['q1-1']
-        resultScore = MbtiResult(extraScore=extra_score)
-        resultScore.save()    
 
     # HTML에서 선택한(입력된) 내용 받아오기
+    if(num > 1): 
+        uname = request.GET.get('uname')
+        password = request.GET.get('password')
+        email = request.GET.get('email')
+
     q1_1 = request.GET.get('q1-1')
     q1_2 = request.GET.get('q1-2')
     q2_1 = request.GET.get('q2-1')
@@ -458,6 +444,24 @@ def question(request, num):
     else:
         test += cal(q1_1,q1_2,q2_1,q2_2,q3_1,q3_2,q4_1,q4_2,q5_1,q5_2,q6_1, q6_2, q7_1, q7_2, q8_1, q8_2) 
         
+        extra_score = test[1]
+        intro_score = test[2]
+        sense_score = test[4]
+        intui_score = test[5]
+        think_score = test[7]
+        feel_score = test[8]
+        judge_score = test[10]
+        percei_score = test[11]
+        
+        resultScore = MbtiResult(
+        nickname=uname, password=password, email=email,
+        extraScore=extra_score, introScore=intro_score, 
+        senseScore=sense_score, intuiScore=intui_score, 
+        thinkScore=think_score, feelScore=feel_score, 
+        judgeScore=judge_score, perceiScore=percei_score)
+
+        resultScore.save()
+
         for i in range(len(test)):
             if((i % 3) == 0):
                 myType += test[i]
@@ -527,10 +531,14 @@ def question(request, num):
         print(Type_hex)
         print(result_image_set1[Type_hex])
         print(result_text_set[Type_hex])
+        print(result_text_set[Type_hex])
 
     # 위의 값들을 HTML로 넘겨주기
     return render(request, page_url, 
         { 
+            'uname' : uname,
+            'password' : password ,
+            'email' : email,
             'q1_1': q1_1,
             'q1_2': q1_2,
             'q2_1': q2_1,
@@ -647,17 +655,108 @@ def sendMail(from_email, to_email, certifiNum):
     certifiNum['To'] = to_email
     smtp.sendmail(from_email, to_email, certifiNum.as_string())
     smtp.quit()
+
 #ajax 보낼수있게 
 
 # def Question(request):
 #     return render(request, 'mbti/q1.html')
 
-def info_inquiry(request):
+def info_inquiry(request):     
     return render(request, 'mbti/info_inquiry.html')
 
 #조회화면 후 조회결과 다음 화면 테스트함수
 def searchTest(request):
-    return render(request, 'mbti/searchTest.html')
+    
+
+    if request.method == 'POST':
+        uname = request.POST.get('uname')
+        password = request.POST.get('pwd')
+        email = request.POST.get('email')
+        db_Email = MbtiResult.objects.get(email=email)
+        extraScore = db_Email.extraScore
+        introScore = db_Email.introScore
+        senseScore = db_Email.senseScore
+        intuiScore = db_Email.intuiScore
+        thinkScore = db_Email.thinkScore
+        feelScore = db_Email.feelScore
+        judgeScore = db_Email.judgeScore
+        perceiScore = db_Email.perceiScore
+
+    search_result=0
+
+    if extraScore > 50:
+        if senseScore > 50:
+            if thinkScore > 50:
+                if judgeScore > 50:
+                    search_result = 8
+                else:
+                    search_result = 9
+            else:
+                if judgeScore > 50:
+                    search_result = 10
+                else:
+                    search_result = 11
+
+        else :
+            if thinkScore > 50:
+                if judgeScore > 50:
+                    search_result = 12
+                
+                else:
+                    search_result = 13
+
+            else:
+                if judgeScore > 50:
+                    search_result = 14
+                
+                else:  
+                    search_result = 15
+    else:
+        if senseScore > 50:
+            if thinkScore > 50:
+                if judgeScore > 50:
+                    search_result = 0
+                else:
+                    search_result = 1
+            else:
+                if judgeScore > 50:
+                    search_result = 2
+                else:
+                    search_result = 3
+        else :
+            if thinkScore > 50:
+                if judgeScore > 50:
+                    search_result = 4
+                    
+                else:
+                    search_result = 5
+                        
+            else:
+                if judgeScore > 50:
+
+                    search_result = 6  
+                    
+                else:
+                    search_result = 7
+
+    print(extraScore, perceiScore)
+    return render(request, 'mbti/searchTest.html',
+    {
+            'extraScore' : extraScore,
+            'introScore' : introScore,
+            'senseScore' : senseScore,
+            'intuiScore' : intuiScore,
+            'thinkScore' : thinkScore,
+            'feelScore' : feelScore,
+            'judgeScore' : judgeScore,
+            'perceiScore' : perceiScore,
+            'result_image' : result_image_set1[search_result],
+            'result_text' : result_text_set[search_result],
+            'result_text1' : result_text_set1[search_result],
+            'result_text2' : result_text_set2[search_result],
+            'result_text3' : result_text_set3[search_result]
+    }
+    )
 
 # DB보기 함수
 def showResult(request):
