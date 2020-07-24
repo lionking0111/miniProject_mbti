@@ -53,6 +53,9 @@
     <input type="hidden" name="q7-2" value="{{q7_2}}">
     <input type="hidden" name="q8-1" value="{{q8_1}}">
     <input type="hidden" name="q8-2" value="{{q8_2}}">
+    <input type="hidden" name="uname" value="{{uname}}">
+    <input type="hidden" name="password" value="{{password}}">
+    <input type="hidden" name="email" value="{{email}}">
     </form>
 
 
@@ -66,7 +69,7 @@
         <div class="container" style="border: 10px solid gold ; text-align: center; opacity : 0.9 ; position: absolute; left: 350px; top: 500px; width : 800px;">
             <h2>MBTI 결과 그래프</h2>
             
-            <div class="progress progress1" id="progress1" >
+            <div class="progress progress1" id="progress1" style = 'margin-top : 15px ;height : 20px' >
                 <div class="progress-bar bg-E" style="width:{{test.2}}% ; background-color: #ff7301c0 ;">
                     I(내향) : {{test.2}}
                 </div>
@@ -75,7 +78,7 @@
                 </div>
             </div>
             
-            <div class="progress" style = 'margin-top : 15px'>
+            <div class="progress" style = 'margin-top : 15px ;height : 20px'>
                 <div class="progress-bar bg-S" style="width:{{test.5}}%  ; background-color: #39e922b9 ;" >
                     N(직관) : {{test.5}}
                 </div>
@@ -93,7 +96,7 @@
                 </div>
             </div>
             
-            <div class="progress" style = 'margin-top : 15px ; margin-bottom: 15px;' >
+            <div class="progress" style = 'margin-top : 15px ; margin-bottom: 15px; height : 20px' >
                 <div class="progress-bar bg-J" style="width:{{test.11}}% ;background-color: red ;">
                     P(인식) : {{test.11}}
                 </div>
@@ -106,18 +109,13 @@
         <div class="container">
             <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo" style="opacity : 0.99; position :absolute ; top :60px ; left : 860px">결과 상세보기</button>
             <div id="demo" class="collapse" style="opacity : 0.99; position :absolute ; top :120px ; left : 750px">
-                <b>특징</b> : 이 성격 유형은 행동과 사고가 독창적입니다. 비전과 신념이 강해 독립적이고 단호하며 고집이 셉니다. 
-                자신의 영감과 목적을 실현하려는 의지와 결단력이 강하여 직감과 통찰이 요구되는 일에서 능력을 발휘합니다. 
-                복잡한 문제를 다루기를 좋아하며, 자기가 관심을 가진 일이라면 조직력을 발휘하여 추진하는 힘이 있습니다. 
-                
-                <p></p>
-                <b>대인 관계</b> : 다른 사람의 말에 별로 영향을 받지 않습니다. 특정한 대상에게 쏟는 정이 유별나지만 나머지에게는 냉랭합니다.<br> 
-                정서표현하는 것을 어려워하고, 자신이 관심이 있는 사람들로부터 거부당했을 때 가장 과민한 반응을 보입니다.<br>
-                독립하려는 욕구가 가장 강하고 사생활을 보장받고자 하는 욕구도 강합니다.
-                <p></p>
-                <b>주의할점</b> : 조금도 양보가 없어 남들이 그에게 접근하거나 도전하기를 두려워합니다. 타인의 의견에 경청하고 인간적인 면을 살필 <br>
-                줄 알아야 합니다. 남을 인정하는 법을 배우고 비현실적 생각은 버릴 줄 알아야 합니다. 자신의 생각과 행동이 타인에게 미칠 영향도 고려해야 합니다. 
-                다른 사람의 제안을 받아들이는 것을 배울 필요가 있습니다.
+                    <b>{{result_text1}}</b>
+
+                    <p></p>
+                    <b>{{result_text2}}</b>
+
+                    <p></p>
+                    <b>{{result_text3}}</b>
             </div>
           </div>
     </div>

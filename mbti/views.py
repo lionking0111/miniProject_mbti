@@ -13,7 +13,11 @@ import random
 page = 7    #질문페이지 번호
 image_name_set_1 = []
 page_url = 'mbti/q1.html' #질문페이지를 띄워줄 HTML URL 저장용 변수
- 
+name_t=""
+gender_t=""
+password_t=""
+email_t=""
+
     #포켓몬 크롤링 URL
 
     # E vs I
@@ -301,6 +305,68 @@ result_text_set = [
     '항상 열정적으로 새로운 관계를 만드는 파이숭이',
 ]
 
+result_text_set1 = [
+    '특징 : 이 성격 유형은 행동과 사고가 독창적입니다. 비전과 신념이 강해 독립적이고 단호하며 고집이 셉니다. 자신의 영감과 목적을 실현하려는 의지와 결단력이 강하여 직감과 통찰이 요구되는 일에서 능력을 발휘합니다. 복잡한 문제를 다루기를 좋아하며, 자기가 관심을 가진 일이라면 조직력을 발휘하여 추진하는 힘이 있습니다.  <p></p><b>대인 관계</b> : 다른 사람의 말에 별로 영향을 받지 않습니다. 특정한 대상에게 쏟는 정이 유별나지만 나머지에게는 냉랭합니다.<br> 정서표현하는 것을 어려워하고, 자신이 관심이 있는 사람들로부터 거부당했을 때 가장 과민한 반응을 보입니다.<br>독립하려는 욕구가 가장 강하고 사생활을 보장받고자 하는 욕구도 강합니다.<p></p> <b>주의할점</b> : 조금도 양보가 없어 남들이 그에게 접근하거나 도전하기를 두려워합니다. 타인의 의견에 경청하고 인간적인 면을 살필 <br>줄 알아야 합니다. 남을 인정하는 법을 배우고 비현실적 생각은 버릴 줄 알아야 합니다. 자신의 생각과 행동이 타인에게 미칠 영향도 고려해야 합니다. 다른 사람의 제안을 받아들이는 것을 배울 필요가 있습니다.',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+
+    '특징 : 이 성격 유형은 행동과 사고가 독창적입니다. 비전과 신념이 강해 독립적이고 단호하며 고집이 셉니다. 자신의 영감과 목적을 실현하려는 의지와 결단력이 강하여 직감과 통찰이 요구되는 일에서 능력을 발휘합니다. 복잡한 문제를 다루기를 좋아하며, 자기가 관심을 가진 일이라면 조직력을 발휘하여 추진하는 힘이 있습니다. ',
+
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',    
+    '15',
+]
+
+result_text_set2 = [
+    '특징 : 이 성격 유형은 행동과 사고가 독창적입니다. 비전과 신념이 강해 독립적이고 단호하며 고집이 셉니다. 자신의 영감과 목적을 실현하려는 의지와 결단력이 강하여 직감과 통찰이 요구되는 일에서 능력을 발휘합니다. 복잡한 문제를 다루기를 좋아하며, 자기가 관심을 가진 일이라면 조직력을 발휘하여 추진하는 힘이 있습니다.  <p></p><b>대인 관계</b> : 다른 사람의 말에 별로 영향을 받지 않습니다. 특정한 대상에게 쏟는 정이 유별나지만 나머지에게는 냉랭합니다.<br> 정서표현하는 것을 어려워하고, 자신이 관심이 있는 사람들로부터 거부당했을 때 가장 과민한 반응을 보입니다.<br>독립하려는 욕구가 가장 강하고 사생활을 보장받고자 하는 욕구도 강합니다.<p></p> <b>주의할점</b> : 조금도 양보가 없어 남들이 그에게 접근하거나 도전하기를 두려워합니다. 타인의 의견에 경청하고 인간적인 면을 살필 <br>줄 알아야 합니다. 남을 인정하는 법을 배우고 비현실적 생각은 버릴 줄 알아야 합니다. 자신의 생각과 행동이 타인에게 미칠 영향도 고려해야 합니다. 다른 사람의 제안을 받아들이는 것을 배울 필요가 있습니다.',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+
+    '대인 관계 : 다른 사람의 말에 별로 영향을 받지 않습니다. 특정한 대상에게 쏟는 정이 유별나지만 나머지에게는 냉랭합니다. 정서표현하는 것을 어려워하고, 자신이 관심이 있는 사람들로부터 거부당했을 때 가장 과민한 반응을 보입니다.독립하려는 욕구가 가장 강하고 사생활을 보장받고자 하는 욕구도 강합니다.',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',    
+    '15',
+]
+
+result_text_set3 = [
+    '주의할점 : 조금도 양보가 없어 남들이 그에게 접근하거나 도전하기를 두려워합니다. 타인의 의견에 경청하고 인간적인 면을 살필줄 알아야 합니다. 남을 인정하는 법을 배우고 비현실적 생각은 버릴 줄 알아야 합니다. 자신의 생각과 행동이 타인에게 미칠 영향도 고려해야 합니다. 다른 사람의 제안을 받아들이는 것을 배울 필요가 있습니다.',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+
+    '주의할점 : 조금도 양보가 없어 남들이 그에게 접근하거나 도전하기를 두려워합니다. 타인의 의견에 경청하고 인간적인 면을 살필줄 알아야 합니다. 남을 인정하는 법을 배우고 비현실적 생각은 버릴 줄 알아야 합니다. 자신의 생각과 행동이 타인에게 미칠 영향도 고려해야 합니다. 다른 사람의 제안을 받아들이는 것을 배울 필요가 있습니다.',
+
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',    
+    '15',
+]
+
 #Function : HTML Page의 url을 주고 html의 정보를 받아오는 함수
 #Input : url
 #Return : html
@@ -341,21 +407,24 @@ def q1(request):
 #Return : q1~q8 : 질문을 선택한 값, total : 이미지url, index_return : 이미지별 index, test : 검사종류결과
 #Data : 2020.07.20
 #Author : Jrespect.im
+#Modify : 현석이형 DB추가 + 결과 텍스트 추가 리턴(200723)
 #etc : -
 def question(request, num):
+
     if request.method == 'POST':
-        uname = request.POST['uname']
-        gender = request.POST['gender']
-        pswd = request.POST['pswd']
-        mail = request.POST['mail']
-        newUser = inputClient(nickname=uname, gender=gender, password=pswd, email=mail)
+        uname = request.POST.get('uname')
+        gender = request.POST.get('gender')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+        newUser = inputClient(nickname=uname, gender=gender, password=password, email=email)
         newUser.save()
-    else :
-        extra_score = request.GET['q1-1']
-        resultScore = MbtiResult(extraScore=extra_score)
-        resultScore.save()    
 
     # HTML에서 선택한(입력된) 내용 받아오기
+    if(num > 1): 
+        uname = request.GET.get('uname')
+        password = request.GET.get('password')
+        email = request.GET.get('email')
+
     q1_1 = request.GET.get('q1-1')
     q1_2 = request.GET.get('q1-2')
     q2_1 = request.GET.get('q2-1')
@@ -396,6 +465,24 @@ def question(request, num):
     else:
         test += cal(q1_1,q1_2,q2_1,q2_2,q3_1,q3_2,q4_1,q4_2,q5_1,q5_2,q6_1, q6_2, q7_1, q7_2, q8_1, q8_2) 
         
+        extra_score = test[1]
+        intro_score = test[2]
+        sense_score = test[4]
+        intui_score = test[5]
+        think_score = test[7]
+        feel_score = test[8]
+        judge_score = test[10]
+        percei_score = test[11]
+        
+        resultScore = MbtiResult(
+        nickname=uname, password=password, email=email,
+        extraScore=extra_score, introScore=intro_score, 
+        senseScore=sense_score, intuiScore=intui_score, 
+        thinkScore=think_score, feelScore=feel_score, 
+        judgeScore=judge_score, perceiScore=percei_score)
+
+        resultScore.save()
+
         for i in range(len(test)):
             if((i % 3) == 0):
                 myType += test[i]
@@ -465,10 +552,14 @@ def question(request, num):
         print(Type_hex)
         print(result_image_set1[Type_hex])
         print(result_text_set[Type_hex])
+        print(result_text_set[Type_hex])
 
     # 위의 값들을 HTML로 넘겨주기
     return render(request, page_url, 
         { 
+            'uname' : uname,
+            'password' : password ,
+            'email' : email,
             'q1_1': q1_1,
             'q1_2': q1_2,
             'q2_1': q2_1,
@@ -491,7 +582,10 @@ def question(request, num):
             'index_return2' : total2[1],
             'test' : test,
             'result_image' : result_image_set1[Type_hex],
-            'result_text' : result_text_set[Type_hex]
+            'result_text' : result_text_set[Type_hex],
+            'result_text1' : result_text_set1[Type_hex],
+            'result_text2' : result_text_set2[Type_hex],
+            'result_text3' : result_text_set3[Type_hex]
         } 
     )
 
@@ -582,17 +676,108 @@ def sendMail(from_email, to_email, certifiNum):
     certifiNum['To'] = to_email
     smtp.sendmail(from_email, to_email, certifiNum.as_string())
     smtp.quit()
+
 #ajax 보낼수있게 
 
 # def Question(request):
 #     return render(request, 'mbti/q1.html')
 
-def info_inquiry(request):
+def info_inquiry(request):     
     return render(request, 'mbti/info_inquiry.html')
 
 #조회화면 후 조회결과 다음 화면 테스트함수
 def searchTest(request):
-    return render(request, 'mbti/searchTest.html')
+    
+
+    if request.method == 'POST':
+        uname = request.POST.get('uname')
+        password = request.POST.get('pwd')
+        email = request.POST.get('email')
+        db_Email = MbtiResult.objects.get(email=email)
+        extraScore = db_Email.extraScore
+        introScore = db_Email.introScore
+        senseScore = db_Email.senseScore
+        intuiScore = db_Email.intuiScore
+        thinkScore = db_Email.thinkScore
+        feelScore = db_Email.feelScore
+        judgeScore = db_Email.judgeScore
+        perceiScore = db_Email.perceiScore
+
+    search_result=0
+
+    if extraScore > 50:
+        if senseScore > 50:
+            if thinkScore > 50:
+                if judgeScore > 50:
+                    search_result = 8
+                else:
+                    search_result = 9
+            else:
+                if judgeScore > 50:
+                    search_result = 10
+                else:
+                    search_result = 11
+
+        else :
+            if thinkScore > 50:
+                if judgeScore > 50:
+                    search_result = 12
+                
+                else:
+                    search_result = 13
+
+            else:
+                if judgeScore > 50:
+                    search_result = 14
+                
+                else:  
+                    search_result = 15
+    else:
+        if senseScore > 50:
+            if thinkScore > 50:
+                if judgeScore > 50:
+                    search_result = 0
+                else:
+                    search_result = 1
+            else:
+                if judgeScore > 50:
+                    search_result = 2
+                else:
+                    search_result = 3
+        else :
+            if thinkScore > 50:
+                if judgeScore > 50:
+                    search_result = 4
+                    
+                else:
+                    search_result = 5
+                        
+            else:
+                if judgeScore > 50:
+
+                    search_result = 6  
+                    
+                else:
+                    search_result = 7
+
+    print(extraScore, perceiScore)
+    return render(request, 'mbti/searchTest.html',
+    {
+            'extraScore' : extraScore,
+            'introScore' : introScore,
+            'senseScore' : senseScore,
+            'intuiScore' : intuiScore,
+            'thinkScore' : thinkScore,
+            'feelScore' : feelScore,
+            'judgeScore' : judgeScore,
+            'perceiScore' : perceiScore,
+            'result_image' : result_image_set1[search_result],
+            'result_text' : result_text_set[search_result],
+            'result_text1' : result_text_set1[search_result],
+            'result_text2' : result_text_set2[search_result],
+            'result_text3' : result_text_set3[search_result]
+    }
+    )
 
 # DB보기 함수
 def showResult(request):
