@@ -60,13 +60,13 @@
 
 
     <div class="bg-img" >
-        <h1 style="position :absolute; left : 300px;top : 50px ; font-weight: bold; font-family: 'Arial' ; font-size :xxx-large" >나와 닮은 포켓몬은 ?</h1>
+        <h1 style="position :absolute; left : 325px;top : 50px ; font-weight: bold; font-family: 'Arial' ; font-size :xxx-large" >나와 닮은 포켓몬은 ?</h1>
 
         <img src = 'https:{{result_image}}' style = 'font-family: "Arial"; width: 400px; height:300px; opacity : 1 ; position :absolute; left : 350px; top : 120px;'>  <!--크롤링-->
         
-        <div style =' font-family:"Verdana"; opacity : 0.99; position :absolute; left : 350px; top : 440px; font-size: 30px;'>{{result_text}}</div>
+        <div style ='box-shadow : 1px 1px 3px black ;font-family:"Verdana"; opacity : 0.99; position :absolute; left : 345px; top : 440px; font-size: 22px; '>{{result_text}}</div>
 
-        <div class="container" style="border: 10px solid gold ; text-align: center; opacity : 0.9 ; position: absolute; left: 350px; top: 500px; width : 800px;">
+        <div class="container" style="border: 10px solid gold ; text-align: center; opacity : 0.9 ; position: absolute; left: 350px; top: 500px; width : 980px;">
             <h2>MBTI 결과 그래프</h2>
             
             <div class="progress progress1" id="progress1" style = 'margin-top : 15px ;height : 20px' >
@@ -107,17 +107,19 @@
         </div>
         
         <div class="container">
-            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo" style="opacity : 0.99; position :absolute ; top :60px ; left : 860px">결과 상세보기</button>
-            <div id="demo" class="collapse" style="opacity : 0.99; position :absolute ; top :120px ; left : 750px">
+            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo" style="opacity : 0.99; position :absolute ; top :60px ; left : 1000px">결과 상세보기</button>
+            <div id="demo" class="collapse" style="opacity : 0.99; position :absolute ; top :120px ; left : 830px; position : absolute">
+                <div style="overflow:scroll; width:500px; height:300px; padding:10px; background-color:rgb(245, 167, 130);">
                     <b>{{result_text1}}</b>
 
                     <p></p>
                     <b>{{result_text2}}</b>
 
                     <p></p>
-                    <b>{{result_text3}}</b>
+                    <b>{{result_text3}}</b> 
+                </div>
             </div>
-          </div>
+        </div>
     </div>
 
     
