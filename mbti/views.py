@@ -683,18 +683,18 @@ def makeNumber():
 def toEmail():
     sendEmail = inputClient.objects.get(email=email)
     
-    return 
+    return sendEmail
 
     #request 로 받아서 넣어주어야 한다.
 
 #메일발송 함수
-def sendMail(from_email, to_email, certifiNum):
+def sendMail(from_email, sendEmail, certifiNum):
     smtp = smtplib.SMTP_SSL('smtp.gmail.com', 587)
     smtp.login(from_email, 'zpsdvcrzkzmmkmqr') 
     certifiNum = MIMEText(certifiNum)
     certifiNum['Subject'] = '[인증번호]포켓몬으로 알아보는 성향검사결과 조회'
-    certifiNum['To'] = to_email
-    smtp.sendmail(from_email, to_email, certifiNum.as_string())
+    certifiNum['To'] = sendEmail
+    smtp.sendmail(from_email, sendEmail, certifiNum.as_string())
     smtp.quit()
 
 #ajax 보낼수있게 
