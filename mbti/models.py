@@ -26,8 +26,6 @@ class MbtiResult(models.Model):
         return '%s %d %d %d %d %d %d %d %d' % (self.email, self.extraScore, self.introScore , 
         self.senseScore, self.intuiScore, self.thinkScore, self.feelScore, self.judgeScore, self.perceiScore)
 
-class QuestionList(models.Model):
-    question = models.CharField(max_length=255)
 
 
 #db로 저장되는 함수를 구현해야함 
