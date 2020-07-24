@@ -1,11 +1,127 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 </head>
-<body>
-    조회 후 결과화면이 나오는 테스트페이지 입니다.
+<style>
+
+    html, body {
+    width: 100%;
+    height: 100%;
+    }
+    .bg-img {
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 background: url('http://unsplash.it/1200x800') center center no-repeat;
+	 background-size: cover;
+}
+ .bg-img:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right, #f3f5f7, #dc4225);
+    opacity: 0.6;
+}
+</style>
+<body style = 'position : absolute'>
+    
+    <form>
+    <input type="hidden" name="q1-1" value="{{q1_1}}">
+    <input type="hidden" name="q1-2" value="{{q1_2}}">
+    <input type="hidden" name="q2-1" value="{{q2_1}}">
+    <input type="hidden" name="q2-2" value="{{q2_2}}">  
+    <input type="hidden" name="q3-1" value="{{q3_1}}">
+    <input type="hidden" name="q3-2" value="{{q3_2}}">
+    <input type="hidden" name="q4-1" value="{{q4_1}}">
+    <input type="hidden" name="q4-2" value="{{q4_2}}">
+    <input type="hidden" name="q5-1" value="{{q5_1}}">
+    <input type="hidden" name="q5-2" value="{{q5_2}}">
+    <input type="hidden" name="q6-1" value="{{q6_1}}">
+    <input type="hidden" name="q6-2" value="{{q6_2}}">
+    <input type="hidden" name="q7-1" value="{{q7_1}}">
+    <input type="hidden" name="q7-2" value="{{q7_2}}">
+    <input type="hidden" name="q8-1" value="{{q8_1}}">
+    <input type="hidden" name="q8-2" value="{{q8_2}}">
+    <input type="hidden" name="uname" value="{{uname}}">
+    <input type="hidden" name="password" value="{{password}}">
+    <input type="hidden" name="email" value="{{email}}">
+    </form>
+
+
+    <div class="bg-img" >
+        <h1 style="position :absolute; left : 300px;top : 50px ; font-weight: bold; font-family: 'Arial' ; font-size :xxx-large" >나와 닮은 포켓몬은 ?</h1>
+
+        <img src = 'https:{{result_image}}' style = 'font-family: "Arial"; width: 400px; height:300px; opacity : 1 ; position :absolute; left : 350px; top : 120px;'>  <!--크롤링-->
+        
+        <div style =' font-family:"Verdana"; opacity : 0.99; position :absolute; left : 350px; top : 440px; font-size: 30px;'>{{result_text}}</div>
+
+        <div class="container" style="border: 10px solid gold ; text-align: center; opacity : 0.9 ; position: absolute; left: 350px; top: 500px; width : 800px;">
+            <h2>MBTI 결과 그래프</h2>
+            
+            <div class="progress progress1" id="progress1" style = 'margin-top : 15px ;height : 20px' >
+                <div class="progress-bar bg-E" style="width:{{introScore}}% ; background-color: #ff7301c0 ;">
+                    I(내향) : {{introScore}}
+                </div>
+                <div class="progress-bar bg-I" style="width:{{extraScore}}% ; background-color: #76a4fa ;">
+                    E(외향) : {{extraScore}}
+                </div>
+            </div>
+            
+            <div class="progress" style = 'margin-top : 15px ;height : 20px'>
+                <div class="progress-bar bg-S" style="width:{{intuiScore}}%  ; background-color: #39e922b9 ;" >
+                    N(직관) : {{intuiScore}}
+                </div>
+                <div class="progress-bar bg-N" style="width:{{senseScore}}% ; background-color: #76a4fa ;">
+                    S(감각) : {{senseScore}}
+                </div>
+            </div>
+            
+            <div class="progress" style = 'margin-top : 15px; height : 20px'>
+                <div class="progress-bar bg-T" style="width:{{thinkScore}}% ; background-color: #f200dbf8 ;" >
+                    T(사고) : {{thinkScore}}
+                </div>
+                <div class="progress-bar bg-F" style="width:{{feelScore}}% ; background-color: #76a4fa ; ">
+                    F(감정) : {{feelScore}}
+                </div>
+            </div>
+            
+            <div class="progress" style = 'margin-top : 15px ; margin-bottom: 15px; height : 20px' >
+                <div class="progress-bar bg-J" style="width:{{perceiScore}}% ;background-color: red ;">
+                    P(인식) : {{perceiScore}}
+                </div>
+                <div class="progress-bar bg-P" style="width:{{judgeScore}}% ; background-color: #76a4fa ; ">
+                    J(판단) : {{judgeScore}}
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo" style="opacity : 0.99; position :absolute ; top :60px ; left : 1000px">결과 상세보기</button>
+            <div id="demo" class="collapse" style="opacity : 0.99; position :absolute ; top :120px ; left : 830px; position : absolute">
+                <div style="overflow:scroll; width:500px; height:300px; padding:10px; background-color:rgb(245, 167, 130);">
+                    <b>{{result_text1}}</b>
+
+                    <p></p>
+                    <b>{{result_text2}}</b>
+
+                    <p></p>
+                    <b>{{result_text3}}</b> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
 </body>
 </html>
