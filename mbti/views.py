@@ -381,6 +381,18 @@ def get_html(url):
         html = res.text    
     return html
 
+
+def q1(request):
+    total1 = [] #질문페이지 1번문제의 크롤링 이미지를 넘기기 위한 리스트
+    total2 = [] #질문페이지 2번문제의 크롤링 이미지를 넘기기 위한 리스트
+    page = 1
+    for j in range(len(image_name_set)):
+        if(j < 4):
+            total1.append(image_name_set[page-1][j])
+        else:
+            total2.append(image_name_set[page-1][j])
+    return render(request, page_url, {'total1' : total1, 'total2' : total2})
+
 #Function : 질문 Page를 순서대로 처리해주는 함수
 #Input : num(page번호)
 #Return : q1~q8 : 질문을 선택한 값, total : 이미지url, index_return : 이미지별 index, test : 검사종류결과
@@ -388,6 +400,12 @@ def get_html(url):
 #Author : Jrespect.im
 #Modify : 현석이형 DB추가 + 결과 텍스트 추가 리턴(200723)
 #etc : -
+def save_session(request, uname, gender, pswd, mail):
+    request.session['uname'] = uname
+    request.session['pswd'] = pswd
+    request.session['mail'] = mail
+
+
 def question(request, num):
 
     if request.method == 'POST':
@@ -442,7 +460,30 @@ def question(request, num):
         #print(total1)
     
     else:
-        test += cal(q1_1,q1_2,q2_1,q2_2,q3_1,q3_2,q4_1,q4_2,q5_1,q5_2,q6_1, q6_2, q7_1, q7_2, q8_1, q8_2) 
+        test += cal(q1_1,q1_2,q2_1,q2_2,q3_1,q3_2,q4_1,q4_2,q5_1,q5_2,q6_1, q6_2, q7_1, q7_2, q8_1, q8_2)
+        extra_score = test[1]
+        intro_score = test[2]
+        sense_score = test[4]
+        intui_score = test[5]
+        think_score = test[7]
+        feel_score = test[8]
+        judge_score = test[10]
+        percei_score = test[11]
+
+        resultScore = MbtiResult(
+        extraScore=extra_score, introScore=intro_score, 
+        senseScore=sense_score, intuiScore=intui_score, 
+        thinkScore=think_score, feelScore=feel_score, 
+        judgeScore=judge_score, perceiScore=percei_score)
+        resultScore.save() 
+        
+        if request.method == 'POST':
+            uname = request.POST['uname']
+            pswd = request.POST['pswd']
+            mail = request.POST['mail']
+            resultClient = MbtiResult(nickname=uname, password=pswd, email=mail)
+            resultClient.save()
+        
         
         extra_score = test[1]
         intro_score = test[2]
@@ -637,14 +678,14 @@ def makeNumber():
     for n in range(_LENGTH):
         certifiNum += random.choice(stringPool)
     return certifiNum
-#수신자메일 선택함수
-# def toEmail():
-#     sendEmail = inputClient.objects.get(email=email)
-#     res = sendEmail.get()
+
+# 수신자메일 선택함수
+def toEmail():
+    sendEmail = inputClient.objects.get(email=email)
+    
+    return 
 
     #request 로 받아서 넣어주어야 한다.
-    
-        
 
 #메일발송 함수
 def sendMail(from_email, to_email, certifiNum):
