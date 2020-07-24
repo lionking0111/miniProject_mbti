@@ -670,6 +670,14 @@ def intro(request):
 def signin(request):
     return render(request, 'mbti/signin.html')
 
+def email(request):
+    to_email = request.GET.get('to_email')
+    send_email = toEmail(to_email)
+    msg = makeNumber()
+    if send_email:
+        sendMail('absoluhs92@gmail.com', send_email, msg)
+    return JsonResponse({'result': 'success'}, safe=False)
+
 #인증번호 생성함수임
 def makeNumber(): 
     _LENGTH = 6 #몇자리?
@@ -680,8 +688,11 @@ def makeNumber():
     return certifiNum
 
 # 수신자메일 선택함수
-def toEmail():
-    sendEmail = inputClient.objects.get(email=email)
+def toEmail(to_email):
+    try:
+        sendEmail = inputClient.objects.get(email=to_email)
+    except:
+        sendEmail = None
     
     return sendEmail
 
@@ -689,7 +700,7 @@ def toEmail():
 
 #메일발송 함수
 def sendMail(from_email, sendEmail, certifiNum):
-    smtp = smtplib.SMTP_SSL('smtp.gmail.com', 587)
+    smtp = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     smtp.login(from_email, 'zpsdvcrzkzmmkmqr') 
     certifiNum = MIMEText(certifiNum)
     certifiNum['Subject'] = '[인증번호]포켓몬으로 알아보는 성향검사결과 조회'

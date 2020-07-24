@@ -3,6 +3,7 @@ from . import views                 #url/뷰 맵핑
 
 urlpatterns = [   
     path('',views.intro),
+    # path('info_inquiry/',views.email),
     path('signin/',views.signin),
     path('signin/q<int:num>/', views.question),
     #path('signin/result/',views.question),
